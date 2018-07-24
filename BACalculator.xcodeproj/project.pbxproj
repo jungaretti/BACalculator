@@ -49,6 +49,7 @@
 		152AB6E32107DA96001918EF /* BACalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BACalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		152AB6E72107DA96001918EF /* BACalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BACalculatorUITests.swift; sourceTree = "<group>"; };
 		152AB6E92107DA96001918EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		152AB6F52107DAD8001918EF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 		152AB6B82107DA95001918EF = {
 			isa = PBXGroup;
 			children = (
+				152AB6F52107DAD8001918EF /* README.md */,
 				152AB6C32107DA95001918EF /* BACalculator */,
 				152AB6DB2107DA96001918EF /* BACalculatorTests */,
 				152AB6E62107DA96001918EF /* BACalculatorUITests */,
