@@ -26,6 +26,18 @@ public struct DrinkerInformation {
         return waterVolume
     }
     
+    /// Create a `DrinkerInformation` with a specific weight, sex, and alcohol metabolism.
+    ///
+    /// - Parameters:
+    ///   - weight: The weight of the drinker.
+    ///   - sex: The sex of the drinker.
+    ///   - alcoholMetabolism: The alcohol metabolism of the drinker.
+    public init(weight: Measurement<UnitMass>, sex: DrinkerSex, alcoholMetabolism: DrinkerAlcoholMetabolism) {
+        self.weight = weight
+        self.sex = sex
+        self.alcoholMetabolism = alcoholMetabolism
+    }
+    
 }
 
 /// Constants describing the biological sex of a drinker.
