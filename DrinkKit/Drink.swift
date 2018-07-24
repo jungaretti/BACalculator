@@ -9,7 +9,7 @@
 import Foundation
 
 /// An alcoholic drink.
-public struct Drink: Comparable {
+public struct Drink {
     
     /// The type of alcoholic beverage.
     public var type: DrinkType
@@ -30,6 +30,10 @@ public struct Drink: Comparable {
         self.size = size
     }
     
+}
+
+extension Drink: Comparable {
+    
     public static func < (lhs: Drink, rhs: Drink) -> Bool {
         return lhs.size.alcoholMass < rhs.size.alcoholMass
     }
@@ -40,12 +44,18 @@ public struct Drink: Comparable {
     
 }
 
-/// Constants describing different types of alcoholic beverages.
-public enum DrinkType {
+public extension Array where Element == Drink {
     
-    case beer
-    case wine
-    case liquor
-    case mixed
+    /// Sort an `Array` of `Drink`s by consumption date.
+    public mutating func sortByDate() {
+        self.sort(by: {$0.consumptionDate < $1.consumptionDate})
+    }
+    
+    /// Sort an `Array` of `Drink`s by consumption date.
+    ///
+    /// - Returns: A sorted array of `Drink`s.
+    public func sortedByDate() -> [Drink] {
+        return self.sorted(by: {$0.consumptionDate < $1.consumptionDate})
+    }
     
 }
