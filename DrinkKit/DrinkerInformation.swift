@@ -66,7 +66,7 @@ public enum DrinkerAlcoholMetabolism {
     case aboveAverage
     
     /// The measure of how much alcohol is metabolized from a drinker's blood each hour.
-    var hourlyAlcoholMetabolism: Double {
+    var hourlyAlcoholMetabolism: BloodAlcoholContent {
         switch self {
         case .belowAverage:
             return 0.012

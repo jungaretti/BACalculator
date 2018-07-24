@@ -22,6 +22,7 @@
 		152AB71A2107DC92001918EF /* DrinkerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB7192107DC92001918EF /* DrinkerInformation.swift */; };
 		152AB71C2107E03F001918EF /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB71B2107E03F001918EF /* Drink.swift */; };
 		152AB71E2107E091001918EF /* DrinkSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB71D2107E091001918EF /* DrinkSize.swift */; };
+		15D551DE2107E833000F0889 /* DrinkKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551DD2107E833000F0889 /* DrinkKit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		152AB7192107DC92001918EF /* DrinkerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerInformation.swift; sourceTree = "<group>"; };
 		152AB71B2107E03F001918EF /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		152AB71D2107E091001918EF /* DrinkSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkSize.swift; sourceTree = "<group>"; };
+		15D551DD2107E833000F0889 /* DrinkKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkKit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				152AB6FD2107DBDD001918EF /* DrinkKit.h */,
+				15D551DD2107E833000F0889 /* DrinkKit.swift */,
 				152AB71B2107E03F001918EF /* Drink.swift */,
 				152AB71D2107E091001918EF /* DrinkSize.swift */,
 				152AB7192107DC92001918EF /* DrinkerInformation.swift */,
@@ -452,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				152AB71E2107E091001918EF /* DrinkSize.swift in Sources */,
+				15D551DE2107E833000F0889 /* DrinkKit.swift in Sources */,
 				152AB71C2107E03F001918EF /* Drink.swift in Sources */,
 				152AB71A2107DC92001918EF /* DrinkerInformation.swift in Sources */,
 			);
