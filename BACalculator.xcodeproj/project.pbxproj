@@ -19,6 +19,7 @@
 		152AB70D2107DBDD001918EF /* DrinkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 152AB6FD2107DBDD001918EF /* DrinkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		152AB7102107DBDD001918EF /* DrinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152AB6FB2107DBDD001918EF /* DrinkKit.framework */; };
 		152AB7112107DBDD001918EF /* DrinkKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 152AB6FB2107DBDD001918EF /* DrinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		152AB71A2107DC92001918EF /* DrinkerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB7192107DC92001918EF /* DrinkerInformation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		152AB6FE2107DBDD001918EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		152AB7032107DBDD001918EF /* DrinkKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrinkKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		152AB70C2107DBDD001918EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		152AB7192107DC92001918EF /* DrinkerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerInformation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				152AB6FD2107DBDD001918EF /* DrinkKit.h */,
+				152AB7192107DC92001918EF /* DrinkerInformation.swift */,
 				152AB6FE2107DBDD001918EF /* Info.plist */,
 			);
 			path = DrinkKit;
@@ -340,6 +343,7 @@
 					};
 					152AB6FA2107DBDD001918EF = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					152AB7022107DBDD001918EF = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -441,6 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				152AB71A2107DC92001918EF /* DrinkerInformation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +623,7 @@
 		152AB6ED2107DA96001918EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XDGS844A6P;
@@ -636,6 +642,7 @@
 		152AB6EE2107DA96001918EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XDGS844A6P;
@@ -736,6 +743,7 @@
 		152AB7132107DBDD001918EF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -754,6 +762,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jungaretti.DrinkKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -764,6 +773,7 @@
 		152AB7142107DBDD001918EF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
