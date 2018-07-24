@@ -15,6 +15,10 @@
 		152AB6D22107DA96001918EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152AB6D02107DA96001918EF /* LaunchScreen.storyboard */; };
 		152AB6DD2107DA96001918EF /* BACalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB6DC2107DA96001918EF /* BACalculatorTests.swift */; };
 		152AB6E82107DA96001918EF /* BACalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB6E72107DA96001918EF /* BACalculatorUITests.swift */; };
+		152AB7042107DBDD001918EF /* DrinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152AB6FB2107DBDD001918EF /* DrinkKit.framework */; };
+		152AB70D2107DBDD001918EF /* DrinkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 152AB6FD2107DBDD001918EF /* DrinkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		152AB7102107DBDD001918EF /* DrinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152AB6FB2107DBDD001918EF /* DrinkKit.framework */; };
+		152AB7112107DBDD001918EF /* DrinkKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 152AB6FB2107DBDD001918EF /* DrinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +36,42 @@
 			remoteGlobalIDString = 152AB6C02107DA95001918EF;
 			remoteInfo = BACalculator;
 		};
+		152AB7052107DBDD001918EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 152AB6B92107DA95001918EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 152AB6FA2107DBDD001918EF;
+			remoteInfo = DrinkKit;
+		};
+		152AB7072107DBDD001918EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 152AB6B92107DA95001918EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 152AB6C02107DA95001918EF;
+			remoteInfo = BACalculator;
+		};
+		152AB70E2107DBDD001918EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 152AB6B92107DA95001918EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 152AB6FA2107DBDD001918EF;
+			remoteInfo = DrinkKit;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		152AB7152107DBDD001918EF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				152AB7112107DBDD001918EF /* DrinkKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		152AB6C12107DA95001918EF /* BACalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BACalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +89,11 @@
 		152AB6E72107DA96001918EF /* BACalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BACalculatorUITests.swift; sourceTree = "<group>"; };
 		152AB6E92107DA96001918EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		152AB6F52107DAD8001918EF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		152AB6FB2107DBDD001918EF /* DrinkKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DrinkKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		152AB6FD2107DBDD001918EF /* DrinkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrinkKit.h; sourceTree = "<group>"; };
+		152AB6FE2107DBDD001918EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		152AB7032107DBDD001918EF /* DrinkKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrinkKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		152AB70C2107DBDD001918EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				152AB7102107DBDD001918EF /* DrinkKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +119,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		152AB6F72107DBDD001918EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		152AB7002107DBDD001918EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				152AB7042107DBDD001918EF /* DrinkKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -84,6 +144,8 @@
 				152AB6C32107DA95001918EF /* BACalculator */,
 				152AB6DB2107DA96001918EF /* BACalculatorTests */,
 				152AB6E62107DA96001918EF /* BACalculatorUITests */,
+				152AB6FC2107DBDD001918EF /* DrinkKit */,
+				152AB7092107DBDD001918EF /* DrinkKitTests */,
 				152AB6C22107DA95001918EF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +156,8 @@
 				152AB6C12107DA95001918EF /* BACalculator.app */,
 				152AB6D82107DA96001918EF /* BACalculatorTests.xctest */,
 				152AB6E32107DA96001918EF /* BACalculatorUITests.xctest */,
+				152AB6FB2107DBDD001918EF /* DrinkKit.framework */,
+				152AB7032107DBDD001918EF /* DrinkKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,7 +194,35 @@
 			path = BACalculatorUITests;
 			sourceTree = "<group>";
 		};
+		152AB6FC2107DBDD001918EF /* DrinkKit */ = {
+			isa = PBXGroup;
+			children = (
+				152AB6FD2107DBDD001918EF /* DrinkKit.h */,
+				152AB6FE2107DBDD001918EF /* Info.plist */,
+			);
+			path = DrinkKit;
+			sourceTree = "<group>";
+		};
+		152AB7092107DBDD001918EF /* DrinkKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				152AB70C2107DBDD001918EF /* Info.plist */,
+			);
+			path = DrinkKitTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		152AB6F82107DBDD001918EF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				152AB70D2107DBDD001918EF /* DrinkKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		152AB6C02107DA95001918EF /* BACalculator */ = {
@@ -140,10 +232,12 @@
 				152AB6BD2107DA95001918EF /* Sources */,
 				152AB6BE2107DA95001918EF /* Frameworks */,
 				152AB6BF2107DA95001918EF /* Resources */,
+				152AB7152107DBDD001918EF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				152AB70F2107DBDD001918EF /* PBXTargetDependency */,
 			);
 			name = BACalculator;
 			productName = BACalculator;
@@ -186,6 +280,43 @@
 			productReference = 152AB6E32107DA96001918EF /* BACalculatorUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		152AB6FA2107DBDD001918EF /* DrinkKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 152AB7122107DBDD001918EF /* Build configuration list for PBXNativeTarget "DrinkKit" */;
+			buildPhases = (
+				152AB6F62107DBDD001918EF /* Sources */,
+				152AB6F72107DBDD001918EF /* Frameworks */,
+				152AB6F82107DBDD001918EF /* Headers */,
+				152AB6F92107DBDD001918EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DrinkKit;
+			productName = DrinkKit;
+			productReference = 152AB6FB2107DBDD001918EF /* DrinkKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		152AB7022107DBDD001918EF /* DrinkKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 152AB7162107DBDD001918EF /* Build configuration list for PBXNativeTarget "DrinkKitTests" */;
+			buildPhases = (
+				152AB6FF2107DBDD001918EF /* Sources */,
+				152AB7002107DBDD001918EF /* Frameworks */,
+				152AB7012107DBDD001918EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				152AB7062107DBDD001918EF /* PBXTargetDependency */,
+				152AB7082107DBDD001918EF /* PBXTargetDependency */,
+			);
+			name = DrinkKitTests;
+			productName = DrinkKitTests;
+			productReference = 152AB7032107DBDD001918EF /* DrinkKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -207,6 +338,13 @@
 						CreatedOnToolsVersion = 9.4.1;
 						TestTargetID = 152AB6C02107DA95001918EF;
 					};
+					152AB6FA2107DBDD001918EF = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					152AB7022107DBDD001918EF = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 152AB6C02107DA95001918EF;
+					};
 				};
 			};
 			buildConfigurationList = 152AB6BC2107DA95001918EF /* Build configuration list for PBXProject "BACalculator" */;
@@ -225,6 +363,8 @@
 				152AB6C02107DA95001918EF /* BACalculator */,
 				152AB6D72107DA96001918EF /* BACalculatorTests */,
 				152AB6E22107DA96001918EF /* BACalculatorUITests */,
+				152AB6FA2107DBDD001918EF /* DrinkKit */,
+				152AB7022107DBDD001918EF /* DrinkKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -248,6 +388,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		152AB6E12107DA96001918EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		152AB6F92107DBDD001918EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		152AB7012107DBDD001918EF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -283,6 +437,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		152AB6F62107DBDD001918EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		152AB6FF2107DBDD001918EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -295,6 +463,21 @@
 			isa = PBXTargetDependency;
 			target = 152AB6C02107DA95001918EF /* BACalculator */;
 			targetProxy = 152AB6E42107DA96001918EF /* PBXContainerItemProxy */;
+		};
+		152AB7062107DBDD001918EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 152AB6FA2107DBDD001918EF /* DrinkKit */;
+			targetProxy = 152AB7052107DBDD001918EF /* PBXContainerItemProxy */;
+		};
+		152AB7082107DBDD001918EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 152AB6C02107DA95001918EF /* BACalculator */;
+			targetProxy = 152AB7072107DBDD001918EF /* PBXContainerItemProxy */;
+		};
+		152AB70F2107DBDD001918EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 152AB6FA2107DBDD001918EF /* DrinkKit */;
+			targetProxy = 152AB70E2107DBDD001918EF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -550,6 +733,102 @@
 			};
 			name = Release;
 		};
+		152AB7132107DBDD001918EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = XDGS844A6P;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DrinkKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jungaretti.DrinkKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		152AB7142107DBDD001918EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = XDGS844A6P;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DrinkKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jungaretti.DrinkKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		152AB7172107DBDD001918EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XDGS844A6P;
+				INFOPLIST_FILE = DrinkKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jungaretti.DrinkKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BACalculator.app/BACalculator";
+			};
+			name = Debug;
+		};
+		152AB7182107DBDD001918EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XDGS844A6P;
+				INFOPLIST_FILE = DrinkKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jungaretti.DrinkKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BACalculator.app/BACalculator";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -585,6 +864,24 @@
 			buildConfigurations = (
 				152AB6F32107DA96001918EF /* Debug */,
 				152AB6F42107DA96001918EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		152AB7122107DBDD001918EF /* Build configuration list for PBXNativeTarget "DrinkKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				152AB7132107DBDD001918EF /* Debug */,
+				152AB7142107DBDD001918EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		152AB7162107DBDD001918EF /* Build configuration list for PBXNativeTarget "DrinkKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				152AB7172107DBDD001918EF /* Debug */,
+				152AB7182107DBDD001918EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
