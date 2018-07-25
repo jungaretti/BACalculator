@@ -29,6 +29,11 @@
 		15D551E82107EDF3000F0889 /* DrinkerAlcoholMetabolism.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551E72107EDF3000F0889 /* DrinkerAlcoholMetabolism.swift */; };
 		15D551EA2107EE47000F0889 /* BloodAlcoholContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551E92107EE47000F0889 /* BloodAlcoholContent.swift */; };
 		15D551EC2107FFC6000F0889 /* AlcoholCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551EB2107FFC6000F0889 /* AlcoholCalculator.swift */; };
+		15D551EE21080935000F0889 /* DrinkerInformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551ED21080935000F0889 /* DrinkerInformationTests.swift */; };
+		15D551F021080C5A000F0889 /* DrinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551EF21080C5A000F0889 /* DrinkTests.swift */; };
+		15D551F221081100000F0889 /* StandardDrinkSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551F121081100000F0889 /* StandardDrinkSizeTests.swift */; };
+		15D551F4210811DB000F0889 /* CustomDrinkSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551F3210811DB000F0889 /* CustomDrinkSizeTests.swift */; };
+		15D551F6210816B4000F0889 /* AlcoholCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551F5210816B4000F0889 /* AlcoholCalculatorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +119,11 @@
 		15D551E72107EDF3000F0889 /* DrinkerAlcoholMetabolism.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerAlcoholMetabolism.swift; sourceTree = "<group>"; };
 		15D551E92107EE47000F0889 /* BloodAlcoholContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodAlcoholContent.swift; sourceTree = "<group>"; };
 		15D551EB2107FFC6000F0889 /* AlcoholCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholCalculator.swift; sourceTree = "<group>"; };
+		15D551ED21080935000F0889 /* DrinkerInformationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerInformationTests.swift; sourceTree = "<group>"; };
+		15D551EF21080C5A000F0889 /* DrinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTests.swift; sourceTree = "<group>"; };
+		15D551F121081100000F0889 /* StandardDrinkSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDrinkSizeTests.swift; sourceTree = "<group>"; };
+		15D551F3210811DB000F0889 /* CustomDrinkSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDrinkSizeTests.swift; sourceTree = "<group>"; };
+		15D551F5210816B4000F0889 /* AlcoholCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholCalculatorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +246,11 @@
 		152AB7092107DBDD001918EF /* DrinkKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				15D551F5210816B4000F0889 /* AlcoholCalculatorTests.swift */,
+				15D551EF21080C5A000F0889 /* DrinkTests.swift */,
+				15D551F121081100000F0889 /* StandardDrinkSizeTests.swift */,
+				15D551F3210811DB000F0889 /* CustomDrinkSizeTests.swift */,
+				15D551ED21080935000F0889 /* DrinkerInformationTests.swift */,
 				152AB70C2107DBDD001918EF /* Info.plist */,
 			);
 			path = DrinkKitTests;
@@ -374,6 +389,7 @@
 					};
 					152AB7022107DBDD001918EF = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 						TestTargetID = 152AB6C02107DA95001918EF;
 					};
 				};
@@ -489,6 +505,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15D551F021080C5A000F0889 /* DrinkTests.swift in Sources */,
+				15D551F221081100000F0889 /* StandardDrinkSizeTests.swift in Sources */,
+				15D551F4210811DB000F0889 /* CustomDrinkSizeTests.swift in Sources */,
+				15D551EE21080935000F0889 /* DrinkerInformationTests.swift in Sources */,
+				15D551F6210816B4000F0889 /* AlcoholCalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -841,6 +862,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XDGS844A6P;
 				INFOPLIST_FILE = DrinkKitTests/Info.plist;
@@ -851,6 +873,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jungaretti.DrinkKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BACalculator.app/BACalculator";
@@ -861,6 +884,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XDGS844A6P;
 				INFOPLIST_FILE = DrinkKitTests/Info.plist;
