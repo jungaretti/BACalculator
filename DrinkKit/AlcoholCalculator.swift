@@ -40,7 +40,7 @@ public struct AlcoholCalculator {
     ///
     /// - Parameter drink: The `Drink` to determine the impact of.
     /// - Returns: The impact of the `Drink` on BAC.
-    func impact(of drink: Drink) -> BloodAlcoholContent {
+    public func impact(of drink: Drink) -> BloodAlcoholContent {
         let alcoholConsumedGrams = drink.size.alcoholMass.converted(to: UnitMass.grams).value
         // Determine the amount of alcohol absorbed into water, alcohol(g)/water(mL)
         let alcoholGramsOverWaterML = alcoholConsumedGrams / self.drinkerInformation.waterVolume.converted(to: UnitVolume.milliliters).value
@@ -55,7 +55,7 @@ public struct AlcoholCalculator {
     ///
     /// - Parameter timeInterval: The `TimeInterval` to metabolize alcohol over.
     /// - Returns: The amount of alcohol metabolized over the `TimeInterval`.
-    func alcoholMetabolized(over timeInterval: TimeInterval) -> BloodAlcoholContent {
+    public func alcoholMetabolized(over timeInterval: TimeInterval) -> BloodAlcoholContent {
         let alcoholMetabolism: DrinkerAlcoholMetabolism
         if let safeMode = self.safeMode, safeMode == true {
             alcoholMetabolism = DrinkerAlcoholMetabolism.belowAverage
@@ -74,7 +74,7 @@ public struct AlcoholCalculator {
     ///   - date: The `Date` to calculate BAC at.
     ///   - drinks: The `Drink`s to use for calculating BAC.
     /// - Returns: The drinker's BAC at the specified `Date`.
-    func bloodAlcoholContent(atDate date: Date, afterDrinks drinks: [Drink]) -> BloodAlcoholContent {
+    public func bloodAlcoholContent(atDate date: Date, afterDrinks drinks: [Drink]) -> BloodAlcoholContent {
         let sortedDrinks = drinks.sortedByDate()
         // Check that there have been drinks logged
         guard sortedDrinks.count > 0 else {
