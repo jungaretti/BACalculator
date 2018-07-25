@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		152AB6C52107DA95001918EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB6C42107DA95001918EF /* AppDelegate.swift */; };
-		152AB6C72107DA95001918EF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB6C62107DA95001918EF /* ViewController.swift */; };
 		152AB6CA2107DA95001918EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152AB6C82107DA95001918EF /* Main.storyboard */; };
 		152AB6CD2107DA95001918EF /* BACalculator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 152AB6CB2107DA95001918EF /* BACalculator.xcdatamodeld */; };
 		152AB6CF2107DA96001918EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 152AB6CE2107DA96001918EF /* Assets.xcassets */; };
@@ -91,7 +90,6 @@
 /* Begin PBXFileReference section */
 		152AB6C12107DA95001918EF /* BACalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BACalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		152AB6C42107DA95001918EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		152AB6C62107DA95001918EF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		152AB6C92107DA95001918EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		152AB6CC2107DA95001918EF /* BACalculator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BACalculator.xcdatamodel; sourceTree = "<group>"; };
 		152AB6CE2107DA96001918EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -196,12 +194,11 @@
 			isa = PBXGroup;
 			children = (
 				152AB6C42107DA95001918EF /* AppDelegate.swift */,
-				152AB6C62107DA95001918EF /* ViewController.swift */,
 				152AB6C82107DA95001918EF /* Main.storyboard */,
-				152AB6CE2107DA96001918EF /* Assets.xcassets */,
 				152AB6D02107DA96001918EF /* LaunchScreen.storyboard */,
-				152AB6D32107DA96001918EF /* Info.plist */,
 				152AB6CB2107DA95001918EF /* BACalculator.xcdatamodeld */,
+				152AB6CE2107DA96001918EF /* Assets.xcassets */,
+				152AB6D32107DA96001918EF /* Info.plist */,
 			);
 			path = BACalculator;
 			sourceTree = "<group>";
@@ -462,7 +459,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				152AB6C72107DA95001918EF /* ViewController.swift in Sources */,
 				152AB6C52107DA95001918EF /* AppDelegate.swift in Sources */,
 				152AB6CD2107DA95001918EF /* BACalculator.xcdatamodeld in Sources */,
 			);
