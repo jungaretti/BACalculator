@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "HomeViewController.updateBloodAlcoholContentLabel(forBAC:):HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "bloodAlcoholContent">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

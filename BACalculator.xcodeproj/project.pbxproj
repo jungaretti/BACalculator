@@ -36,6 +36,7 @@
 		15D551F921082574000F0889 /* DrinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551F821082574000F0889 /* DrinkManager.swift */; };
 		15D551FB21082A03000F0889 /* DrinkerInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551FA21082A03000F0889 /* DrinkerInformationManager.swift */; };
 		15D551FD21082B0C000F0889 /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551FC21082B0C000F0889 /* PreferencesManager.swift */; };
+		15D5520121082BD9000F0889 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D5520021082BD9000F0889 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		15D551F821082574000F0889 /* DrinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkManager.swift; sourceTree = "<group>"; };
 		15D551FA21082A03000F0889 /* DrinkerInformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerInformationManager.swift; sourceTree = "<group>"; };
 		15D551FC21082B0C000F0889 /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
+		15D5520021082BD9000F0889 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,8 @@
 				152AB6C42107DA95001918EF /* AppDelegate.swift */,
 				152AB6C82107DA95001918EF /* Main.storyboard */,
 				152AB6D02107DA96001918EF /* LaunchScreen.storyboard */,
+				15D551FE21082BA6000F0889 /* Controllers */,
+				15D551FF21082BAD000F0889 /* Views */,
 				15D551F721082506000F0889 /* Services */,
 				152AB6CB2107DA95001918EF /* BACalculator.xcdatamodeld */,
 				152AB6CE2107DA96001918EF /* Assets.xcassets */,
@@ -268,6 +272,21 @@
 				15D551FC21082B0C000F0889 /* PreferencesManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		15D551FE21082BA6000F0889 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				15D5520021082BD9000F0889 /* HomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		15D551FF21082BAD000F0889 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +500,7 @@
 				152AB6CD2107DA95001918EF /* BACalculator.xcdatamodeld in Sources */,
 				15D551FB21082A03000F0889 /* DrinkerInformationManager.swift in Sources */,
 				15D551F921082574000F0889 /* DrinkManager.swift in Sources */,
+				15D5520121082BD9000F0889 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
