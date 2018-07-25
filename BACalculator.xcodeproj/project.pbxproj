@@ -33,6 +33,9 @@
 		15D551F221081100000F0889 /* StandardDrinkSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551F121081100000F0889 /* StandardDrinkSizeTests.swift */; };
 		15D551F4210811DB000F0889 /* CustomDrinkSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551F3210811DB000F0889 /* CustomDrinkSizeTests.swift */; };
 		15D551F6210816B4000F0889 /* AlcoholCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551F5210816B4000F0889 /* AlcoholCalculatorTests.swift */; };
+		15D551F921082574000F0889 /* DrinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551F821082574000F0889 /* DrinkManager.swift */; };
+		15D551FB21082A03000F0889 /* DrinkerInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551FA21082A03000F0889 /* DrinkerInformationManager.swift */; };
+		15D551FD21082B0C000F0889 /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551FC21082B0C000F0889 /* PreferencesManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +125,9 @@
 		15D551F121081100000F0889 /* StandardDrinkSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDrinkSizeTests.swift; sourceTree = "<group>"; };
 		15D551F3210811DB000F0889 /* CustomDrinkSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDrinkSizeTests.swift; sourceTree = "<group>"; };
 		15D551F5210816B4000F0889 /* AlcoholCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholCalculatorTests.swift; sourceTree = "<group>"; };
+		15D551F821082574000F0889 /* DrinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkManager.swift; sourceTree = "<group>"; };
+		15D551FA21082A03000F0889 /* DrinkerInformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerInformationManager.swift; sourceTree = "<group>"; };
+		15D551FC21082B0C000F0889 /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +202,7 @@
 				152AB6C42107DA95001918EF /* AppDelegate.swift */,
 				152AB6C82107DA95001918EF /* Main.storyboard */,
 				152AB6D02107DA96001918EF /* LaunchScreen.storyboard */,
+				15D551F721082506000F0889 /* Services */,
 				152AB6CB2107DA95001918EF /* BACalculator.xcdatamodeld */,
 				152AB6CE2107DA96001918EF /* Assets.xcassets */,
 				152AB6D32107DA96001918EF /* Info.plist */,
@@ -251,6 +258,16 @@
 				152AB70C2107DBDD001918EF /* Info.plist */,
 			);
 			path = DrinkKitTests;
+			sourceTree = "<group>";
+		};
+		15D551F721082506000F0889 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				15D551F821082574000F0889 /* DrinkManager.swift */,
+				15D551FA21082A03000F0889 /* DrinkerInformationManager.swift */,
+				15D551FC21082B0C000F0889 /* PreferencesManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -459,8 +476,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15D551FD21082B0C000F0889 /* PreferencesManager.swift in Sources */,
 				152AB6C52107DA95001918EF /* AppDelegate.swift in Sources */,
 				152AB6CD2107DA95001918EF /* BACalculator.xcdatamodeld in Sources */,
+				15D551FB21082A03000F0889 /* DrinkerInformationManager.swift in Sources */,
+				15D551F921082574000F0889 /* DrinkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
