@@ -25,7 +25,7 @@ public struct CustomDrinkSize: DrinkSize {
     }
     public var isEmpty: Bool {
         if volume.value == 0.0 || alcoholRatio == 0.0 { return true }
-        else { return false }
+        return false
     }
     
     /// Create a `CustomDrinkSize` with a specific volume and alcohol ratio.

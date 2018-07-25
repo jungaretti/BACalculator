@@ -21,7 +21,7 @@ public struct StandardDrinkSize: DrinkSize {
     }
     public var isEmpty: Bool {
         if standardDrinks == 0.0 { return true }
-        else { return false }
+        return false
     }
     
     /// Create a `StandardDrinkSize` using a specific number of standard drinks.
