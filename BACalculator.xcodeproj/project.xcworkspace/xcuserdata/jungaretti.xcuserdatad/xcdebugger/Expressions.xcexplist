@@ -10,5 +10,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "ThemedNavigationViewController.viewDidLoad():ThemedNavigationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "topViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

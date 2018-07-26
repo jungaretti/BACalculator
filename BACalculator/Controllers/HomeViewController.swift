@@ -59,14 +59,13 @@ class HomeViewController: UIViewController {
     ///
     /// - Parameter animated: If `true`, updates to on-screen measurements will be animated.
     func updateMeasurement(animated: Bool) {
-        let bloodAlcoholContent = calculateBAC()
+        let bloodAlcoholContent = calculateBAC(atDate: Date().addingTimeInterval(timeIntervalOffset))
         updateBloodAlcoholContentLabel(withBAC: bloodAlcoholContent, animated: animated)
         updateBackgroundColor(forBAC: bloodAlcoholContent, animated: animated)
     }
     
-    private func calculateBAC() -> BloodAlcoholContent {
+    private func calculateBAC(atDate measureDate: Date) -> BloodAlcoholContent {
         let alcoholCalculator = AlcoholCalculator(drinkerInformation: DrinkerInformationManager.drinkerInformation)
-        let measureDate = Date().addingTimeInterval(timeIntervalOffset)
         let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: measureDate, afterDrinks: DrinkManager.drinks)
         os_log("Calculated BAC to be %f at %@.", bloodAlcoholContent, measureDate.description)
         return bloodAlcoholContent
@@ -111,6 +110,12 @@ class HomeViewController: UIViewController {
     @IBAction func timeControlPressed(_ sender: TimeControlButton) {
         hoursOffset += sender.hourStep
         updateTime()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ThemedNavigationViewController {
+            destination.bloodAlcoholContent = calculateBAC(atDate: Date().addingTimeInterval(timeIntervalOffset))
+        }
     }
     
 }
