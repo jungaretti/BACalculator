@@ -88,12 +88,8 @@ class HomeViewController: UIViewController {
         }
     }
     
-    @IBAction func rewindPressed(_ sender: UIButton) {
-        offsetHours(by: -1)
-    }
-    
-    @IBAction func advancePressed(_ sender: UIButton) {
-        offsetHours(by: 1)
+    @IBAction func timeControlPressed(_ sender: TimeControlButton) {
+        offsetHours(by: sender.hourStep)
     }
     
 }

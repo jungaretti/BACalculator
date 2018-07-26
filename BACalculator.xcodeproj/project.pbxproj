@@ -21,6 +21,7 @@
 		152AB71A2107DC92001918EF /* DrinkerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB7192107DC92001918EF /* DrinkerInformation.swift */; };
 		152AB71C2107E03F001918EF /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB71B2107E03F001918EF /* Drink.swift */; };
 		152AB71E2107E091001918EF /* DrinkSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB71D2107E091001918EF /* DrinkSize.swift */; };
+		1591E81A21095B5600F56581 /* TimeControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1591E81921095B5600F56581 /* TimeControlButton.swift */; };
 		15D551E02107EDAB000F0889 /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551DF2107EDAB000F0889 /* DrinkType.swift */; };
 		15D551E22107EDC5000F0889 /* StandardDrinkSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551E12107EDC5000F0889 /* StandardDrinkSize.swift */; };
 		15D551E42107EDCD000F0889 /* CustomDrinkSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551E32107EDCD000F0889 /* CustomDrinkSize.swift */; };
@@ -114,6 +115,7 @@
 		152AB7192107DC92001918EF /* DrinkerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerInformation.swift; sourceTree = "<group>"; };
 		152AB71B2107E03F001918EF /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		152AB71D2107E091001918EF /* DrinkSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkSize.swift; sourceTree = "<group>"; };
+		1591E81921095B5600F56581 /* TimeControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeControlButton.swift; sourceTree = "<group>"; };
 		15D551DF2107EDAB000F0889 /* DrinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkType.swift; sourceTree = "<group>"; };
 		15D551E12107EDC5000F0889 /* StandardDrinkSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDrinkSize.swift; sourceTree = "<group>"; };
 		15D551E32107EDCD000F0889 /* CustomDrinkSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDrinkSize.swift; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 		15D551FF21082BAD000F0889 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1591E81921095B5600F56581 /* TimeControlButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				15D551FB21082A03000F0889 /* DrinkerInformationManager.swift in Sources */,
 				15D551F921082574000F0889 /* DrinkManager.swift in Sources */,
 				15D5520121082BD9000F0889 /* HomeViewController.swift in Sources */,
+				1591E81A21095B5600F56581 /* TimeControlButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
