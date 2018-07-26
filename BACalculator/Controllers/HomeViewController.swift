@@ -47,7 +47,8 @@ class HomeViewController: UIViewController {
         let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: measureDate, afterDrinks: DrinkManager.drinks)
         os_log("Calculated BAC to be %f at %@.", bloodAlcoholContent, measureDate.description)
         updateBloodAlcoholContentLabel(forBAC: bloodAlcoholContent)
-        updateBackgroundColor(forBAC: bloodAlcoholContent)
+        view.backgroundColor = determineBackgroundColor(forBAC: bloodAlcoholContent)
+        navigationController?.navigationBar.barTintColor = determineNavigationBarColor(forBAC: bloodAlcoholContent)
     }
     
     func offsetHours(by hours: Int) {
@@ -78,13 +79,23 @@ class HomeViewController: UIViewController {
         bloodAlcoholContentLabel.text = numberFormatter.string(from: NSNumber(value: bloodAlcoholContent))
     }
     
-    private func updateBackgroundColor(forBAC bloodAlcoholContent: BloodAlcoholContent) {
+    private func determineBackgroundColor(forBAC bloodAlcoholContent: BloodAlcoholContent) -> UIColor? {
         if bloodAlcoholContent <= 0.02 {
-            view.backgroundColor = UIColor(named: "Green")
+            return UIColor(named: "Green")
         } else if bloodAlcoholContent <= 0.06 {
-            view.backgroundColor = UIColor(named: "Orange")
+            return UIColor(named: "Orange")
         } else {
-            view.backgroundColor = UIColor(named: "Red")
+            return UIColor(named: "Red")
+        }
+    }
+    
+    private func determineNavigationBarColor(forBAC bloodAlcoholContent: BloodAlcoholContent) -> UIColor? {
+        if bloodAlcoholContent <= 0.02 {
+            return UIColor(named: "Green-Dark")
+        } else if bloodAlcoholContent <= 0.06 {
+            return UIColor(named: "Orange-Dark")
+        } else {
+            return UIColor(named: "Red-Dark")
         }
     }
     
