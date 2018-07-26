@@ -51,8 +51,16 @@ class HomeViewController: UIViewController {
         let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: measureDate, afterDrinks: DrinkManager.drinks)
         os_log("Calculated BAC to be %f at %@.", bloodAlcoholContent, measureDate.description)
         updateBloodAlcoholContentLabel(forBAC: bloodAlcoholContent)
-        self.view.backgroundColor = self.determineBackgroundColor(forBAC: bloodAlcoholContent)
-        // self.navigationController?.navigationBar.barTintColor = self.determineNavigationBarColor(forBAC: bloodAlcoholContent)
+        let updateThemeColor = {
+            self.view.backgroundColor = ColorManager.themeColor(forBAC: bloodAlcoholContent).normal
+        }
+        if animated {
+            let animationDuration = 0.30
+            let animationDelay = 0.0
+            UIView.animate(withDuration: animationDuration, delay: animationDelay, options: [.allowUserInteraction, .beginFromCurrentState], animations: updateThemeColor, completion: nil)
+        } else {
+            updateThemeColor()
+        }
     }
     
     func offsetHours(by hours: Int) {
@@ -81,26 +89,6 @@ class HomeViewController: UIViewController {
         numberFormatter.minimumFractionDigits = 2
         numberFormatter.maximumFractionDigits = 2
         bloodAlcoholContentLabel.text = numberFormatter.string(from: NSNumber(value: bloodAlcoholContent))
-    }
-    
-    private func determineBackgroundColor(forBAC bloodAlcoholContent: BloodAlcoholContent) -> UIColor? {
-        if bloodAlcoholContent <= 0.02 {
-            return UIColor(named: "Green")
-        } else if bloodAlcoholContent <= 0.06 {
-            return UIColor(named: "Orange")
-        } else {
-            return UIColor(named: "Red")
-        }
-    }
-    
-    private func determineNavigationBarColor(forBAC bloodAlcoholContent: BloodAlcoholContent) -> UIColor? {
-        if bloodAlcoholContent <= 0.02 {
-            return UIColor(named: "Green-Dark")
-        } else if bloodAlcoholContent <= 0.06 {
-            return UIColor(named: "Orange-Dark")
-        } else {
-            return UIColor(named: "Red-Dark")
-        }
     }
     
     @IBAction func timeControlPressed(_ sender: TimeControlButton) {
