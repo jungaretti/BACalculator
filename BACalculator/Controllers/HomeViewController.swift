@@ -13,6 +13,10 @@ import os.log
 /// A view controller that specializes in managing the home view of BACalculator.
 class HomeViewController: UIViewController {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var historyButton: UIBarButtonItem!
     @IBOutlet weak var rewindButton: UIButton!
@@ -47,8 +51,8 @@ class HomeViewController: UIViewController {
         let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: measureDate, afterDrinks: DrinkManager.drinks)
         os_log("Calculated BAC to be %f at %@.", bloodAlcoholContent, measureDate.description)
         updateBloodAlcoholContentLabel(forBAC: bloodAlcoholContent)
-        view.backgroundColor = determineBackgroundColor(forBAC: bloodAlcoholContent)
-        navigationController?.navigationBar.barTintColor = determineNavigationBarColor(forBAC: bloodAlcoholContent)
+        self.view.backgroundColor = self.determineBackgroundColor(forBAC: bloodAlcoholContent)
+        // self.navigationController?.navigationBar.barTintColor = self.determineNavigationBarColor(forBAC: bloodAlcoholContent)
     }
     
     func offsetHours(by hours: Int) {
