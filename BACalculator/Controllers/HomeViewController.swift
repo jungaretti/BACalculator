@@ -49,7 +49,7 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    /// Update the simulated time and update the BAC measurement to fit that time.
+    /// Update the simulated time.
     func updateTime() {
         updateTimeLabel()
         updateMeasurement(animated: true)
@@ -64,6 +64,10 @@ class HomeViewController: UIViewController {
         updateBackgroundColor(forBAC: bloodAlcoholContent, animated: animated)
     }
     
+    /// Recalculate BAC using `hoursOffset`, `DrinkerInformationManager`, and `DrinkManager`.
+    ///
+    /// - Parameter measureDate: The `Date` to measure BAC at.
+    /// - Returns: `BloodAlcoholContent` measurement at the specified `Date`.
     private func calculateBAC(atDate measureDate: Date) -> BloodAlcoholContent {
         let alcoholCalculator = AlcoholCalculator(drinkerInformation: DrinkerInformationManager.drinkerInformation)
         let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: measureDate, afterDrinks: DrinkManager.drinks)
@@ -71,6 +75,11 @@ class HomeViewController: UIViewController {
         return bloodAlcoholContent
     }
     
+    /// Update the on-screen BAC label with a formatted version of the calculated BAC.
+    ///
+    /// - Parameters:
+    ///   - bloodAlcoholContent: The `BloodAlcoholContent` to format and display on-screen.
+    ///   - animated: If `true`, an update to the BAC label will be animated.
     private func updateBloodAlcoholContentLabel(withBAC bloodAlcoholContent: BloodAlcoholContent, animated: Bool) {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
@@ -79,6 +88,11 @@ class HomeViewController: UIViewController {
         bloodAlcoholContentLabel.text = numberFormatter.string(from: NSNumber(value: bloodAlcoholContent))
     }
     
+    /// Update the background color with a color matching the calculated BAC.
+    ///
+    /// - Parameters:
+    ///   - bloodAlcoholContent: The `BloodAlcoholContent` to use for picking a background color.
+    ///   - animated: If `true`, an update to the background color will be animated.
     private func updateBackgroundColor(forBAC bloodAlcoholContent: BloodAlcoholContent, animated: Bool) {
         let newBackgroundColor = ColorManager.themeColor(forBAC: bloodAlcoholContent)
         let updateBackgroundColor = {
@@ -93,6 +107,7 @@ class HomeViewController: UIViewController {
         }
     }
     
+    /// Update the time label with the proper number of hours offset.
     private func updateTimeLabel() {
         if hoursOffset < -1 {
             timeLabel.text = "\(abs(hoursOffset)) Hours Ago"
