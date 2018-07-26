@@ -17,6 +17,10 @@ class HomeViewController: UIViewController {
         return .lightContent
     }
     
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return .none
+    }
+    
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var historyButton: UIBarButtonItem!
     @IBOutlet weak var rewindButton: UIButton!
