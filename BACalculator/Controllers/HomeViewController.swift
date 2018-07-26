@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        updateInformation(animated: animated)
+        updateMeasurement(animated: animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,28 +49,49 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func updateInformation(animated: Bool) {
+    /// Update the simulated time and update the BAC measurement to fit that time.
+    func updateTime() {
+        updateTimeLabel()
+        updateMeasurement(animated: true)
+    }
+    
+    /// Update the BAC measurement.
+    ///
+    /// - Parameter animated: If `true`, updates to on-screen measurements will be animated.
+    func updateMeasurement(animated: Bool) {
+        let bloodAlcoholContent = calculateBAC()
+        updateBloodAlcoholContentLabel(withBAC: bloodAlcoholContent, animated: animated)
+        updateBackgroundColor(forBAC: bloodAlcoholContent, animated: animated)
+    }
+    
+    private func calculateBAC() -> BloodAlcoholContent {
         let alcoholCalculator = AlcoholCalculator(drinkerInformation: DrinkerInformationManager.drinkerInformation)
         let measureDate = Date().addingTimeInterval(timeIntervalOffset)
         let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: measureDate, afterDrinks: DrinkManager.drinks)
         os_log("Calculated BAC to be %f at %@.", bloodAlcoholContent, measureDate.description)
-        updateBloodAlcoholContentLabel(forBAC: bloodAlcoholContent)
-        let updateThemeColor = {
-            self.view.backgroundColor = ColorManager.themeColor(forBAC: bloodAlcoholContent).normal
-        }
-        if animated {
-            let animationDuration = 0.30
-            let animationDelay = 0.0
-            UIView.animate(withDuration: animationDuration, delay: animationDelay, options: [.allowUserInteraction, .beginFromCurrentState], animations: updateThemeColor, completion: nil)
-        } else {
-            updateThemeColor()
-        }
+        return bloodAlcoholContent
     }
     
-    func offsetHours(by hours: Int) {
-        hoursOffset += hours
-        updateTimeLabel()
-        updateInformation(animated: true)
+    private func updateBloodAlcoholContentLabel(withBAC bloodAlcoholContent: BloodAlcoholContent, animated: Bool) {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 2
+        bloodAlcoholContentLabel.text = numberFormatter.string(from: NSNumber(value: bloodAlcoholContent))
+    }
+    
+    private func updateBackgroundColor(forBAC bloodAlcoholContent: BloodAlcoholContent, animated: Bool) {
+        let newBackgroundColor = ColorManager.themeColor(forBAC: bloodAlcoholContent)
+        let updateBackgroundColor = {
+            self.view.backgroundColor = newBackgroundColor.normal
+        }
+        if animated {
+            let animationDuration: TimeInterval = 0.50
+            let animationDelay: TimeInterval = 0.0
+            UIView.animate(withDuration: animationDuration, delay: animationDelay, options: [.allowUserInteraction, .beginFromCurrentState], animations: updateBackgroundColor, completion: nil)
+        } else {
+            updateBackgroundColor()
+        }
     }
     
     private func updateTimeLabel() {
@@ -87,16 +108,9 @@ class HomeViewController: UIViewController {
         }
     }
     
-    private func updateBloodAlcoholContentLabel(forBAC bloodAlcoholContent: BloodAlcoholContent) {
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.minimumFractionDigits = 2
-        numberFormatter.maximumFractionDigits = 2
-        bloodAlcoholContentLabel.text = numberFormatter.string(from: NSNumber(value: bloodAlcoholContent))
-    }
-    
     @IBAction func timeControlPressed(_ sender: TimeControlButton) {
-        offsetHours(by: sender.hourStep)
+        hoursOffset += sender.hourStep
+        updateTime()
     }
     
 }
