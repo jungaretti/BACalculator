@@ -1,5 +1,5 @@
 //
-//  GlyphAttributeCardView.swift
+//  HeaderAttributeCardView.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/26/18.
@@ -10,18 +10,18 @@ import UIKit
 
 @IBDesignable
 
-/// An `AttributeCardView` that has an accompanying image.
-class GlyphAttributeCardView: AttributeCardView {
-
-    @IBOutlet weak var imageView: UIImageView!
+/// An `AttributeCardView` with a textual header.
+class DrinkHeaderAttributeCardView: DrinkAttributeCardView {
+    
+    @IBOutlet weak var textLabel: UILabel!
     
     override func setSelected(state: AttributeCardViewSelectedState) {
         super.setSelected(state: state)
         switch state {
         case .deselected:
-            imageView.tintColor = .white
+            textLabel.textColor = .white
         case .selected:
-            imageView.tintColor = .black
+            textLabel.textColor = .black
         }
     }
 

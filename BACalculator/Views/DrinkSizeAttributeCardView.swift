@@ -1,5 +1,5 @@
 //
-//  SizeAttributeCardView.swift
+//  DrinkSizeAttributeCardView.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/26/18.
@@ -11,6 +11,6 @@ import UIKit
 @IBDesignable
 
 /// An `AttributeCardView` for the `size` attribute of a `Drink`.
-class SizeAttributeCardView: HeaderAttributeCardView {
+class DrinkSizeAttributeCardView: DrinkHeaderAttributeCardView {
     
 }
