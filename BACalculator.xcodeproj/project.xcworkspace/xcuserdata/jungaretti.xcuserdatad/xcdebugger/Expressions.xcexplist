@@ -11,10 +11,34 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "DrinkTableViewController.tableView(_:cellForRowAt:):DrinkTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell.collectionView.collectionViewLayout.collectionViewContentSize">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrinkTableViewController.addPressed(_:):DrinkTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "firstCell.collectionView.visibleCells.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ThemedNavigationViewController.viewDidLoad():ThemedNavigationViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "topViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrinkTableViewController.stop():DrinkTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(firstCell as! DrinkAttributeTableViewCell).collectionView.collectionViewLayout.collectionViewContentSize">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

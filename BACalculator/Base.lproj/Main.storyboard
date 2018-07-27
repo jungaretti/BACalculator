@@ -147,109 +147,115 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Green"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="attribute" rowHeight="200" id="wVZ-AX-Mhc" customClass="DrinkAttributeTableViewCell" customModule="BACalculator" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="attribute" rowHeight="206" id="wVZ-AX-Mhc" customClass="DrinkAttributeTableViewCell" customModule="BACalculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="206"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wVZ-AX-Mhc" id="B6z-dp-3On">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="206"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="pbb-uo-6x0">
-                                            <rect key="frame" x="16" y="4" width="343" height="183.5"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="q1H-T9-xTR">
+                                            <rect key="frame" x="16" y="10" width="343" height="28"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="q1H-T9-xTR">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NK0-n4-F3v">
-                                                            <rect key="frame" x="0.0" y="0.0" width="43.5" height="36"/>
-                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6N-D1-0eO">
-                                                            <rect key="frame" x="290" y="0.0" width="53" height="36"/>
-                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                                            <state key="normal" title="Button">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </state>
-                                                        </button>
-                                                    </subviews>
-                                                </stackView>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ic0-Vq-yKs">
-                                                    <rect key="frame" x="0.0" y="36" width="343" height="147.5"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xZp-5X-DPp">
-                                                        <size key="itemSize" width="85" height="130"/>
-                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    </collectionViewFlowLayout>
-                                                    <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="type" id="9i2-6S-aRP" customClass="DrinkAttributeOptionCollectionViewCell" customModule="BACalculator" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="4" width="120" height="140"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="140"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LpQ-74-0lC" customClass="DrinkTypeAttributeCardView" customModule="BACalculator" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="140"/>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                <integer key="value" value="10"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                    </view>
-                                                                </subviews>
-                                                            </view>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="LpQ-74-0lC" secondAttribute="trailing" id="AxP-Re-DKx"/>
-                                                                <constraint firstItem="LpQ-74-0lC" firstAttribute="top" secondItem="9i2-6S-aRP" secondAttribute="top" id="QUp-wt-VuI"/>
-                                                                <constraint firstAttribute="bottom" secondItem="LpQ-74-0lC" secondAttribute="bottom" id="ati-La-4Cb"/>
-                                                                <constraint firstItem="LpQ-74-0lC" firstAttribute="leading" secondItem="9i2-6S-aRP" secondAttribute="leading" id="kAa-H1-xmb"/>
-                                                            </constraints>
-                                                            <size key="customSize" width="120" height="140"/>
-                                                            <connections>
-                                                                <outlet property="card" destination="LpQ-74-0lC" id="gKU-Lu-UuH"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="size" id="uA7-ZS-UPY" customClass="DrinkAttributeOptionCollectionViewCell" customModule="BACalculator" customModuleProvider="target">
-                                                            <rect key="frame" x="130" y="4" width="120" height="140"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="140"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LKX-xy-qWv" customClass="DrinkSizeAttributeCardView" customModule="BACalculator" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="140"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <userDefinedRuntimeAttributes>
-                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                <integer key="value" value="10"/>
-                                                                            </userDefinedRuntimeAttribute>
-                                                                        </userDefinedRuntimeAttributes>
-                                                                    </view>
-                                                                </subviews>
-                                                            </view>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <size key="customSize" width="120" height="140"/>
-                                                            <connections>
-                                                                <outlet property="card" destination="LKX-xy-qWv" id="tgV-45-UWT"/>
-                                                            </connections>
-                                                        </collectionViewCell>
-                                                    </cells>
-                                                </collectionView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NK0-n4-F3v">
+                                                    <rect key="frame" x="0.0" y="0.0" width="43.5" height="28"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6N-D1-0eO">
+                                                    <rect key="frame" x="290" y="0.0" width="53" height="28"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="UQj-S0-APv"/>
+                                            </constraints>
                                         </stackView>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ic0-Vq-yKs">
+                                            <rect key="frame" x="0.0" y="42" width="375" height="158"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xZp-5X-DPp">
+                                                <size key="itemSize" width="120" height="140"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="type" id="9i2-6S-aRP" customClass="DrinkAttributeOptionCollectionViewCell" customModule="BACalculator" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="0.0" width="120" height="158"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="158"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LpQ-74-0lC" customClass="DrinkTypeAttributeCardView" customModule="BACalculator" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="152"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </view>
+                                                        </subviews>
+                                                    </view>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="LpQ-74-0lC" secondAttribute="bottom" id="1gh-BY-uS0"/>
+                                                        <constraint firstAttribute="trailing" secondItem="LpQ-74-0lC" secondAttribute="trailing" id="AsP-BC-V3c"/>
+                                                        <constraint firstItem="LpQ-74-0lC" firstAttribute="leading" secondItem="9i2-6S-aRP" secondAttribute="leading" id="Tkb-aY-CEe"/>
+                                                        <constraint firstItem="LpQ-74-0lC" firstAttribute="top" secondItem="9i2-6S-aRP" secondAttribute="top" id="c0u-Mx-YPk"/>
+                                                    </constraints>
+                                                    <size key="customSize" width="120" height="158"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="card" destination="LpQ-74-0lC" id="gKU-Lu-UuH"/>
+                                                    </connections>
+                                                </collectionViewCell>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="size" id="uA7-ZS-UPY" customClass="DrinkAttributeOptionCollectionViewCell" customModule="BACalculator" customModuleProvider="target">
+                                                    <rect key="frame" x="146" y="0.0" width="120" height="158"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="158"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LKX-xy-qWv" customClass="DrinkSizeAttributeCardView" customModule="BACalculator" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="152"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </view>
+                                                        </subviews>
+                                                    </view>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="LKX-xy-qWv" firstAttribute="top" secondItem="uA7-ZS-UPY" secondAttribute="top" id="6aJ-dS-2aB"/>
+                                                        <constraint firstItem="LKX-xy-qWv" firstAttribute="leading" secondItem="uA7-ZS-UPY" secondAttribute="leading" id="HGI-f8-AyP"/>
+                                                        <constraint firstAttribute="trailing" secondItem="LKX-xy-qWv" secondAttribute="trailing" id="Q4c-cE-7LN"/>
+                                                        <constraint firstAttribute="bottom" secondItem="LKX-xy-qWv" secondAttribute="bottom" id="gwX-YT-478"/>
+                                                    </constraints>
+                                                    <size key="customSize" width="120" height="158"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="12"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="card" destination="LKX-xy-qWv" id="tgV-45-UWT"/>
+                                                    </connections>
+                                                </collectionViewCell>
+                                            </cells>
+                                        </collectionView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="pbb-uo-6x0" secondAttribute="bottom" constant="12" id="4V4-LJ-J3Y"/>
-                                        <constraint firstAttribute="trailing" secondItem="pbb-uo-6x0" secondAttribute="trailing" constant="16" id="Rec-Qf-M0u"/>
-                                        <constraint firstItem="pbb-uo-6x0" firstAttribute="leading" secondItem="B6z-dp-3On" secondAttribute="leading" constant="16" id="exI-GM-jx9"/>
-                                        <constraint firstItem="pbb-uo-6x0" firstAttribute="top" secondItem="B6z-dp-3On" secondAttribute="top" constant="4" id="tfX-U3-V71"/>
+                                        <constraint firstItem="Ic0-Vq-yKs" firstAttribute="top" secondItem="q1H-T9-xTR" secondAttribute="bottom" constant="4" id="2K4-WO-rrD"/>
+                                        <constraint firstItem="Ic0-Vq-yKs" firstAttribute="leading" secondItem="B6z-dp-3On" secondAttribute="leading" id="Gt7-dv-880"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ic0-Vq-yKs" secondAttribute="bottom" constant="6" id="Tmy-0c-yf5"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ic0-Vq-yKs" secondAttribute="trailing" id="TpC-L5-lVn"/>
+                                        <constraint firstAttribute="trailing" secondItem="q1H-T9-xTR" secondAttribute="trailing" constant="16" id="aQI-LN-Olg"/>
+                                        <constraint firstItem="q1H-T9-xTR" firstAttribute="leading" secondItem="B6z-dp-3On" secondAttribute="leading" constant="16" id="tCa-Oc-NK7"/>
+                                        <constraint firstItem="q1H-T9-xTR" firstAttribute="top" secondItem="B6z-dp-3On" secondAttribute="top" constant="10" id="zT4-SV-SPu"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

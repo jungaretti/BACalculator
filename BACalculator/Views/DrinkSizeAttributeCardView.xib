@@ -12,29 +12,29 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DrinkSizeAttributeCardView" customModule="BACalculator" customModuleProvider="target">
             <connections>
-                <outlet property="detailTextLabel" destination="WOG-Nz-9D1" id="WBI-al-f8Y"/>
-                <outlet property="textLabel" destination="Oen-Rj-JTx" id="ABk-h3-ZfM"/>
+                <outlet property="detailTextLabel" destination="lhx-dj-PQ0" id="rzo-cB-5bj"/>
+                <outlet property="textLabel" destination="OUA-mH-UpR" id="XYF-lr-du1"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="q2u-p4-2Ps">
-            <rect key="frame" x="0.0" y="0.0" width="138" height="160"/>
+        <view contentMode="scaleToFill" id="SZB-Th-KIW">
+            <rect key="frame" x="0.0" y="0.0" width="144" height="197"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="nOF-96-yqE">
-                    <rect key="frame" x="8" y="26" width="122" height="109"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="XkP-eT-iTh">
+                    <rect key="frame" x="8" y="48" width="128" height="101.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="36" translatesAutoresizingMaskIntoConstraints="NO" id="Oen-Rj-JTx">
-                            <rect key="frame" x="0.0" y="0.0" width="122" height="84"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="36" translatesAutoresizingMaskIntoConstraints="NO" id="OUA-mH-UpR">
+                            <rect key="frame" x="0.0" y="0.0" width="128" height="72"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="84" id="7aV-Fw-c92"/>
+                                <constraint firstAttribute="height" constant="72" id="Ayz-wR-jOf"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="72"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Units" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOG-Nz-9D1">
-                            <rect key="frame" x="0.0" y="90" width="122" height="19"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longer Detail 2" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhx-dj-PQ0">
+                            <rect key="frame" x="0.0" y="78" width="128" height="23.5"/>
                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -44,15 +44,15 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="nOF-96-yqE" firstAttribute="centerY" secondItem="q2u-p4-2Ps" secondAttribute="centerY" id="AaL-e3-tzi"/>
-                <constraint firstItem="nOF-96-yqE" firstAttribute="leading" secondItem="bSj-v6-4Oc" secondAttribute="leading" constant="8" id="iQn-rp-oiT"/>
-                <constraint firstItem="bSj-v6-4Oc" firstAttribute="trailing" secondItem="nOF-96-yqE" secondAttribute="trailing" constant="8" id="wd8-TH-crW"/>
+                <constraint firstItem="yNP-hy-KEM" firstAttribute="trailing" secondItem="XkP-eT-iTh" secondAttribute="trailing" constant="8" id="Kib-Hd-n7N"/>
+                <constraint firstItem="XkP-eT-iTh" firstAttribute="centerY" secondItem="SZB-Th-KIW" secondAttribute="centerY" id="V1U-nc-SWQ"/>
+                <constraint firstItem="XkP-eT-iTh" firstAttribute="leading" secondItem="yNP-hy-KEM" secondAttribute="leading" constant="8" id="azO-fk-1FW"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="bSj-v6-4Oc"/>
-            <point key="canvasLocation" x="-21" y="57"/>
+            <viewLayoutGuide key="safeArea" id="yNP-hy-KEM"/>
+            <point key="canvasLocation" x="-44" y="29.5"/>
         </view>
     </objects>
 </document>

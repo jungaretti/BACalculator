@@ -13,8 +13,8 @@ class DrinkAttributeTableViewCell: UITableViewCell {
     @IBOutlet weak var attributeLabel: UILabel!
     @IBOutlet weak var attributeButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
-    var collectionViewDataSource: UICollectionViewDataSource?
-    var collectionViewDelegate: UICollectionViewDelegate?
+    private var _collectionViewDataSource: UICollectionViewDataSource?
+    private var _collectionViewDelegate: UICollectionViewDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +22,16 @@ class DrinkAttributeTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func setCollectionView(dataSource: UICollectionViewDataSource) {
+        self._collectionViewDataSource = dataSource
+        collectionView.dataSource = self._collectionViewDataSource
+    }
+    
+    func setCollectionView(delegate: UICollectionViewDelegate) {
+        self._collectionViewDelegate = delegate
+        collectionView.delegate = self._collectionViewDelegate
     }
 
 }
