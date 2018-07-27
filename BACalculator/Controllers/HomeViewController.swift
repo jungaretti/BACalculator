@@ -96,7 +96,7 @@ class HomeViewController: UIViewController {
             self.view.backgroundColor = newBackgroundColor.normal
         }
         if animated {
-            let animationDuration: TimeInterval = 0.50
+            let animationDuration: TimeInterval = 0.30
             let animationDelay: TimeInterval = 0.0
             UIView.animate(withDuration: animationDuration, delay: animationDelay, options: [.allowUserInteraction, .beginFromCurrentState], animations: updateBackgroundColor, completion: nil)
         } else {
