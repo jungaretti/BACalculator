@@ -52,7 +52,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fz2-V0-Zjg" userLabel="Add Drink">
-                                <rect key="frame" x="151" y="579" width="72" height="72"/>
+                                <rect key="frame" x="151.5" y="579" width="72" height="72"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="AddDrink">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -142,19 +142,122 @@
         <scene sceneID="hP6-b7-Uhd">
             <objects>
                 <tableViewController id="LUF-Ki-3Uw" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CkV-x4-zMQ">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CkV-x4-zMQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Green"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="232" id="wVZ-AX-Mhc">
-                                <rect key="frame" x="0.0" y="28" width="375" height="232"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="attribute" rowHeight="200" id="wVZ-AX-Mhc" customClass="DrinkAttributeTableViewCell" customModule="BACalculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wVZ-AX-Mhc" id="B6z-dp-3On">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="231.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="pbb-uo-6x0">
+                                            <rect key="frame" x="16" y="4" width="343" height="183.5"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="q1H-T9-xTR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="36"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NK0-n4-F3v">
+                                                            <rect key="frame" x="0.0" y="0.0" width="43.5" height="36"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6N-D1-0eO">
+                                                            <rect key="frame" x="290" y="0.0" width="53" height="36"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                                            <state key="normal" title="Button">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ic0-Vq-yKs">
+                                                    <rect key="frame" x="0.0" y="36" width="343" height="147.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xZp-5X-DPp">
+                                                        <size key="itemSize" width="85" height="130"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="type" id="9i2-6S-aRP" customClass="DrinkAttributeOptionCollectionViewCell" customModule="BACalculator" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="4" width="120" height="140"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="140"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LpQ-74-0lC" customClass="DrinkTypeAttributeCardView" customModule="BACalculator" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="140"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <integer key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                </subviews>
+                                                            </view>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="LpQ-74-0lC" secondAttribute="trailing" id="AxP-Re-DKx"/>
+                                                                <constraint firstItem="LpQ-74-0lC" firstAttribute="top" secondItem="9i2-6S-aRP" secondAttribute="top" id="QUp-wt-VuI"/>
+                                                                <constraint firstAttribute="bottom" secondItem="LpQ-74-0lC" secondAttribute="bottom" id="ati-La-4Cb"/>
+                                                                <constraint firstItem="LpQ-74-0lC" firstAttribute="leading" secondItem="9i2-6S-aRP" secondAttribute="leading" id="kAa-H1-xmb"/>
+                                                            </constraints>
+                                                            <size key="customSize" width="120" height="140"/>
+                                                            <connections>
+                                                                <outlet property="card" destination="LpQ-74-0lC" id="gKU-Lu-UuH"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="size" id="uA7-ZS-UPY" customClass="DrinkAttributeOptionCollectionViewCell" customModule="BACalculator" customModuleProvider="target">
+                                                            <rect key="frame" x="130" y="4" width="120" height="140"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="140"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LKX-xy-qWv" customClass="DrinkSizeAttributeCardView" customModule="BACalculator" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="140"/>
+                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                <integer key="value" value="10"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </view>
+                                                                </subviews>
+                                                            </view>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <size key="customSize" width="120" height="140"/>
+                                                            <connections>
+                                                                <outlet property="card" destination="LKX-xy-qWv" id="tgV-45-UWT"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="pbb-uo-6x0" secondAttribute="bottom" constant="12" id="4V4-LJ-J3Y"/>
+                                        <constraint firstAttribute="trailing" secondItem="pbb-uo-6x0" secondAttribute="trailing" constant="16" id="Rec-Qf-M0u"/>
+                                        <constraint firstItem="pbb-uo-6x0" firstAttribute="leading" secondItem="B6z-dp-3On" secondAttribute="leading" constant="16" id="exI-GM-jx9"/>
+                                        <constraint firstItem="pbb-uo-6x0" firstAttribute="top" secondItem="B6z-dp-3On" secondAttribute="top" constant="4" id="tfX-U3-V71"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="attributeButton" destination="B6N-D1-0eO" id="zCU-bK-9XC"/>
+                                    <outlet property="attributeLabel" destination="NK0-n4-F3v" id="QDy-hl-PhI"/>
+                                    <outlet property="collectionView" destination="Ic0-Vq-yKs" id="hjh-iX-S13"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

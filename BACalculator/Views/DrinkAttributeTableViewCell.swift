@@ -9,16 +9,19 @@
 import UIKit
 
 class DrinkAttributeTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var attributeLabel: UILabel!
+    @IBOutlet weak var attributeButton: UIButton!
+    @IBOutlet weak var collectionView: UICollectionView!
+    var collectionViewDataSource: UICollectionViewDataSource?
+    var collectionViewDelegate: UICollectionViewDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
