@@ -34,6 +34,7 @@
 		15B2A679210A90FF002C33AE /* DrinkTypeAttributeCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B2A678210A90FF002C33AE /* DrinkTypeAttributeCardView.xib */; };
 		15B2A67C210AAB78002C33AE /* DrinkAttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A67B210AAB78002C33AE /* DrinkAttributeTableViewCell.swift */; };
 		15B2A67E210AAD7E002C33AE /* DrinkAttributeOptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A67D210AAD7E002C33AE /* DrinkAttributeOptionCollectionViewCell.swift */; };
+		15B57642210AB272007F48D1 /* DrinkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B57641210AB272007F48D1 /* DrinkTableViewController.swift */; };
 		15D551E02107EDAB000F0889 /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551DF2107EDAB000F0889 /* DrinkType.swift */; };
 		15D551E22107EDC5000F0889 /* StandardDrinkSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551E12107EDC5000F0889 /* StandardDrinkSize.swift */; };
 		15D551E42107EDCD000F0889 /* CustomDrinkSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551E32107EDCD000F0889 /* CustomDrinkSize.swift */; };
@@ -140,6 +141,7 @@
 		15B2A678210A90FF002C33AE /* DrinkTypeAttributeCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinkTypeAttributeCardView.xib; sourceTree = "<group>"; };
 		15B2A67B210AAB78002C33AE /* DrinkAttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkAttributeTableViewCell.swift; sourceTree = "<group>"; };
 		15B2A67D210AAD7E002C33AE /* DrinkAttributeOptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkAttributeOptionCollectionViewCell.swift; sourceTree = "<group>"; };
+		15B57641210AB272007F48D1 /* DrinkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTableViewController.swift; sourceTree = "<group>"; };
 		15D551DF2107EDAB000F0889 /* DrinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkType.swift; sourceTree = "<group>"; };
 		15D551E12107EDC5000F0889 /* StandardDrinkSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDrinkSize.swift; sourceTree = "<group>"; };
 		15D551E32107EDCD000F0889 /* CustomDrinkSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDrinkSize.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 			children = (
 				15D5520021082BD9000F0889 /* HomeViewController.swift */,
 				15A7C5492109824B00F260FB /* ThemedNavigationViewController.swift */,
+				15B57641210AB272007F48D1 /* DrinkTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				1591E81A21095B5600F56581 /* TimeControlButton.swift in Sources */,
 				15A7C54A2109824B00F260FB /* ThemedNavigationViewController.swift in Sources */,
 				15A7C4F82109668900F260FB /* ColorManager.swift in Sources */,
+				15B57642210AB272007F48D1 /* DrinkTableViewController.swift in Sources */,
 				15B2A673210A9062002C33AE /* DrinkTypeAttributeCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

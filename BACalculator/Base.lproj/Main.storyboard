@@ -141,7 +141,7 @@
         <!--Add Drink-->
         <scene sceneID="hP6-b7-Uhd">
             <objects>
-                <tableViewController id="LUF-Ki-3Uw" sceneMemberID="viewController">
+                <tableViewController id="LUF-Ki-3Uw" customClass="DrinkTableViewController" customModule="BACalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CkV-x4-zMQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -268,9 +268,15 @@
                     <navigationItem key="navigationItem" title="Add Drink" id="E39-PS-QjI">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="Cancel" id="lS6-ol-bdJ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelPressed:" destination="LUF-Ki-3Uw" id="7Ya-cn-UWz"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="Check" id="1cS-6y-5ub">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addPressed:" destination="LUF-Ki-3Uw" id="SUY-gu-Kob"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
