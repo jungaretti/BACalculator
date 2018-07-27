@@ -25,6 +25,13 @@
 		1591E81A21095B5600F56581 /* TimeControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1591E81921095B5600F56581 /* TimeControlButton.swift */; };
 		15A7C4F82109668900F260FB /* ColorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7C4F72109668900F260FB /* ColorManager.swift */; };
 		15A7C54A2109824B00F260FB /* ThemedNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7C5492109824B00F260FB /* ThemedNavigationViewController.swift */; };
+		15B2A66D210A8BE4002C33AE /* AttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A66C210A8BE4002C33AE /* AttributeCardView.swift */; };
+		15B2A66F210A8E54002C33AE /* GlyphAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A66E210A8E54002C33AE /* GlyphAttributeCardView.swift */; };
+		15B2A671210A8EC0002C33AE /* HeaderAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A670210A8EC0002C33AE /* HeaderAttributeCardView.swift */; };
+		15B2A673210A9062002C33AE /* TypeAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A672210A9062002C33AE /* TypeAttributeCardView.swift */; };
+		15B2A675210A90C5002C33AE /* SizeAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A674210A90C5002C33AE /* SizeAttributeCardView.swift */; };
+		15B2A677210A90F4002C33AE /* SizeAttributeCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B2A676210A90F4002C33AE /* SizeAttributeCardView.xib */; };
+		15B2A679210A90FF002C33AE /* TypeAttributeCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B2A678210A90FF002C33AE /* TypeAttributeCardView.xib */; };
 		15D551E02107EDAB000F0889 /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551DF2107EDAB000F0889 /* DrinkType.swift */; };
 		15D551E22107EDC5000F0889 /* StandardDrinkSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551E12107EDC5000F0889 /* StandardDrinkSize.swift */; };
 		15D551E42107EDCD000F0889 /* CustomDrinkSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551E32107EDCD000F0889 /* CustomDrinkSize.swift */; };
@@ -122,6 +129,13 @@
 		1591E81921095B5600F56581 /* TimeControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeControlButton.swift; sourceTree = "<group>"; };
 		15A7C4F72109668900F260FB /* ColorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorManager.swift; sourceTree = "<group>"; };
 		15A7C5492109824B00F260FB /* ThemedNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedNavigationViewController.swift; sourceTree = "<group>"; };
+		15B2A66C210A8BE4002C33AE /* AttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeCardView.swift; sourceTree = "<group>"; };
+		15B2A66E210A8E54002C33AE /* GlyphAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphAttributeCardView.swift; sourceTree = "<group>"; };
+		15B2A670210A8EC0002C33AE /* HeaderAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderAttributeCardView.swift; sourceTree = "<group>"; };
+		15B2A672210A9062002C33AE /* TypeAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAttributeCardView.swift; sourceTree = "<group>"; };
+		15B2A674210A90C5002C33AE /* SizeAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeAttributeCardView.swift; sourceTree = "<group>"; };
+		15B2A676210A90F4002C33AE /* SizeAttributeCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SizeAttributeCardView.xib; sourceTree = "<group>"; };
+		15B2A678210A90FF002C33AE /* TypeAttributeCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeAttributeCardView.xib; sourceTree = "<group>"; };
 		15D551DF2107EDAB000F0889 /* DrinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkType.swift; sourceTree = "<group>"; };
 		15D551E12107EDC5000F0889 /* StandardDrinkSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDrinkSize.swift; sourceTree = "<group>"; };
 		15D551E32107EDCD000F0889 /* CustomDrinkSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDrinkSize.swift; sourceTree = "<group>"; };
@@ -181,6 +195,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1506B4F8210A8BBB00CBDD14 /* DrinkAttributeCard */ = {
+			isa = PBXGroup;
+			children = (
+				15B2A66C210A8BE4002C33AE /* AttributeCardView.swift */,
+				15B2A66E210A8E54002C33AE /* GlyphAttributeCardView.swift */,
+				15B2A670210A8EC0002C33AE /* HeaderAttributeCardView.swift */,
+				15B2A672210A9062002C33AE /* TypeAttributeCardView.swift */,
+				15B2A678210A90FF002C33AE /* TypeAttributeCardView.xib */,
+				15B2A674210A90C5002C33AE /* SizeAttributeCardView.swift */,
+				15B2A676210A90F4002C33AE /* SizeAttributeCardView.xib */,
+			);
+			name = DrinkAttributeCard;
+			sourceTree = "<group>";
+		};
 		152AB6B82107DA95001918EF = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +325,7 @@
 			children = (
 				1591E81921095B5600F56581 /* TimeControlButton.swift */,
 				1506B4F2210A824D00CBDD14 /* XIBView.swift */,
+				1506B4F8210A8BBB00CBDD14 /* DrinkAttributeCard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -467,7 +496,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				152AB6D22107DA96001918EF /* LaunchScreen.storyboard in Resources */,
+				15B2A679210A90FF002C33AE /* TypeAttributeCardView.xib in Resources */,
 				152AB6CF2107DA96001918EF /* Assets.xcassets in Resources */,
+				15B2A677210A90F4002C33AE /* SizeAttributeCardView.xib in Resources */,
 				152AB6CA2107DA95001918EF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,16 +538,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15B2A66D210A8BE4002C33AE /* AttributeCardView.swift in Sources */,
 				1506B4F3210A824D00CBDD14 /* XIBView.swift in Sources */,
 				15D551FD21082B0C000F0889 /* PreferencesManager.swift in Sources */,
+				15B2A671210A8EC0002C33AE /* HeaderAttributeCardView.swift in Sources */,
 				152AB6C52107DA95001918EF /* AppDelegate.swift in Sources */,
+				15B2A66F210A8E54002C33AE /* GlyphAttributeCardView.swift in Sources */,
 				152AB6CD2107DA95001918EF /* BACalculator.xcdatamodeld in Sources */,
 				15D551FB21082A03000F0889 /* DrinkerInformationManager.swift in Sources */,
+				15B2A675210A90C5002C33AE /* SizeAttributeCardView.swift in Sources */,
 				15D551F921082574000F0889 /* DrinkManager.swift in Sources */,
 				15D5520121082BD9000F0889 /* HomeViewController.swift in Sources */,
 				1591E81A21095B5600F56581 /* TimeControlButton.swift in Sources */,
 				15A7C54A2109824B00F260FB /* ThemedNavigationViewController.swift in Sources */,
 				15A7C4F82109668900F260FB /* ColorManager.swift in Sources */,
+				15B2A673210A9062002C33AE /* TypeAttributeCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,8 +10,10 @@ import UIKit
 
 @IBDesignable
 
+/// An object that manages the content for a rectangular area on the screen that is loaded from a XIB file.
 class XIBView: UIView {
 
+    /// The view holding the contents of the XIB file.
     var contentView : UIView!
     
     override init(frame: CGRect) {
@@ -24,6 +26,7 @@ class XIBView: UIView {
         setupFromXIB()
     }
     
+    /// Configure the `XIBView` to display the contents of the XIB file.
     func setupFromXIB() {
         contentView = loadViewFromNib()
         contentView.frame = bounds
