@@ -21,17 +21,17 @@
             <rect key="frame" x="0.0" y="0.0" width="136" height="208"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="pwG-Ta-w0o">
-                    <rect key="frame" x="8" y="53.5" width="120" height="101.5"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="pwG-Ta-w0o">
+                    <rect key="frame" x="8" y="47.5" width="120" height="113.5"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GG7-kS-JMb">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GG7-kS-JMb">
                             <rect key="frame" x="0.0" y="0.0" width="120" height="72"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="72" id="bEI-rG-sAz"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Br-0g-c50">
-                            <rect key="frame" x="0.0" y="78" width="120" height="23.5"/>
+                            <rect key="frame" x="0.0" y="90" width="120" height="23.5"/>
                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

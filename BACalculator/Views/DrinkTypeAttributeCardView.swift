@@ -15,12 +15,10 @@ class DrinkTypeAttributeCardView: DrinkGlyphAttributeCardView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        imageView.contentMode = .scaleAspectFit
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        imageView.contentMode = .scaleAspectFit
     }
     
 }
