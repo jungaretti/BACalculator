@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,21 +20,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukP-hV-xq8" userLabel="Advance" customClass="TimeControlButton" customModule="BACalculator" customModuleProvider="target">
-                                <rect key="frame" x="323" y="615" width="36" height="36"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="Advance">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="hourStep">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="timeControlPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K9Z-Jw-aEx"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Pc6-Gj-Bby">
                                 <rect key="frame" x="53.5" y="227" width="268" height="213.5"/>
                                 <subviews>
@@ -51,8 +37,27 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1t3-wc-Ulj" userLabel="Rewind" customClass="TimeControlButton" customModule="BACalculator" customModuleProvider="target">
+                                <rect key="frame" x="16" y="615" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1t3-wc-Ulj" secondAttribute="height" multiplier="1:1" id="4Ek-Gr-PoN"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="Rewind"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="stepSizeHours">
+                                        <integer key="value" value="-1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="timeControlPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SEp-mu-dVZ"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fz2-V0-Zjg" userLabel="Add Drink">
                                 <rect key="frame" x="151.5" y="579" width="72" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Fz2-V0-Zjg" secondAttribute="height" multiplier="1:1" id="aE8-Jk-d5C"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="AddDrink">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -63,22 +68,7 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UK5-O6-O4t" userLabel="Rewind" customClass="TimeControlButton" customModule="BACalculator" customModuleProvider="target">
-                                <rect key="frame" x="16" y="615" width="36" height="36"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="Rewind">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="hourStep">
-                                        <integer key="value" value="-1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="timeControlPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7LI-gT-wW2"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Sd-yC-Lo5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Sd-yC-Lo5">
                                 <rect key="frame" x="16" y="28" width="28" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="7V8-au-kOm"/>
@@ -87,30 +77,44 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="Settings"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9n8-vz-Zc1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9n8-vz-Zc1">
                                 <rect key="frame" x="331" y="28" width="28" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="N2S-TE-z0v"/>
                                     <constraint firstAttribute="width" constant="28" id="SsS-YY-Ela"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="History">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
+                                <state key="normal" image="History"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nde-cL-fEw" userLabel="Advance" customClass="TimeControlButton" customModule="BACalculator" customModuleProvider="target">
+                                <rect key="frame" x="323" y="615" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nde-cL-fEw" secondAttribute="height" multiplier="1:1" id="AOm-s2-G62"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="Advance"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="stepSizeHours">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="timeControlPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Git-JI-HKA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="Green"/>
                         <constraints>
-                            <constraint firstItem="UK5-O6-O4t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="5xj-Rj-bWy"/>
                             <constraint firstItem="7Sd-yC-Lo5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="7jj-ib-10Z"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ukP-hV-xq8" secondAttribute="trailing" constant="16" id="QFC-yK-Y93"/>
+                            <constraint firstItem="1t3-wc-Ulj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9gN-C6-Uzx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nde-cL-fEw" secondAttribute="trailing" constant="16" id="Ria-AQ-4Mb"/>
                             <constraint firstItem="Fz2-V0-Zjg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Sl9-in-f1L"/>
                             <constraint firstItem="Pc6-Gj-Bby" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="THK-dU-QDe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9n8-vz-Zc1" secondAttribute="trailing" constant="16" id="bmu-4S-2FC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Fz2-V0-Zjg" secondAttribute="bottom" constant="16" id="hQU-Ih-amY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UK5-O6-O4t" secondAttribute="bottom" constant="16" id="lfk-wX-0cH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1t3-wc-Ulj" secondAttribute="bottom" constant="16" id="hYH-ao-G1E"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nde-cL-fEw" secondAttribute="bottom" constant="16" id="mJR-EC-Xob"/>
                             <constraint firstItem="Pc6-Gj-Bby" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pb8-9n-AxW"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ukP-hV-xq8" secondAttribute="bottom" constant="16" id="t8x-UC-ep8"/>
                             <constraint firstItem="9n8-vz-Zc1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="u7A-2b-XCc"/>
                             <constraint firstItem="7Sd-yC-Lo5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="wse-Wc-XqQ"/>
                         </constraints>
@@ -126,10 +130,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="Fz2-V0-Zjg" id="lhA-bB-39B"/>
-                        <outlet property="advanceButton" destination="ukP-hV-xq8" id="peg-XR-h4d"/>
                         <outlet property="bloodAlcoholContentLabel" destination="ldH-qO-ZBT" id="wKt-M9-q2U"/>
                         <outlet property="historyButton" destination="94U-wg-Ro5" id="ZVS-ve-M4h"/>
-                        <outlet property="rewindButton" destination="UK5-O6-O4t" id="xXF-CW-URR"/>
                         <outlet property="settingsButton" destination="eE0-uq-R8y" id="YCf-Z2-BZq"/>
                         <outlet property="timeLabel" destination="NVP-zr-zog" id="6OB-Cb-ftK"/>
                     </connections>
@@ -145,7 +147,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CkV-x4-zMQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="Green"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="attribute" rowHeight="206" id="wVZ-AX-Mhc" customClass="DrinkAttributeTableViewCell" customModule="BACalculator" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="206"/>
@@ -290,15 +292,14 @@
             </objects>
             <point key="canvasLocation" x="2048.8000000000002" y="896.40179910044981"/>
         </scene>
-        <!--Themed Navigation View Controller-->
+        <!--Blood Alcohol Content Navigation View Controller-->
         <scene sceneID="dBV-wx-D9r">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wlD-VV-6xg" customClass="ThemedNavigationViewController" customModule="BACalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wlD-VV-6xg" customClass="BloodAlcoholContentNavigationViewController" customModule="BACalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o7B-QU-nCv">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" name="Green-Dark"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -327,9 +328,6 @@
         <image name="Settings" width="28" height="28"/>
         <namedColor name="Green">
             <color red="0.30980392156862746" green="0.67843137254901964" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Green-Dark">
-            <color red="0.27843137254901962" green="0.61176470588235299" blue="0.43137254901960786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

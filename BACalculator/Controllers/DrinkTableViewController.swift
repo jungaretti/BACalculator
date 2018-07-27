@@ -12,6 +12,11 @@ class DrinkTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let bloodAlcoholContentNavigationViewController = navigationController as? BloodAlcoholContentNavigationViewController {
+            let themeColor = ColorManager.themeColor(forBAC: bloodAlcoholContentNavigationViewController.cachedBloodAlcoholContent)
+            bloodAlcoholContentNavigationViewController.navigationBar.barTintColor = themeColor.dark
+            view.backgroundColor = themeColor.normal
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -29,10 +29,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var bloodAlcoholContentLabel: UILabel!
     
-    private var hoursOffset: Int = 0
-    private var timeIntervalOffset: TimeInterval {
-        return TimeInterval(3600 * hoursOffset)
-    }
+    private var bloodAlcoholContentAgent: BloodAlcoholContentAgent = BloodAlcoholContentAgent()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +56,7 @@ class HomeViewController: UIViewController {
     ///
     /// - Parameter animated: If `true`, updates to on-screen measurements will be animated.
     func updateMeasurement(animated: Bool) {
-        let bloodAlcoholContent = calculateBAC(atDate: Date().addingTimeInterval(timeIntervalOffset))
+        let bloodAlcoholContent = bloodAlcoholContentAgent.calculateBAC(safeMode: PreferencesManager.safeMode)
         updateBloodAlcoholContentLabel(withBAC: bloodAlcoholContent, animated: animated)
         updateBackgroundColor(forBAC: bloodAlcoholContent, animated: animated)
     }
@@ -109,13 +106,13 @@ class HomeViewController: UIViewController {
     
     /// Update the time label with the proper number of hours offset.
     private func updateTimeLabel() {
-        if hoursOffset < -1 {
-            timeLabel.text = "\(abs(hoursOffset)) Hours Ago"
-        } else if hoursOffset == -1 {
+        if bloodAlcoholContentAgent.offsetHours < -1 {
+            timeLabel.text = "\(abs(bloodAlcoholContentAgent.offsetHours)) Hours Ago"
+        } else if bloodAlcoholContentAgent.offsetHours == -1 {
             timeLabel.text = "1 Hour Ago"
-        } else if hoursOffset > 1 {
-            timeLabel.text = "In \(hoursOffset) Hours"
-        } else if hoursOffset == 1 {
+        } else if bloodAlcoholContentAgent.offsetHours > 1 {
+            timeLabel.text = "In \(bloodAlcoholContentAgent.offsetHours) Hours"
+        } else if bloodAlcoholContentAgent.offsetHours == 1 {
             timeLabel.text = "In 1 Hour"
         } else {
             timeLabel.text = "Right Now"
@@ -123,13 +120,13 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func timeControlPressed(_ sender: TimeControlButton) {
-        hoursOffset += sender.hourStep
+        bloodAlcoholContentAgent.adjustOffset(byHours: sender.stepSizeHours)
         updateTime()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? ThemedNavigationViewController {
-            destination.bloodAlcoholContent = calculateBAC(atDate: Date().addingTimeInterval(timeIntervalOffset))
+        if let destination = segue.destination as? BloodAlcoholContentNavigationViewController {
+            destination.cachedBloodAlcoholContent = bloodAlcoholContentAgent.calculateBAC(safeMode: PreferencesManager.safeMode)
         }
     }
     

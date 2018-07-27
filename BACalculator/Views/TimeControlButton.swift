@@ -10,6 +10,6 @@ import UIKit
 
 class TimeControlButton: UIButton {
 
-    @IBInspectable var hourStep: Int = 0
+    @IBInspectable var stepSizeHours: Int = 0
 
 }
