@@ -23,5 +23,14 @@ public enum DrinkerSex {
             return 0.49
         }
     }
+    /// A description of the `DrinkerSex` with capitilization.
+    public var description: String {
+        switch self {
+        case .male:
+            return "Male"
+        case .female:
+            return "Female"
+        }
+    }
     
 }

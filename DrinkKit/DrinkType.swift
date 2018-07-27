@@ -16,4 +16,18 @@ public enum DrinkType {
     case liquor
     case mixed
     
+    /// A description of the `DrinkType` with capitilization.
+    public var description: String {
+        switch self {
+        case .beer:
+            return "Beer"
+        case .wine:
+            return "Wine"
+        case .liquor:
+            return "Liquor"
+        case .mixed:
+            return "Mixed"
+        }
+    }
+    
 }
