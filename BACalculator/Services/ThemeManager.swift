@@ -1,5 +1,5 @@
 //
-//  ColorManager.swift
+//  ThemeManager.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/25/18.
@@ -9,16 +9,18 @@
 import DrinkKit
 import UIKit
 
-struct ColorManager {
+struct ThemeManager {
     
     static func themeColor(forBAC bloodAlcoholContent: BloodAlcoholContent) -> (normal: UIColor?, dark: UIColor?) {
+        let color: (normal: UIColor?, dark: UIColor?)
         if bloodAlcoholContent <= 0.02 {
-            return (UIColor(named: "Green"), UIColor(named: "Green-Dark"))
+            color = (UIColor(named: "Green"), UIColor(named: "Green-Dark"))
         } else if bloodAlcoholContent <= 0.06 {
-            return (UIColor(named: "Orange"), UIColor(named: "Orange-Dark"))
+            color = (UIColor(named: "Orange"), UIColor(named: "Orange-Dark"))
         } else {
-            return (UIColor(named: "Red"), UIColor(named: "Red-Dark"))
+            color = (UIColor(named: "Red"), UIColor(named: "Red-Dark"))
         }
+        return color
     }
     
 }

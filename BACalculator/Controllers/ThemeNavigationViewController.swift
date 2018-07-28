@@ -1,5 +1,5 @@
 //
-//  BloodAlcoholContentNavigationViewController.swift
+//  ThemeNavigationViewController.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/25/18.
@@ -9,16 +9,22 @@
 import DrinkKit
 import UIKit
 
-class BloodAlcoholContentNavigationViewController: UINavigationController {
+class ThemeNavigationViewController: UINavigationController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
-    var cachedBloodAlcoholContent: BloodAlcoholContent!
-
+    var themeColor: (normal: UIColor?, dark: UIColor?)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBar.barTintColor = themeColor.dark
+        topViewController?.view.backgroundColor = themeColor.normal
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -12,6 +12,8 @@ import os.log
 
 struct BloodAlcoholContentAgent {
     
+    static var `default` = BloodAlcoholContentAgent()
+    
     private var _offsetHours: Int
     private var _offsetTimeInterval: TimeInterval {
         return TimeInterval(3600 * offsetHours)

@@ -15,15 +15,19 @@ class DrinkSizeAttributeOptionCollectionViewDataSource: NSObject, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return DrinkAttributeManager.standardDrinkSizes.count
+        return DrinkManager.standardSizes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "size", for: indexPath) as! DrinkAttributeOptionCollectionViewCell
-        let cellCard = cell.card as! DrinkSizeAttributeCardView
-        let standardDrinkSize = DrinkAttributeManager.standardDrinkSizes[indexPath.row]
-        cellCard.textLabel.text = "\(standardDrinkSize)"
-        cellCard.detailTextLabel.text = DrinkAttributeManager.unitDescription(forStandardDrinks: standardDrinkSize)
+        let card = cell.card as! DrinkSizeAttributeCardView
+        let standardDrinkSize = DrinkManager.standardSizes[indexPath.row]
+        card.textLabel.text = "\(standardDrinkSize)"
+        if standardDrinkSize == 1 {
+            cell.card.detailTextLabel.text = "Standard Drink"
+        } else {
+            cell.card.detailTextLabel.text = "Standard Drinks"
+        }
         return cell
     }
 

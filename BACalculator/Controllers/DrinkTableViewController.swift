@@ -9,14 +9,9 @@
 import UIKit
 
 class DrinkTableViewController: UITableViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let bloodAlcoholContentNavigationViewController = navigationController as? BloodAlcoholContentNavigationViewController {
-            let themeColor = ColorManager.themeColor(forBAC: bloodAlcoholContentNavigationViewController.cachedBloodAlcoholContent)
-            bloodAlcoholContentNavigationViewController.navigationBar.barTintColor = themeColor.dark
-            view.backgroundColor = themeColor.normal
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,6 +59,5 @@ class DrinkTableViewController: UITableViewController {
     @IBAction func addPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
-    
     
 }

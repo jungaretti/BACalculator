@@ -18,15 +18,15 @@ class DrinkTypeAttributeOptionCollectionViewDataSource: NSObject, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return DrinkAttributeManager.drinkTypes.count
+        return DrinkManager.types.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "type", for: indexPath) as! DrinkAttributeOptionCollectionViewCell
-        let cellCard = cell.card as! DrinkTypeAttributeCardView
-        let drinkType = DrinkAttributeManager.drinkTypes[indexPath.row]
-        cell.card.detailTextLabel.text = "\(drinkType.description)"
-        cellCard.imageView.image = DrinkAttributeManager.image(forDrinkType: drinkType)
+        let card = cell.card as! DrinkTypeAttributeCardView
+        let type = DrinkManager.types[indexPath.row]
+        card.detailTextLabel.text = type.description
+        card.imageView.image = DrinkManager.icon(forType: type)
         return cell
     }
 

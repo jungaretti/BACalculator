@@ -3,26 +3,26 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "HomeViewController.updateBloodAlcoholContentLabel(forBAC:):HomeViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "bloodAlcoholContent">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "DrinkTableViewController.tableView(_:cellForRowAt:):DrinkTableViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "cell.collectionView.collectionViewLayout.collectionViewContentSize">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "DrinkTableViewController.addPressed(_:):DrinkTableViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "firstCell.collectionView.visibleCells.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrinkTableViewController.stop():DrinkTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(firstCell as! DrinkAttributeTableViewCell).collectionView.collectionViewLayout.collectionViewContentSize">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ThemeNavigationViewController.viewDidLoad():ThemeNavigationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "topViewController.view.backgroundColor == UIColor(named: &quot;Green&quot;)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -35,10 +35,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "DrinkTableViewController.stop():DrinkTableViewController.swift">
+         contextName = "DrinkTableViewController.tableView(_:cellForRowAt:):DrinkTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "(firstCell as! DrinkAttributeTableViewCell).collectionView.collectionViewLayout.collectionViewContentSize">
+               value = "cell.collectionView.collectionViewLayout.collectionViewContentSize">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeViewController.updateBloodAlcoholContentLabel(forBAC:):HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "bloodAlcoholContent">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
