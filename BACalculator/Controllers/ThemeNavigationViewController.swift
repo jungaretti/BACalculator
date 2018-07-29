@@ -22,10 +22,6 @@ class ThemeNavigationViewController: UINavigationController {
         navigationBar.barTintColor = themeColor.dark
         topViewController?.view.backgroundColor = themeColor.normal
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

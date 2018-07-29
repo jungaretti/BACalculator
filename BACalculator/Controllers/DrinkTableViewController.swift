@@ -10,6 +10,11 @@ import UIKit
 
 class DrinkTableViewController: UITableViewController {
     
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
+    private var _customSize: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -20,36 +25,62 @@ class DrinkTableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "attribute") as! DrinkAttributeTableViewCell
-        switch indexPath.row {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch section {
         case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "header") as! DrinkAttributeHeaderTableViewCell
             cell.attributeLabel.text = "Type"
-            cell.attributeButton.removeFromSuperview()
-            let collectionViewDataSource = DrinkTypeAttributeOptionCollectionViewDataSource()
-            cell.setCollectionView(dataSource: collectionViewDataSource)
-            
+            cell.backgroundColor = tableView.backgroundColor
+            return cell.contentView
         case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "headerAction") as! DrinkAttributeActionHeaderTableViewCell
             cell.attributeLabel.text = "Size"
-            cell.attributeButton.setTitle("Use Custom Size", for: .normal)
-            let collectionViewDataSource = DrinkSizeAttributeOptionCollectionViewDataSource()
-            cell.setCollectionView(dataSource: collectionViewDataSource)
+            if _customSize {
+                cell.attributeButton.setTitle("Use Standard Size", for: .normal)
+            } else {
+                cell.attributeButton.setTitle("Use Custom Size", for: .normal)
+            }
+            cell.attributeButton.addTarget(self, action: #selector(toggleSizeMode(_:)), for: .touchUpInside)
+            cell.backgroundColor = tableView.backgroundColor
+            return cell.contentView
+        default:
+            return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "collectionView") as! DrinkAttributeCollectionTableViewCell
+        switch indexPath.section {
+        // Drink type
+        case 0:
+            cell.setCollectionView(dataSource: DrinkTypeAttributeOptionCollectionViewDataSource())
+        // Drink size
+        case 1:
+            cell.setCollectionView(dataSource: DrinkSizeAttributeOptionCollectionViewDataSource())
         default:
             break
         }
-        (cell.collectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize = CGSize(width: 120.0, height: cell.collectionView.frame.height)
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44.0
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 206.0
+        return 172.0
+    }
+    
+    @objc func toggleSizeMode(_ sender: UIButton) {
+        self._customSize = !(_customSize)
+        self.tableView.reloadSections([1], with: .automatic)
     }
     
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
