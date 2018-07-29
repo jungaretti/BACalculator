@@ -9,8 +9,7 @@
 import DrinkKit
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
+/// An `UICollectionViewDataSource` that specializes in displaying a collection of `DrinkType` options.
 class DrinkTypeAttributeOptionCollectionViewDataSource: NSObject, UICollectionViewDataSource {
         
     func numberOfSections(in collectionView: UICollectionView) -> Int {

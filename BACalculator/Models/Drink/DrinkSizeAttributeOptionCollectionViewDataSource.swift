@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// An `UICollectionViewDataSource` that specializes in displaying a collection of standard `StandardDrinkSize` choices.
 class DrinkSizeAttributeOptionCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

@@ -13,7 +13,7 @@ class DrinkTableViewController: UITableViewController {
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
-    private var _customSize: Bool = true
+    private var _customSize: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,18 @@ class DrinkTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            if _customSize {
+                return 2
+            } else {
+                return 1
+            }
+        default:
+            return 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -37,7 +48,7 @@ class DrinkTableViewController: UITableViewController {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "header") as! DrinkAttributeHeaderTableViewCell
             cell.attributeLabel.text = "Type"
-            cell.backgroundColor = tableView.backgroundColor
+            cell.contentView.backgroundColor = tableView.backgroundColor
             return cell.contentView
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "headerAction") as! DrinkAttributeActionHeaderTableViewCell
@@ -48,7 +59,7 @@ class DrinkTableViewController: UITableViewController {
                 cell.attributeButton.setTitle("Use Custom Size", for: .normal)
             }
             cell.attributeButton.addTarget(self, action: #selector(toggleSizeMode(_:)), for: .touchUpInside)
-            cell.backgroundColor = tableView.backgroundColor
+            cell.contentView.backgroundColor = tableView.backgroundColor
             return cell.contentView
         default:
             return nil
@@ -56,18 +67,38 @@ class DrinkTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "collectionView") as! DrinkAttributeCollectionTableViewCell
         switch indexPath.section {
-        // Drink type
+        // Type
         case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "collectionView") as! DrinkAttributeCollectionTableViewCell
             cell.setCollectionView(dataSource: DrinkTypeAttributeOptionCollectionViewDataSource())
-        // Drink size
+            return cell
+        // Size
         case 1:
-            cell.setCollectionView(dataSource: DrinkSizeAttributeOptionCollectionViewDataSource())
+            switch indexPath.row {
+            case 0:
+                if _customSize {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "detail") as! DrinkAttributeDetailTableViewCell
+                    cell.textLabel?.text = "Volume"
+                    cell.detailTextLabel?.text = "Value"
+                    return cell
+                } else {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "collectionView") as! DrinkAttributeCollectionTableViewCell
+                    cell.setCollectionView(dataSource: DrinkSizeAttributeOptionCollectionViewDataSource())
+                    return cell
+                }
+            case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "detail") as! DrinkAttributeDetailTableViewCell
+                cell.textLabel?.text = "Alcohol Ratio"
+                cell.detailTextLabel?.text = "Value"
+                return cell
+            default:
+                break
+            }
         default:
             break
         }
-        return cell
+        return UITableViewCell(style: .default, reuseIdentifier: nil)
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -75,6 +106,20 @@ class DrinkTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cardRowHeight = CGFloat(172.0)
+        let detailRowHeight = CGFloat(54.0)
+        switch indexPath.section {
+        case 0:
+            return cardRowHeight
+        case 1:
+            if _customSize {
+                return detailRowHeight
+            } else {
+                return cardRowHeight
+            }
+        default:
+            break
+        }
         return 172.0
     }
     
