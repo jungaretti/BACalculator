@@ -1,5 +1,5 @@
 //
-//  DrinkGlyphAttributeCardView.swift
+//  GlyphAttributeCardView.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/26/18.
@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 
 /// An `AttributeCardView` that has an accompanying image.
-class DrinkGlyphAttributeCardView: DrinkAttributeCardView {
+class GlyphAttributeCardView: AttributeOptionCardView {
 
     @IBOutlet weak var imageView: UIImageView!
     

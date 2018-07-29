@@ -1,5 +1,5 @@
 //
-//  DrinkAttributeActionHeaderTableViewCell.swift
+//  AttributeHeaderActionTableViewCell.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/28/18.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-class DrinkAttributeActionHeaderTableViewCell: DrinkAttributeHeaderTableViewCell {
+/// An `AttributeTableViewCell` that specializes in displaying a label and a button.
+class AttributeHeaderActionTableViewCell: AttributeHeaderTableViewCell {
     
     @IBOutlet weak var attributeButton: UIButton!
 

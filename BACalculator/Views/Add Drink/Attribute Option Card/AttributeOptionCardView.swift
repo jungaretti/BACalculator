@@ -1,5 +1,5 @@
 //
-//  DrinkAttributeCardView.swift
+//  AttributeOptionCardView.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/26/18.
@@ -11,7 +11,18 @@ import UIKit
 @IBDesignable
 
 /// An object that displays an attribute of a drink.
-class DrinkAttributeCardView: XIBView {
+class AttributeOptionCardView: XIBView {
+    
+    /// Constants to describe selection states of an `AttributeOptionCardView`.
+    ///
+    /// - selected: An `AttributeOptionCardView` with a dark background and white text.
+    /// - deselected: An `AttributeOptionCardView` with a white background and dark text.
+    enum AttributeCardViewSelectedState {
+        
+        case selected
+        case deselected
+        
+    }
     
     /// The selection state of the `AttributeCardView`.
     var selectedState: AttributeCardViewSelectedState!

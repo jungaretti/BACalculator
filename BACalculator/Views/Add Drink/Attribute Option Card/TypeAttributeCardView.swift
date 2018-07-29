@@ -1,5 +1,5 @@
 //
-//  DrinkTypeAttributeCardView.swift
+//  TypeAttributeCardView.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/26/18.
@@ -11,6 +11,6 @@ import UIKit
 @IBDesignable
 
 /// An `AttributeCardView` for the `type` property of a `Drink`.
-class DrinkTypeAttributeCardView: DrinkGlyphAttributeCardView {
+class TypeAttributeCardView: GlyphAttributeCardView {
     
 }

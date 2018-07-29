@@ -1,5 +1,5 @@
 //
-//  DrinkAttributeCollectionTableViewCell.swift
+//  AttributeCollectionTableViewCell.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/28/18.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-class DrinkAttributeCollectionTableViewCell: UITableViewCell {
+/// An `AttributeTableViewCell` that specializes in displaying a collection view.
+class AttributeCollectionTableViewCell: AttributeTableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     private var collectionViewDataSource: UICollectionViewDataSource?

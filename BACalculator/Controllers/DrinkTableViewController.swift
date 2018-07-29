@@ -46,12 +46,12 @@ class DrinkTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         switch section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "header") as! DrinkAttributeHeaderTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "header") as! AttributeHeaderTableViewCell
             cell.attributeLabel.text = "Type"
             cell.contentView.backgroundColor = tableView.backgroundColor
             return cell.contentView
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "headerAction") as! DrinkAttributeActionHeaderTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "headerAction") as! AttributeHeaderActionTableViewCell
             cell.attributeLabel.text = "Size"
             if _customSize {
                 cell.attributeButton.setTitle("Use Standard Size", for: .normal)
@@ -70,25 +70,25 @@ class DrinkTableViewController: UITableViewController {
         switch indexPath.section {
         // Type
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "collectionView") as! DrinkAttributeCollectionTableViewCell
-            cell.setCollectionView(dataSource: DrinkTypeAttributeOptionCollectionViewDataSource())
+            let cell = tableView.dequeueReusableCell(withIdentifier: "collectionView") as! AttributeCollectionTableViewCell
+            cell.setCollectionView(dataSource: TypeAttributeOptionCollectionViewDataSource())
             return cell
         // Size
         case 1:
             switch indexPath.row {
             case 0:
                 if _customSize {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "detail") as! DrinkAttributeDetailTableViewCell
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "detail") as! AttributeDetailTableViewCell
                     cell.textLabel?.text = "Volume"
                     cell.detailTextLabel?.text = "Value"
                     return cell
                 } else {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "collectionView") as! DrinkAttributeCollectionTableViewCell
-                    cell.setCollectionView(dataSource: DrinkSizeAttributeOptionCollectionViewDataSource())
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "collectionView") as! AttributeCollectionTableViewCell
+                    cell.setCollectionView(dataSource: SizeAttributeOptionCollectionViewDataSource())
                     return cell
                 }
             case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "detail") as! DrinkAttributeDetailTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "detail") as! AttributeDetailTableViewCell
                 cell.textLabel?.text = "Alcohol Ratio"
                 cell.detailTextLabel?.text = "Value"
                 return cell

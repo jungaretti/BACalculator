@@ -1,24 +1,19 @@
 //
-//  DrinkAttributeHeaderTableViewCell.swift
+//  AttributeTableViewCell.swift
 //  BACalculator
 //
-//  Created by James Ungaretti on 7/28/18.
+//  Created by James Ungaretti on 7/29/18.
 //  Copyright © 2018 James Ungaretti. All rights reserved.
 //
 
 import UIKit
 
-class DrinkAttributeHeaderTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var attributeLabel: UILabel!
-    
-    override var textLabel: UILabel? {
-        return attributeLabel
-    }
+/// An `UITableViewCell` that specializes in displaying a drink attribute.
+class AttributeTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        attributeLabel.textColor = UIColor.white
+        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

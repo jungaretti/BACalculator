@@ -1,5 +1,5 @@
 //
-//  DrinkSizeAttributeOptionCollectionViewDataSource.swift
+//  SizeAttributeOptionCollectionViewDataSource.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/26/18.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// An `UICollectionViewDataSource` that specializes in displaying a collection of standard `StandardDrinkSize` choices.
-class DrinkSizeAttributeOptionCollectionViewDataSource: NSObject, UICollectionViewDataSource {
+class SizeAttributeOptionCollectionViewDataSource: AttributeOptionCollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -20,8 +20,8 @@ class DrinkSizeAttributeOptionCollectionViewDataSource: NSObject, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "size", for: indexPath) as! DrinkAttributeOptionCollectionViewCell
-        let card = cell.card as! DrinkSizeAttributeCardView
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "size", for: indexPath) as! AttributeOptionCollectionViewCell
+        let card = cell.card as! SizeAttributeCardView
         let standardDrinkSize = DrinkManager.standardSizes[indexPath.row]
         card.textLabel.text = "\(standardDrinkSize)"
         if standardDrinkSize == 1 {

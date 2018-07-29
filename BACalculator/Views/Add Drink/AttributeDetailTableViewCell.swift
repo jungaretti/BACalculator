@@ -1,5 +1,5 @@
 //
-//  DrinkAttributeDetailTableViewCell.swift
+//  AttributeDetailTableViewCell.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/29/18.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-class DrinkAttributeDetailTableViewCell: UITableViewCell {
+/// An `AttributeTableViewCell` that specializes in displaying a label and detail label.
+class AttributeDetailTableViewCell: AttributeTableViewCell {
     
     @IBOutlet weak var attributeLabel: UILabel!
     @IBOutlet weak var attributeDetailLabel: UILabel!

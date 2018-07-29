@@ -22,24 +22,26 @@
 		152AB71A2107DC92001918EF /* DrinkerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB7192107DC92001918EF /* DrinkerInformation.swift */; };
 		152AB71C2107E03F001918EF /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB71B2107E03F001918EF /* Drink.swift */; };
 		152AB71E2107E091001918EF /* DrinkSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB71D2107E091001918EF /* DrinkSize.swift */; };
-		1568BFB7210CEF9A0077C6E7 /* DrinkAttributeHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1568BFB6210CEF9A0077C6E7 /* DrinkAttributeHeaderTableViewCell.swift */; };
-		1568BFB9210CEFA70077C6E7 /* DrinkAttributeActionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1568BFB8210CEFA70077C6E7 /* DrinkAttributeActionHeaderTableViewCell.swift */; };
-		1568BFBB210CEFB50077C6E7 /* DrinkAttributeCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1568BFBA210CEFB50077C6E7 /* DrinkAttributeCollectionTableViewCell.swift */; };
-		15905F23210E380C00FED891 /* DrinkAttributeDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15905F22210E380C00FED891 /* DrinkAttributeDetailTableViewCell.swift */; };
+		155CA6D7210E69EF009F9BAB /* AttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155CA6D6210E69EF009F9BAB /* AttributeTableViewCell.swift */; };
+		155CA6DB210E85A0009F9BAB /* AttributeOptionCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155CA6DA210E85A0009F9BAB /* AttributeOptionCollectionViewDataSource.swift */; };
+		1568BFB7210CEF9A0077C6E7 /* AttributeHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1568BFB6210CEF9A0077C6E7 /* AttributeHeaderTableViewCell.swift */; };
+		1568BFB9210CEFA70077C6E7 /* AttributeHeaderActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1568BFB8210CEFA70077C6E7 /* AttributeHeaderActionTableViewCell.swift */; };
+		1568BFBB210CEFB50077C6E7 /* AttributeCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1568BFBA210CEFB50077C6E7 /* AttributeCollectionTableViewCell.swift */; };
+		15905F23210E380C00FED891 /* AttributeDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15905F22210E380C00FED891 /* AttributeDetailTableViewCell.swift */; };
 		1591E81A21095B5600F56581 /* TimeControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1591E81921095B5600F56581 /* TimeControlButton.swift */; };
 		15A7C4F82109668900F260FB /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7C4F72109668900F260FB /* ThemeManager.swift */; };
 		15A7C54A2109824B00F260FB /* ThemeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7C5492109824B00F260FB /* ThemeNavigationViewController.swift */; };
-		15B2A66D210A8BE4002C33AE /* DrinkAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A66C210A8BE4002C33AE /* DrinkAttributeCardView.swift */; };
-		15B2A66F210A8E54002C33AE /* DrinkGlyphAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A66E210A8E54002C33AE /* DrinkGlyphAttributeCardView.swift */; };
-		15B2A671210A8EC0002C33AE /* DrinkHeaderAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A670210A8EC0002C33AE /* DrinkHeaderAttributeCardView.swift */; };
-		15B2A673210A9062002C33AE /* DrinkTypeAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A672210A9062002C33AE /* DrinkTypeAttributeCardView.swift */; };
-		15B2A675210A90C5002C33AE /* DrinkSizeAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A674210A90C5002C33AE /* DrinkSizeAttributeCardView.swift */; };
-		15B2A677210A90F4002C33AE /* DrinkSizeAttributeCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B2A676210A90F4002C33AE /* DrinkSizeAttributeCardView.xib */; };
-		15B2A679210A90FF002C33AE /* DrinkTypeAttributeCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B2A678210A90FF002C33AE /* DrinkTypeAttributeCardView.xib */; };
-		15B2A67E210AAD7E002C33AE /* DrinkAttributeOptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A67D210AAD7E002C33AE /* DrinkAttributeOptionCollectionViewCell.swift */; };
+		15B2A66D210A8BE4002C33AE /* AttributeOptionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A66C210A8BE4002C33AE /* AttributeOptionCardView.swift */; };
+		15B2A66F210A8E54002C33AE /* GlyphAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A66E210A8E54002C33AE /* GlyphAttributeCardView.swift */; };
+		15B2A671210A8EC0002C33AE /* HeaderAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A670210A8EC0002C33AE /* HeaderAttributeCardView.swift */; };
+		15B2A673210A9062002C33AE /* TypeAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A672210A9062002C33AE /* TypeAttributeCardView.swift */; };
+		15B2A675210A90C5002C33AE /* SizeAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A674210A90C5002C33AE /* SizeAttributeCardView.swift */; };
+		15B2A677210A90F4002C33AE /* SizeAttributeCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B2A676210A90F4002C33AE /* SizeAttributeCardView.xib */; };
+		15B2A679210A90FF002C33AE /* TypeAttributeCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15B2A678210A90FF002C33AE /* TypeAttributeCardView.xib */; };
+		15B2A67E210AAD7E002C33AE /* AttributeOptionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A67D210AAD7E002C33AE /* AttributeOptionCollectionViewCell.swift */; };
 		15B57642210AB272007F48D1 /* DrinkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B57641210AB272007F48D1 /* DrinkTableViewController.swift */; };
-		15B57648210ABEB0007F48D1 /* DrinkTypeAttributeOptionCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B57647210ABEB0007F48D1 /* DrinkTypeAttributeOptionCollectionViewDataSource.swift */; };
-		15B5764C210ACCB7007F48D1 /* DrinkSizeAttributeOptionCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5764B210ACCB7007F48D1 /* DrinkSizeAttributeOptionCollectionViewDataSource.swift */; };
+		15B57648210ABEB0007F48D1 /* TypeAttributeOptionCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B57647210ABEB0007F48D1 /* TypeAttributeOptionCollectionViewDataSource.swift */; };
+		15B5764C210ACCB7007F48D1 /* SizeAttributeOptionCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5764B210ACCB7007F48D1 /* SizeAttributeOptionCollectionViewDataSource.swift */; };
 		15B57657210AE086007F48D1 /* BloodAlcoholContentAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B57656210AE086007F48D1 /* BloodAlcoholContentAgent.swift */; };
 		15D551E02107EDAB000F0889 /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551DF2107EDAB000F0889 /* DrinkType.swift */; };
 		15D551E22107EDC5000F0889 /* StandardDrinkSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551E12107EDC5000F0889 /* StandardDrinkSize.swift */; };
@@ -57,7 +59,6 @@
 		15D551FB21082A03000F0889 /* DrinkerInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551FA21082A03000F0889 /* DrinkerInformationManager.swift */; };
 		15D551FD21082B0C000F0889 /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551FC21082B0C000F0889 /* PreferencesManager.swift */; };
 		15D5520121082BD9000F0889 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D5520021082BD9000F0889 /* HomeViewController.swift */; };
-		15EBF907210E3AF600877A0B /* AttributeCardViewSelectedState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EBF906210E3AF600877A0B /* AttributeCardViewSelectedState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,24 +137,26 @@
 		152AB7192107DC92001918EF /* DrinkerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerInformation.swift; sourceTree = "<group>"; };
 		152AB71B2107E03F001918EF /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		152AB71D2107E091001918EF /* DrinkSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkSize.swift; sourceTree = "<group>"; };
-		1568BFB6210CEF9A0077C6E7 /* DrinkAttributeHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkAttributeHeaderTableViewCell.swift; sourceTree = "<group>"; };
-		1568BFB8210CEFA70077C6E7 /* DrinkAttributeActionHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkAttributeActionHeaderTableViewCell.swift; sourceTree = "<group>"; };
-		1568BFBA210CEFB50077C6E7 /* DrinkAttributeCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkAttributeCollectionTableViewCell.swift; sourceTree = "<group>"; };
-		15905F22210E380C00FED891 /* DrinkAttributeDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkAttributeDetailTableViewCell.swift; sourceTree = "<group>"; };
+		155CA6D6210E69EF009F9BAB /* AttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeTableViewCell.swift; sourceTree = "<group>"; };
+		155CA6DA210E85A0009F9BAB /* AttributeOptionCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeOptionCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		1568BFB6210CEF9A0077C6E7 /* AttributeHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		1568BFB8210CEFA70077C6E7 /* AttributeHeaderActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeHeaderActionTableViewCell.swift; sourceTree = "<group>"; };
+		1568BFBA210CEFB50077C6E7 /* AttributeCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeCollectionTableViewCell.swift; sourceTree = "<group>"; };
+		15905F22210E380C00FED891 /* AttributeDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeDetailTableViewCell.swift; sourceTree = "<group>"; };
 		1591E81921095B5600F56581 /* TimeControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeControlButton.swift; sourceTree = "<group>"; };
 		15A7C4F72109668900F260FB /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		15A7C5492109824B00F260FB /* ThemeNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeNavigationViewController.swift; sourceTree = "<group>"; };
-		15B2A66C210A8BE4002C33AE /* DrinkAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkAttributeCardView.swift; sourceTree = "<group>"; };
-		15B2A66E210A8E54002C33AE /* DrinkGlyphAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkGlyphAttributeCardView.swift; sourceTree = "<group>"; };
-		15B2A670210A8EC0002C33AE /* DrinkHeaderAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkHeaderAttributeCardView.swift; sourceTree = "<group>"; };
-		15B2A672210A9062002C33AE /* DrinkTypeAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTypeAttributeCardView.swift; sourceTree = "<group>"; };
-		15B2A674210A90C5002C33AE /* DrinkSizeAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkSizeAttributeCardView.swift; sourceTree = "<group>"; };
-		15B2A676210A90F4002C33AE /* DrinkSizeAttributeCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinkSizeAttributeCardView.xib; sourceTree = "<group>"; };
-		15B2A678210A90FF002C33AE /* DrinkTypeAttributeCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinkTypeAttributeCardView.xib; sourceTree = "<group>"; };
-		15B2A67D210AAD7E002C33AE /* DrinkAttributeOptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkAttributeOptionCollectionViewCell.swift; sourceTree = "<group>"; };
+		15B2A66C210A8BE4002C33AE /* AttributeOptionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeOptionCardView.swift; sourceTree = "<group>"; };
+		15B2A66E210A8E54002C33AE /* GlyphAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphAttributeCardView.swift; sourceTree = "<group>"; };
+		15B2A670210A8EC0002C33AE /* HeaderAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderAttributeCardView.swift; sourceTree = "<group>"; };
+		15B2A672210A9062002C33AE /* TypeAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAttributeCardView.swift; sourceTree = "<group>"; };
+		15B2A674210A90C5002C33AE /* SizeAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeAttributeCardView.swift; sourceTree = "<group>"; };
+		15B2A676210A90F4002C33AE /* SizeAttributeCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SizeAttributeCardView.xib; sourceTree = "<group>"; };
+		15B2A678210A90FF002C33AE /* TypeAttributeCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TypeAttributeCardView.xib; sourceTree = "<group>"; };
+		15B2A67D210AAD7E002C33AE /* AttributeOptionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeOptionCollectionViewCell.swift; sourceTree = "<group>"; };
 		15B57641210AB272007F48D1 /* DrinkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTableViewController.swift; sourceTree = "<group>"; };
-		15B57647210ABEB0007F48D1 /* DrinkTypeAttributeOptionCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTypeAttributeOptionCollectionViewDataSource.swift; sourceTree = "<group>"; };
-		15B5764B210ACCB7007F48D1 /* DrinkSizeAttributeOptionCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkSizeAttributeOptionCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		15B57647210ABEB0007F48D1 /* TypeAttributeOptionCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAttributeOptionCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		15B5764B210ACCB7007F48D1 /* SizeAttributeOptionCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeAttributeOptionCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		15B57656210AE086007F48D1 /* BloodAlcoholContentAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodAlcoholContentAgent.swift; sourceTree = "<group>"; };
 		15D551DF2107EDAB000F0889 /* DrinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkType.swift; sourceTree = "<group>"; };
 		15D551E12107EDC5000F0889 /* StandardDrinkSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDrinkSize.swift; sourceTree = "<group>"; };
@@ -171,7 +174,6 @@
 		15D551FA21082A03000F0889 /* DrinkerInformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerInformationManager.swift; sourceTree = "<group>"; };
 		15D551FC21082B0C000F0889 /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
 		15D5520021082BD9000F0889 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		15EBF906210E3AF600877A0B /* AttributeCardViewSelectedState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeCardViewSelectedState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,29 +309,35 @@
 			path = DrinkKitTests;
 			sourceTree = "<group>";
 		};
-		15905F25210E382C00FED891 /* Drink */ = {
+		15905F25210E382C00FED891 /* Add Drink */ = {
 			isa = PBXGroup;
 			children = (
-				15B57647210ABEB0007F48D1 /* DrinkTypeAttributeOptionCollectionViewDataSource.swift */,
-				15B5764B210ACCB7007F48D1 /* DrinkSizeAttributeOptionCollectionViewDataSource.swift */,
+				155CA6DA210E85A0009F9BAB /* AttributeOptionCollectionViewDataSource.swift */,
+				15B57647210ABEB0007F48D1 /* TypeAttributeOptionCollectionViewDataSource.swift */,
+				15B5764B210ACCB7007F48D1 /* SizeAttributeOptionCollectionViewDataSource.swift */,
 			);
-			path = Drink;
+			path = "Add Drink";
 			sourceTree = "<group>";
 		};
-		15905F27210E383E00FED891 /* Drink */ = {
+		15905F27210E383E00FED891 /* Add Drink */ = {
 			isa = PBXGroup;
 			children = (
-				15EBF901210E3A3500877A0B /* DrinkAttributeCard */,
-				15EBF903210E3A8000877A0B /* DrinkAttributeCell */,
+				155CA6D6210E69EF009F9BAB /* AttributeTableViewCell.swift */,
+				1568BFB6210CEF9A0077C6E7 /* AttributeHeaderTableViewCell.swift */,
+				1568BFB8210CEFA70077C6E7 /* AttributeHeaderActionTableViewCell.swift */,
+				1568BFBA210CEFB50077C6E7 /* AttributeCollectionTableViewCell.swift */,
+				15905F22210E380C00FED891 /* AttributeDetailTableViewCell.swift */,
+				15B2A67D210AAD7E002C33AE /* AttributeOptionCollectionViewCell.swift */,
+				15EBF901210E3A3500877A0B /* Attribute Option Card */,
 			);
-			path = Drink;
+			path = "Add Drink";
 			sourceTree = "<group>";
 		};
 		15B57651210ADB45007F48D1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				15B57656210AE086007F48D1 /* BloodAlcoholContentAgent.swift */,
-				15905F25210E382C00FED891 /* Drink */,
+				15905F25210E382C00FED891 /* Add Drink */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -360,36 +368,23 @@
 			children = (
 				1591E81921095B5600F56581 /* TimeControlButton.swift */,
 				1506B4F2210A824D00CBDD14 /* XIBView.swift */,
-				15905F27210E383E00FED891 /* Drink */,
+				15905F27210E383E00FED891 /* Add Drink */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		15EBF901210E3A3500877A0B /* DrinkAttributeCard */ = {
+		15EBF901210E3A3500877A0B /* Attribute Option Card */ = {
 			isa = PBXGroup;
 			children = (
-				15EBF906210E3AF600877A0B /* AttributeCardViewSelectedState.swift */,
-				15B2A66C210A8BE4002C33AE /* DrinkAttributeCardView.swift */,
-				15B2A66E210A8E54002C33AE /* DrinkGlyphAttributeCardView.swift */,
-				15B2A670210A8EC0002C33AE /* DrinkHeaderAttributeCardView.swift */,
-				15B2A672210A9062002C33AE /* DrinkTypeAttributeCardView.swift */,
-				15B2A678210A90FF002C33AE /* DrinkTypeAttributeCardView.xib */,
-				15B2A674210A90C5002C33AE /* DrinkSizeAttributeCardView.swift */,
-				15B2A676210A90F4002C33AE /* DrinkSizeAttributeCardView.xib */,
+				15B2A66C210A8BE4002C33AE /* AttributeOptionCardView.swift */,
+				15B2A66E210A8E54002C33AE /* GlyphAttributeCardView.swift */,
+				15B2A670210A8EC0002C33AE /* HeaderAttributeCardView.swift */,
+				15B2A672210A9062002C33AE /* TypeAttributeCardView.swift */,
+				15B2A678210A90FF002C33AE /* TypeAttributeCardView.xib */,
+				15B2A674210A90C5002C33AE /* SizeAttributeCardView.swift */,
+				15B2A676210A90F4002C33AE /* SizeAttributeCardView.xib */,
 			);
-			path = DrinkAttributeCard;
-			sourceTree = "<group>";
-		};
-		15EBF903210E3A8000877A0B /* DrinkAttributeCell */ = {
-			isa = PBXGroup;
-			children = (
-				1568BFB6210CEF9A0077C6E7 /* DrinkAttributeHeaderTableViewCell.swift */,
-				1568BFB8210CEFA70077C6E7 /* DrinkAttributeActionHeaderTableViewCell.swift */,
-				1568BFBA210CEFB50077C6E7 /* DrinkAttributeCollectionTableViewCell.swift */,
-				15B2A67D210AAD7E002C33AE /* DrinkAttributeOptionCollectionViewCell.swift */,
-				15905F22210E380C00FED891 /* DrinkAttributeDetailTableViewCell.swift */,
-			);
-			path = DrinkAttributeCell;
+			path = "Attribute Option Card";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -558,9 +553,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				152AB6D22107DA96001918EF /* LaunchScreen.storyboard in Resources */,
-				15B2A679210A90FF002C33AE /* DrinkTypeAttributeCardView.xib in Resources */,
+				15B2A679210A90FF002C33AE /* TypeAttributeCardView.xib in Resources */,
 				152AB6CF2107DA96001918EF /* Assets.xcassets in Resources */,
-				15B2A677210A90F4002C33AE /* DrinkSizeAttributeCardView.xib in Resources */,
+				15B2A677210A90F4002C33AE /* SizeAttributeCardView.xib in Resources */,
 				152AB6CA2107DA95001918EF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,31 +595,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15B2A66D210A8BE4002C33AE /* DrinkAttributeCardView.swift in Sources */,
-				15B2A67E210AAD7E002C33AE /* DrinkAttributeOptionCollectionViewCell.swift in Sources */,
-				15B57648210ABEB0007F48D1 /* DrinkTypeAttributeOptionCollectionViewDataSource.swift in Sources */,
+				15B2A66D210A8BE4002C33AE /* AttributeOptionCardView.swift in Sources */,
+				15B2A67E210AAD7E002C33AE /* AttributeOptionCollectionViewCell.swift in Sources */,
+				15B57648210ABEB0007F48D1 /* TypeAttributeOptionCollectionViewDataSource.swift in Sources */,
 				1506B4F3210A824D00CBDD14 /* XIBView.swift in Sources */,
-				15905F23210E380C00FED891 /* DrinkAttributeDetailTableViewCell.swift in Sources */,
+				15905F23210E380C00FED891 /* AttributeDetailTableViewCell.swift in Sources */,
 				15D551FD21082B0C000F0889 /* PreferencesManager.swift in Sources */,
-				15B2A671210A8EC0002C33AE /* DrinkHeaderAttributeCardView.swift in Sources */,
-				1568BFB9210CEFA70077C6E7 /* DrinkAttributeActionHeaderTableViewCell.swift in Sources */,
+				15B2A671210A8EC0002C33AE /* HeaderAttributeCardView.swift in Sources */,
+				155CA6DB210E85A0009F9BAB /* AttributeOptionCollectionViewDataSource.swift in Sources */,
+				1568BFB9210CEFA70077C6E7 /* AttributeHeaderActionTableViewCell.swift in Sources */,
 				152AB6C52107DA95001918EF /* AppDelegate.swift in Sources */,
-				1568BFBB210CEFB50077C6E7 /* DrinkAttributeCollectionTableViewCell.swift in Sources */,
-				15B2A66F210A8E54002C33AE /* DrinkGlyphAttributeCardView.swift in Sources */,
+				1568BFBB210CEFB50077C6E7 /* AttributeCollectionTableViewCell.swift in Sources */,
+				15B2A66F210A8E54002C33AE /* GlyphAttributeCardView.swift in Sources */,
 				152AB6CD2107DA95001918EF /* BACalculator.xcdatamodeld in Sources */,
 				15D551FB21082A03000F0889 /* DrinkerInformationManager.swift in Sources */,
-				15B2A675210A90C5002C33AE /* DrinkSizeAttributeCardView.swift in Sources */,
+				15B2A675210A90C5002C33AE /* SizeAttributeCardView.swift in Sources */,
 				15D551F921082574000F0889 /* DrinkManager.swift in Sources */,
 				15D5520121082BD9000F0889 /* HomeViewController.swift in Sources */,
-				15EBF907210E3AF600877A0B /* AttributeCardViewSelectedState.swift in Sources */,
 				1591E81A21095B5600F56581 /* TimeControlButton.swift in Sources */,
 				15A7C54A2109824B00F260FB /* ThemeNavigationViewController.swift in Sources */,
 				15A7C4F82109668900F260FB /* ThemeManager.swift in Sources */,
 				15B57642210AB272007F48D1 /* DrinkTableViewController.swift in Sources */,
 				15B57657210AE086007F48D1 /* BloodAlcoholContentAgent.swift in Sources */,
-				15B5764C210ACCB7007F48D1 /* DrinkSizeAttributeOptionCollectionViewDataSource.swift in Sources */,
-				1568BFB7210CEF9A0077C6E7 /* DrinkAttributeHeaderTableViewCell.swift in Sources */,
-				15B2A673210A9062002C33AE /* DrinkTypeAttributeCardView.swift in Sources */,
+				15B5764C210ACCB7007F48D1 /* SizeAttributeOptionCollectionViewDataSource.swift in Sources */,
+				1568BFB7210CEF9A0077C6E7 /* AttributeHeaderTableViewCell.swift in Sources */,
+				155CA6D7210E69EF009F9BAB /* AttributeTableViewCell.swift in Sources */,
+				15B2A673210A9062002C33AE /* TypeAttributeCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

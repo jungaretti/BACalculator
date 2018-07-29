@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 
 /// An `AttributeCardView` with a textual header.
-class DrinkHeaderAttributeCardView: DrinkAttributeCardView {
+class HeaderAttributeCardView: AttributeOptionCardView {
     
     @IBOutlet weak var textLabel: UILabel!
     
