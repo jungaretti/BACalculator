@@ -11,17 +11,22 @@ import UIKit
 @IBDesignable
 
 /// An `AttributeCardView` that has an accompanying image.
-class GlyphAttributeCardView: AttributeOptionCardView {
+class GlyphAttributeCardView: AttributeCardView {
 
     @IBOutlet weak var imageView: UIImageView!
     
-    override func setSelected(state: AttributeCardViewSelectedState) {
-        super.setSelected(state: state)
-        switch state {
-        case .deselected:
-            imageView.tintColor = .white
+    override var updateView: (() -> Void) {
+        switch selectedState {
         case .selected:
-            imageView.tintColor = .black
+            return {
+                super.updateView()
+                self.imageView.tintColor = UIColor.black
+            }
+        case .deselected:
+            return {
+                super.updateView()
+                self.imageView.tintColor = UIColor.white
+            }
         }
     }
 

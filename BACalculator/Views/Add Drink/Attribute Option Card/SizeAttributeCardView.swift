@@ -11,6 +11,4 @@ import UIKit
 @IBDesignable
 
 /// An `AttributeCardView` for the `size` attribute of a `Drink`.
-class SizeAttributeCardView: HeaderAttributeCardView {
-    
-}
+class SizeAttributeCardView: HeaderAttributeCardView {}

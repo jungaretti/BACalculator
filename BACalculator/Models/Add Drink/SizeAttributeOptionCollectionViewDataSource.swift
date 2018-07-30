@@ -22,12 +22,13 @@ class SizeAttributeOptionCollectionViewDataSource: AttributeOptionCollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "size", for: indexPath) as! AttributeOptionCollectionViewCell
         let card = cell.card as! SizeAttributeCardView
-        let standardDrinkSize = DrinkManager.standardSizes[indexPath.row]
-        card.textLabel.text = "\(standardDrinkSize)"
-        if standardDrinkSize == 1 {
-            cell.card.detailTextLabel.text = "Standard Drink"
+        let size = DrinkManager.standardSizes[indexPath.row]
+        card.textLabel.text = "\(size)"
+        card.detailTextLabel.text = "Standard Drinks"
+        if cell.isSelected {
+            card.setSelectedState(.selected, animated: false)
         } else {
-            cell.card.detailTextLabel.text = "Standard Drinks"
+            card.setSelectedState(.deselected, animated: false)
         }
         return cell
     }

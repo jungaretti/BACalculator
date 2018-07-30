@@ -1,5 +1,5 @@
 //
-//  DrinkTableViewController.swift
+//  AddDrinkTableViewController.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/26/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DrinkTableViewController: UITableViewController {
+class AddDrinkTableViewController: UITableViewController {
     
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
@@ -72,6 +72,7 @@ class DrinkTableViewController: UITableViewController {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "collectionView") as! AttributeCollectionTableViewCell
             cell.setCollectionView(dataSource: TypeAttributeOptionCollectionViewDataSource())
+            cell.setCollectionView(delegate: AttributeOptionCollectionViewDelegate())
             return cell
         // Size
         case 1:
@@ -85,6 +86,7 @@ class DrinkTableViewController: UITableViewController {
                 } else {
                     let cell = tableView.dequeueReusableCell(withIdentifier: "collectionView") as! AttributeCollectionTableViewCell
                     cell.setCollectionView(dataSource: SizeAttributeOptionCollectionViewDataSource())
+                    cell.setCollectionView(delegate: AttributeOptionCollectionViewDelegate())
                     return cell
                 }
             case 1:

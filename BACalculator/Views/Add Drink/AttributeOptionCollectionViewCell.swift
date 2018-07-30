@@ -10,6 +10,6 @@ import UIKit
 
 class AttributeOptionCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var card: AttributeOptionCardView!
-        
+    @IBOutlet weak var card: AttributeCardView!
+    
 }

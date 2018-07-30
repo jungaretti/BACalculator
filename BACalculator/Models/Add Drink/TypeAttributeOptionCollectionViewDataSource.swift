@@ -24,8 +24,13 @@ class TypeAttributeOptionCollectionViewDataSource: AttributeOptionCollectionView
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "type", for: indexPath) as! AttributeOptionCollectionViewCell
         let card = cell.card as! TypeAttributeCardView
         let type = DrinkManager.types[indexPath.row]
-        card.detailTextLabel.text = type.description
         card.imageView.image = DrinkManager.icon(forType: type)
+        card.detailTextLabel.text = type.description
+        if cell.isSelected {
+            card.setSelectedState(.selected, animated: false)
+        } else {
+            card.setSelectedState(.deselected, animated: false)
+        }
         return cell
     }
 

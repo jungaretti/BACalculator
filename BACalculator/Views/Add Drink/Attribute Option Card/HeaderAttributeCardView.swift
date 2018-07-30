@@ -11,17 +11,22 @@ import UIKit
 @IBDesignable
 
 /// An `AttributeCardView` with a textual header.
-class HeaderAttributeCardView: AttributeOptionCardView {
+class HeaderAttributeCardView: AttributeCardView {
     
     @IBOutlet weak var textLabel: UILabel!
     
-    override func setSelected(state: AttributeCardViewSelectedState) {
-        super.setSelected(state: state)
-        switch state {
-        case .deselected:
-            textLabel.textColor = .white
+    override var updateView: (() -> Void) {
+        switch selectedState {
         case .selected:
-            textLabel.textColor = .black
+            return {
+                super.updateView()
+                self.textLabel.textColor = UIColor.black
+            }
+        case .deselected:
+            return {
+                super.updateView()
+                self.textLabel.textColor = UIColor.white
+            }
         }
     }
 

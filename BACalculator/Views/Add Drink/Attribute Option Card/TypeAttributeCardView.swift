@@ -11,6 +11,4 @@ import UIKit
 @IBDesignable
 
 /// An `AttributeCardView` for the `type` property of a `Drink`.
-class TypeAttributeCardView: GlyphAttributeCardView {
-    
-}
+class TypeAttributeCardView: GlyphAttributeCardView {}
