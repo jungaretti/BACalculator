@@ -17,14 +17,14 @@ class TypeAttributeOptionCollectionViewDataSource: AttributeOptionCollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return DrinkManager.types.count
+        return DrinkAttributeManager.types.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "type", for: indexPath) as! AttributeOptionCollectionViewCell
         let card = cell.card as! TypeAttributeCardView
-        let type = DrinkManager.types[indexPath.row]
-        card.imageView.image = DrinkManager.icon(forType: type)
+        let type = DrinkAttributeManager.types[indexPath.row]
+        card.imageView.image = DrinkAttributeManager.icon(forType: type)
         card.detailTextLabel.text = type.description
         if cell.isSelected {
             card.setSelectedState(.selected, animated: false)

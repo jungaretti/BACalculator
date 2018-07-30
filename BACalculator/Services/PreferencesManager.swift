@@ -7,7 +7,6 @@
 //
 
 import DrinkKit
-import Foundation
 
 class PreferencesManager {
     
