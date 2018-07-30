@@ -78,7 +78,7 @@ class HomeViewController: UIViewController {
     ///   - bloodAlcoholContent: The `BloodAlcoholContent` to use for picking a background color.
     ///   - animated: If `true`, an update to the background color will be animated.
     private func updateBackgroundColor(forBAC bloodAlcoholContent: BloodAlcoholContent, animated: Bool) {
-        let newBackgroundColor = ThemeManager.themeColor(forBAC: bloodAlcoholContent)
+        let newBackgroundColor = ThemeAgent.themeColor(forBAC: bloodAlcoholContent)
         let updateBackgroundColor = {
             self.view.backgroundColor = newBackgroundColor.normal
         }
@@ -113,7 +113,7 @@ class HomeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ThemeNavigationViewController {
-            destination.themeColor = ThemeManager.themeColor(forBAC: latestBloodAlcoholContent)
+            destination.themeColor = ThemeAgent.themeColor(forBAC: latestBloodAlcoholContent)
         }
     }
     

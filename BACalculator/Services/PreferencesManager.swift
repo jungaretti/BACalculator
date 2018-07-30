@@ -8,6 +8,7 @@
 
 import DrinkKit
 
+/// A persistent storage manager for general app preferences.
 class PreferencesManager {
     
     static var safeMode: Bool?

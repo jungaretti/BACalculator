@@ -9,6 +9,7 @@
 import DrinkKit
 import Foundation
 
+/// A persistent storage manager for `Drink`s.
 class DrinkManager {
     
     static var drinks: [Drink] = {

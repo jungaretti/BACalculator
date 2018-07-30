@@ -1,5 +1,5 @@
 //
-//  ThemeManager.swift
+//  ThemeAgent.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/25/18.
@@ -9,8 +9,13 @@
 import DrinkKit
 import UIKit
 
-struct ThemeManager {
+/// An object for operations relating to the color theme.
+struct ThemeAgent {
     
+    /// Determine the proper theme colors for a certain `BloodAlcoholContent`.
+    ///
+    /// - Parameter bloodAlcoholContent: The `BloodAlcoholContent` to determine theme colors for.
+    /// - Returns: The theme colors for the `BloodAlcoholContent`.
     static func themeColor(forBAC bloodAlcoholContent: BloodAlcoholContent) -> (normal: UIColor?, dark: UIColor?) {
         let color: (normal: UIColor?, dark: UIColor?)
         if bloodAlcoholContent <= 0.02 {

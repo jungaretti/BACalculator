@@ -10,6 +10,7 @@ import DrinkKit
 import Foundation
 import os.log
 
+/// An object for managing a simulated time and calculating `BloodAlcoholContent`.
 struct BloodAlcoholContentAgent {
     
     static var `default` = BloodAlcoholContentAgent()

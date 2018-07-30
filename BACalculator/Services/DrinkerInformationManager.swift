@@ -9,6 +9,7 @@
 import DrinkKit
 import Foundation
 
+/// A persistent storage manager for `DrinkerInformation`.
 class DrinkerInformationManager {
     
     static var drinkerInformation: DrinkerInformation = DrinkerInformation(weight: Measurement(value: 200, unit: UnitMass.pounds), sex: .male, alcoholMetabolism: .average)

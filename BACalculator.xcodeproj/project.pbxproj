@@ -31,7 +31,7 @@
 		1568BFBB210CEFB50077C6E7 /* AttributeCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1568BFBA210CEFB50077C6E7 /* AttributeCollectionTableViewCell.swift */; };
 		15905F23210E380C00FED891 /* AttributeDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15905F22210E380C00FED891 /* AttributeDetailTableViewCell.swift */; };
 		1591E81A21095B5600F56581 /* TimeControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1591E81921095B5600F56581 /* TimeControlButton.swift */; };
-		15A7C4F82109668900F260FB /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7C4F72109668900F260FB /* ThemeManager.swift */; };
+		15A7C4F82109668900F260FB /* ThemeAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7C4F72109668900F260FB /* ThemeAgent.swift */; };
 		15A7C54A2109824B00F260FB /* ThemeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7C5492109824B00F260FB /* ThemeNavigationViewController.swift */; };
 		15B2A66D210A8BE4002C33AE /* AttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A66C210A8BE4002C33AE /* AttributeCardView.swift */; };
 		15B2A66F210A8E54002C33AE /* GlyphAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A66E210A8E54002C33AE /* GlyphAttributeCardView.swift */; };
@@ -148,7 +148,7 @@
 		1568BFBA210CEFB50077C6E7 /* AttributeCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		15905F22210E380C00FED891 /* AttributeDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeDetailTableViewCell.swift; sourceTree = "<group>"; };
 		1591E81921095B5600F56581 /* TimeControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeControlButton.swift; sourceTree = "<group>"; };
-		15A7C4F72109668900F260FB /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		15A7C4F72109668900F260FB /* ThemeAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAgent.swift; sourceTree = "<group>"; };
 		15A7C5492109824B00F260FB /* ThemeNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeNavigationViewController.swift; sourceTree = "<group>"; };
 		15B2A66C210A8BE4002C33AE /* AttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeCardView.swift; sourceTree = "<group>"; };
 		15B2A66E210A8E54002C33AE /* GlyphAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphAttributeCardView.swift; sourceTree = "<group>"; };
@@ -342,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				15B57656210AE086007F48D1 /* BloodAlcoholContentAgent.swift */,
+				15A7C4F72109668900F260FB /* ThemeAgent.swift */,
 				15905F25210E382C00FED891 /* Add Drink */,
 			);
 			path = Models;
@@ -354,7 +355,6 @@
 				154310A1210F9CEB008A4CF5 /* DrinkAttributeManager.swift */,
 				15D551FA21082A03000F0889 /* DrinkerInformationManager.swift */,
 				15D551FC21082B0C000F0889 /* PreferencesManager.swift */,
-				15A7C4F72109668900F260FB /* ThemeManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -622,7 +622,7 @@
 				15D5520121082BD9000F0889 /* HomeViewController.swift in Sources */,
 				1591E81A21095B5600F56581 /* TimeControlButton.swift in Sources */,
 				15A7C54A2109824B00F260FB /* ThemeNavigationViewController.swift in Sources */,
-				15A7C4F82109668900F260FB /* ThemeManager.swift in Sources */,
+				15A7C4F82109668900F260FB /* ThemeAgent.swift in Sources */,
 				15B57642210AB272007F48D1 /* AddDrinkTableViewController.swift in Sources */,
 				15B57657210AE086007F48D1 /* BloodAlcoholContentAgent.swift in Sources */,
 				15B5764C210ACCB7007F48D1 /* SizeAttributeOptionCollectionViewDataSource.swift in Sources */,
