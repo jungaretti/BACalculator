@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1504CE712110FD3800E1CF53 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1504CE702110FD3800E1CF53 /* HistoryTableViewController.swift */; };
+		1504CE742110FF3600E1CF53 /* DrinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1504CE732110FF3600E1CF53 /* DrinkTableViewCell.swift */; };
 		1506B4F3210A824D00CBDD14 /* XIBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1506B4F2210A824D00CBDD14 /* XIBView.swift */; };
 		152AB6C52107DA95001918EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB6C42107DA95001918EF /* AppDelegate.swift */; };
 		152AB6CA2107DA95001918EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152AB6C82107DA95001918EF /* Main.storyboard */; };
@@ -126,6 +128,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1504CE702110FD3800E1CF53 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		1504CE732110FF3600E1CF53 /* DrinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTableViewCell.swift; sourceTree = "<group>"; };
 		1506B4F2210A824D00CBDD14 /* XIBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBView.swift; sourceTree = "<group>"; };
 		152AB6C12107DA95001918EF /* BACalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BACalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		152AB6C42107DA95001918EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -241,6 +245,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1504CE722110FF1D00E1CF53 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				1504CE732110FF3600E1CF53 /* DrinkTableViewCell.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		152AB6B82107DA95001918EF = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +407,7 @@
 				15D5520021082BD9000F0889 /* HomeViewController.swift */,
 				15A7C5492109824B00F260FB /* ThemeNavigationViewController.swift */,
 				15B57641210AB272007F48D1 /* AddDrinkTableViewController.swift */,
+				1504CE702110FD3800E1CF53 /* HistoryTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -405,6 +418,7 @@
 				1591E81921095B5600F56581 /* TimeControlButton.swift */,
 				1506B4F2210A824D00CBDD14 /* XIBView.swift */,
 				15905F27210E383E00FED891 /* Add Drink */,
+				1504CE722110FF1D00E1CF53 /* History */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -645,6 +659,7 @@
 				1568BFB9210CEFA70077C6E7 /* AttributeHeaderActionTableViewCell.swift in Sources */,
 				152AB6C52107DA95001918EF /* AppDelegate.swift in Sources */,
 				1568BFBB210CEFB50077C6E7 /* AttributeCollectionTableViewCell.swift in Sources */,
+				1504CE742110FF3600E1CF53 /* DrinkTableViewCell.swift in Sources */,
 				15B2A66F210A8E54002C33AE /* GlyphAttributeCardView.swift in Sources */,
 				154310A8210FE2F9008A4CF5 /* CustomSizePickerViewDelegate.swift in Sources */,
 				155CA6DD210E8CB6009F9BAB /* AttributeOptionCollectionViewDelegate.swift in Sources */,
@@ -669,6 +684,7 @@
 				154310A6210FE2EF008A4CF5 /* CustomSizePickerViewDataSource.swift in Sources */,
 				155CA6D7210E69EF009F9BAB /* AttributeTableViewCell.swift in Sources */,
 				15B2A673210A9062002C33AE /* TypeAttributeCardView.swift in Sources */,
+				1504CE712110FD3800E1CF53 /* HistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

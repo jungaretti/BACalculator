@@ -83,6 +83,11 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="History"/>
+                                <connections>
+                                    <segue destination="s48-EQ-MuS" kind="popoverPresentation" popoverAnchorView="9n8-vz-Zc1" id="rVS-bJ-jZx">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nde-cL-fEw" userLabel="Advance" customClass="TimeControlButton" customModule="BACalculator" customModuleProvider="target">
                                 <rect key="frame" x="323" y="726" width="36" height="36"/>
@@ -489,6 +494,128 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ivy-VG-9dq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1108" y="897"/>
+        </scene>
+        <!--Theme Navigation View Controller-->
+        <scene sceneID="fjK-16-eJA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s48-EQ-MuS" customClass="ThemeNavigationViewController" customModule="BACalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="uNT-SM-Rh3">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DmA-Rk-1xq">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="d4j-7D-bEj" kind="relationship" relationship="rootViewController" id="Q0V-p7-9uf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6n9-tQ-O1T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2049" y="132"/>
+        </scene>
+        <!--History-->
+        <scene sceneID="0Xn-iv-W8C">
+            <objects>
+                <tableViewController id="d4j-7D-bEj" customClass="HistoryTableViewController" customModule="BACalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f9P-29-2lW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="drink" rowHeight="72" id="EeI-fn-br8" customClass="DrinkTableViewCell" customModule="BACalculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="72"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EeI-fn-br8" id="ivd-ja-r6g">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5GU-OF-p1r">
+                                            <rect key="frame" x="10" y="6" width="355" height="60"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Jme-9J-kRi">
+                                                    <rect key="frame" x="12" y="7.6666666666666679" width="331" height="45.333333333333329"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rLE-RA-tag">
+                                                            <rect key="frame" x="0.0" y="0.0" width="39.333333333333336" height="45.333333333333336"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9DD-mX-D81">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="39.333333333333336" height="23.333333333333332"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdM-Y4-Fgf">
+                                                                    <rect key="frame" x="0.0" y="23.333333333333336" width="39.333333333333336" height="22"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c6n-Re-Q5f">
+                                                            <rect key="frame" x="293.66666666666669" y="0.0" width="37.333333333333314" height="45.333333333333336"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.027185646819999999" green="0.0067552202380000001" blue="0.029096785930000001" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="Jme-9J-kRi" firstAttribute="leading" secondItem="5GU-OF-p1r" secondAttribute="leading" constant="12" id="Xvs-PT-FuT"/>
+                                                <constraint firstAttribute="trailing" secondItem="Jme-9J-kRi" secondAttribute="trailing" constant="12" id="hvP-m2-8Gj"/>
+                                                <constraint firstItem="Jme-9J-kRi" firstAttribute="centerY" secondItem="5GU-OF-p1r" secondAttribute="centerY" id="k0f-jc-qsS"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="12"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5GU-OF-p1r" firstAttribute="top" secondItem="ivd-ja-r6g" secondAttribute="top" constant="6" id="0O5-0q-Re6"/>
+                                        <constraint firstAttribute="trailing" secondItem="5GU-OF-p1r" secondAttribute="trailing" constant="10" id="beV-Ho-ffa"/>
+                                        <constraint firstAttribute="bottom" secondItem="5GU-OF-p1r" secondAttribute="bottom" constant="6" id="sx0-j4-oBe"/>
+                                        <constraint firstItem="5GU-OF-p1r" firstAttribute="leading" secondItem="ivd-ja-r6g" secondAttribute="leading" constant="10" id="ubF-2j-pCO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dateLabel" destination="c6n-Re-Q5f" id="0CA-mL-TvO"/>
+                                    <outlet property="sizeLabel" destination="rdM-Y4-Fgf" id="Qek-cj-Lgr"/>
+                                    <outlet property="typeLabel" destination="9DD-mX-D81" id="nTZ-8Z-ZUk"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="d4j-7D-bEj" id="Llq-zE-UTt"/>
+                            <outlet property="delegate" destination="d4j-7D-bEj" id="iix-2O-r9g"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="History" id="h99-wJ-ztw">
+                        <barButtonItem key="leftBarButtonItem" image="Cancel" id="Uzw-SA-sN6">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancelPressed:" destination="d4j-7D-bEj" id="sj5-GS-eIH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gKQ-Mb-sVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2989.5999999999999" y="131.52709359605913"/>
         </scene>
     </scenes>
     <resources>
