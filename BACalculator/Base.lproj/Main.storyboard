@@ -322,7 +322,7 @@
                                             <rect key="frame" x="10" y="5" width="355" height="44"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="Nbm-ze-pjq">
-                                                    <rect key="frame" x="8" y="0.0" width="339" height="44"/>
+                                                    <rect key="frame" x="12" y="0.0" width="331" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="16Y-64-gVr">
                                                             <rect key="frame" x="0.0" y="0.0" width="34.333333333333336" height="44"/>
@@ -331,7 +331,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYe-g9-a9t">
-                                                            <rect key="frame" x="292" y="0.0" width="47" height="44"/>
+                                                            <rect key="frame" x="284" y="0.0" width="47" height="44"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -341,10 +341,10 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.027185646817088127" green="0.0067552202381193638" blue="0.029096785932779312" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Nbm-ze-pjq" secondAttribute="trailing" constant="8" id="KGu-a3-fbo"/>
+                                                <constraint firstAttribute="trailing" secondItem="Nbm-ze-pjq" secondAttribute="trailing" constant="12" id="KGu-a3-fbo"/>
                                                 <constraint firstAttribute="bottom" secondItem="Nbm-ze-pjq" secondAttribute="bottom" id="TTU-aJ-ZtD"/>
                                                 <constraint firstItem="Nbm-ze-pjq" firstAttribute="top" secondItem="7Ij-Sh-5nY" secondAttribute="top" id="eew-Mm-grK"/>
-                                                <constraint firstItem="Nbm-ze-pjq" firstAttribute="leading" secondItem="7Ij-Sh-5nY" secondAttribute="leading" constant="8" id="oxQ-Pj-GV9"/>
+                                                <constraint firstItem="Nbm-ze-pjq" firstAttribute="leading" secondItem="7Ij-Sh-5nY" secondAttribute="leading" constant="12" id="oxQ-Pj-GV9"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -364,6 +364,73 @@
                                 <connections>
                                     <outlet property="attributeDetailLabel" destination="WYe-g9-a9t" id="fR5-wA-iUv"/>
                                     <outlet property="attributeLabel" destination="16Y-64-gVr" id="Akv-PS-ktf"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="detailPicker" rowHeight="162" id="w3d-d1-lgn" customClass="AttributeDetailPickerTableViewCell" customModule="BACalculator" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="342" width="375" height="162"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w3d-d1-lgn" id="92f-Vs-HXq">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAG-gr-rJn">
+                                            <rect key="frame" x="10" y="5" width="355" height="152"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="W3y-cZ-ogE">
+                                                    <rect key="frame" x="12" y="0.0" width="331" height="152"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="kwx-3M-D5i">
+                                                            <rect key="frame" x="0.0" y="0.0" width="331" height="44"/>
+                                                            <subviews>
+                                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brG-eF-kG5">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="34.333333333333336" height="44"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kA7-LC-qU8">
+                                                                    <rect key="frame" x="284" y="0.0" width="47" height="44"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="44" id="Fbf-Xe-6us"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMS-Aq-9N9">
+                                                            <rect key="frame" x="0.0" y="44" width="331" height="108"/>
+                                                        </pickerView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.027185646819999999" green="0.0067552202380000001" blue="0.029096785930000001" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="W3y-cZ-ogE" firstAttribute="top" secondItem="oAG-gr-rJn" secondAttribute="top" id="B3J-LB-P27"/>
+                                                <constraint firstItem="W3y-cZ-ogE" firstAttribute="leading" secondItem="oAG-gr-rJn" secondAttribute="leading" constant="12" id="JNz-TO-hUD"/>
+                                                <constraint firstAttribute="trailing" secondItem="W3y-cZ-ogE" secondAttribute="trailing" constant="12" id="TC7-FU-WEu"/>
+                                                <constraint firstAttribute="bottom" secondItem="W3y-cZ-ogE" secondAttribute="bottom" id="bVg-Mh-fAW"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="12"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="oAG-gr-rJn" firstAttribute="top" secondItem="92f-Vs-HXq" secondAttribute="top" constant="5" id="QcB-zH-VmB"/>
+                                        <constraint firstAttribute="bottom" secondItem="oAG-gr-rJn" secondAttribute="bottom" constant="5" id="ayP-5n-1p6"/>
+                                        <constraint firstAttribute="trailing" secondItem="oAG-gr-rJn" secondAttribute="trailing" constant="10" id="irX-5a-Yfe"/>
+                                        <constraint firstItem="oAG-gr-rJn" firstAttribute="leading" secondItem="92f-Vs-HXq" secondAttribute="leading" constant="10" id="z5D-9V-rt0"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="attributeDetailLabel" destination="kA7-LC-qU8" id="vlY-LS-4Wl"/>
+                                    <outlet property="attributeLabel" destination="brG-eF-kG5" id="DJz-ap-cOE"/>
+                                    <outlet property="pickerView" destination="FMS-Aq-9N9" id="bIq-be-fIA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -400,7 +467,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wlD-VV-6xg" customClass="ThemeNavigationViewController" customModule="BACalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="o7B-QU-nCv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="o7B-QU-nCv">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">

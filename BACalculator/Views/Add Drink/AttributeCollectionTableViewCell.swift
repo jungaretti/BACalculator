@@ -12,8 +12,8 @@ import UIKit
 class AttributeCollectionTableViewCell: AttributeTableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    private var collectionViewDataSource: UICollectionViewDataSource?
-    private var collectionViewDelegate: UICollectionViewDelegate?
+    private var collectionViewDataSource: AttributeOptionCollectionViewDataSource?
+    private var collectionViewDelegate: AttributeOptionCollectionViewDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,13 +25,14 @@ class AttributeCollectionTableViewCell: AttributeTableViewCell {
         // Configure the view for the selected state
     }
     
-    func setCollectionView(dataSource: UICollectionViewDataSource?) {
+    func setCollectionView(dataSource: AttributeOptionCollectionViewDataSource?) {
         self.collectionViewDataSource = dataSource
         collectionView.dataSource = self.collectionViewDataSource
     }
     
-    func setCollectionView(delegate: UICollectionViewDelegate?) {
+    func setCollectionView(delegate: AttributeOptionCollectionViewDelegate?, attributeOptionDelegate: AttributeOptionDelegate) {
         self.collectionViewDelegate = delegate
+        self.collectionViewDelegate?.attributeOptionDelegate = attributeOptionDelegate
         collectionView.delegate = self.collectionViewDelegate
     }
 

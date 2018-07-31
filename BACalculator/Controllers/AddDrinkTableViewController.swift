@@ -6,17 +6,45 @@
 //  Copyright © 2018 James Ungaretti. All rights reserved.
 //
 
+import DrinkKit
 import UIKit
 
-class AddDrinkTableViewController: UITableViewController {
+class AddDrinkTableViewController: UITableViewController, AttributeOptionDelegate {
+    
+    private struct AddDrinkTableViewRowHeights {
+        
+        static let collectionViewRow = CGFloat(172.0)
+        static let detailCollapsedRow = CGFloat(54.0)
+        static let detailExpandedRow = CGFloat(144.0)
+        
+    }
+    
+    // MARK: Properties
     
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     private var _customSize: Bool = false
+    private var _customVolumeExpanded: Bool = false
+    private var _customAlcoholRatioExpanded: Bool = false
+    private var _selectedType: DrinkType? = nil
+    private var _selectedStandardSize: StandardDrinkSize? = nil
+    private var _selectedVolume: Measurement<UnitVolume>? = nil
+    private var _selectedAlcoholRatio: Double? = nil
+    private var _selectedDate: Date? = nil
+    private var _readyToAddStandardSize: Bool {
+        return (_selectedType != nil) && (_selectedStandardSize != nil)
+    }
+    private var _readyToAddCustomSize: Bool {
+        return (_selectedType != nil) && (_selectedVolume != nil) && (_selectedAlcoholRatio != nil)
+    }
+    
+    // MARK: Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.allowsMultipleSelection = false
+        self.addButton.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,46 +52,116 @@ class AddDrinkTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func addPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func toggleSizeMode(_ sender: UIButton) {
+        _customSize = !(_customSize)
+        if _customSize {
+            _customVolumeExpanded = false
+            _customAlcoholRatioExpanded = false
+            _selectedVolume = nil
+            _selectedAlcoholRatio = nil
+        } else {
+            _selectedStandardSize = nil
+        }
+        updateAddButtonState()
+        tableView.reloadSections([1], with: .left)
+    }
+    
+    func typeAttributeDidChange(sender: UICollectionView) {
+        if let indexPathForSelectedItem = sender.indexPathsForSelectedItems?.first {
+            _selectedType = DrinkAttributeManager.types[indexPathForSelectedItem.row]
+        } else {
+            _selectedType = nil
+        }
+        updateAddButtonState()
+    }
+    
+    func standardSizeAttributeDidChange(sender: UICollectionView) {
+        if let indexPathForSelectedItem = sender.indexPathsForSelectedItems?.first {
+            _selectedStandardSize = StandardDrinkSize(standardDrinks: Double(indexPathForSelectedItem.row))
+        } else {
+            _selectedStandardSize = nil
+        }
+        updateAddButtonState()
+    }
+    
+    func volumeAttributeDidChange(sender: UIPickerView) {
+        let value = VolumePickerViewDataSource.values[sender.selectedRow(inComponent: 0)]
+        let unit = VolumePickerViewDataSource.units[sender.selectedRow(inComponent: 1)]
+        _selectedVolume = Measurement(value: value, unit: unit)
+        updateAddButtonState()
+    }
+    
+    func alcoholRatioAttributeDidChange(sender: UIPickerView) {
+        _selectedAlcoholRatio = AlcoholRatioPickerViewDataSource.alcoholRatios[sender.selectedRow(inComponent: 0)]
+        updateAddButtonState()
+    }
+    
+    func dateAttributeDidChange(sender: UIDatePicker) {
+        _selectedDate = sender.date
+        updateAddButtonState()
+    }
+    
+    private func updateAddButtonState() {
+        if _customSize {
+            self.addButton.isEnabled = self._readyToAddCustomSize
+        } else {
+            self.addButton.isEnabled = self._readyToAddStandardSize
+        }
+    }
+    
+    // MARK: Table View Data Source
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
+        // Type
         case 0:
             return 1
+        // Size
         case 1:
-            if _customSize {
-                return 2
-            } else {
-                return 1
-            }
+            if _customSize { return 2 }
+            else { return 1 }
         default:
-            return 0
+            break
         }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell: AttributeHeaderTableViewCell
         switch section {
+        // Type
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "header") as! AttributeHeaderTableViewCell
-            cell.attributeLabel.text = "Type"
-            cell.contentView.backgroundColor = tableView.backgroundColor
-            return cell.contentView
+            headerCell = tableView.dequeueReusableCell(withIdentifier: "header") as! AttributeHeaderTableViewCell
+            headerCell.attributeLabel.text = "Type"
+        // Size
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "headerAction") as! AttributeHeaderActionTableViewCell
-            cell.attributeLabel.text = "Size"
+            let headerActionCell = tableView.dequeueReusableCell(withIdentifier: "headerAction") as! AttributeHeaderActionTableViewCell
+            headerActionCell.attributeLabel.text = "Size"
+            // Set size title
             if _customSize {
-                cell.attributeButton.setTitle("Use Standard Size", for: .normal)
+                headerActionCell.attributeButton.setTitle("Use Standard Size", for: .normal)
             } else {
-                cell.attributeButton.setTitle("Use Custom Size", for: .normal)
+                headerActionCell.attributeButton.setTitle("Use Custom Size", for: .normal)
             }
-            cell.attributeButton.addTarget(self, action: #selector(toggleSizeMode(_:)), for: .touchUpInside)
-            cell.contentView.backgroundColor = tableView.backgroundColor
-            return cell.contentView
+            headerActionCell.attributeButton.addTarget(self, action: #selector(toggleSizeMode(_:)), for: .touchUpInside)
+            headerCell = headerActionCell
         default:
             return nil
         }
+        headerCell.contentView.backgroundColor = tableView.backgroundColor
+        return headerCell.contentView
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,28 +170,49 @@ class AddDrinkTableViewController: UITableViewController {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "collectionView") as! AttributeCollectionTableViewCell
             cell.setCollectionView(dataSource: TypeAttributeOptionCollectionViewDataSource())
-            cell.setCollectionView(delegate: AttributeOptionCollectionViewDelegate())
+            cell.setCollectionView(delegate: TypeAttributeOptionCollectionViewDelegate(), attributeOptionDelegate: self)
             return cell
         // Size
         case 1:
             switch indexPath.row {
             case 0:
                 if _customSize {
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "detail") as! AttributeDetailTableViewCell
-                    cell.textLabel?.text = "Volume"
-                    cell.detailTextLabel?.text = "Value"
-                    return cell
+                    // Volume
+                    var detailCell = tableView.dequeueReusableCell(withIdentifier: "detail") as! AttributeDetailTableViewCell
+                    if _customVolumeExpanded {
+                        let detailPickerCell = tableView.dequeueReusableCell(withIdentifier: "detailPicker") as! AttributeDetailPickerTableViewCell
+                        detailPickerCell.setPickerView(dataSouce: VolumePickerViewDataSource())
+                        detailPickerCell.setPickerView(delegate: VolumePickerViewDelegate(), attributeOptionDelegate: self)
+                        detailCell = detailPickerCell
+                    }
+                    detailCell.textLabel?.text = "Volume"
+                    detailCell.detailTextLabel?.text = _selectedVolume?.description
+                    return detailCell
                 } else {
+                    // Collection view
                     let cell = tableView.dequeueReusableCell(withIdentifier: "collectionView") as! AttributeCollectionTableViewCell
                     cell.setCollectionView(dataSource: SizeAttributeOptionCollectionViewDataSource())
-                    cell.setCollectionView(delegate: AttributeOptionCollectionViewDelegate())
+                    cell.setCollectionView(delegate: SizeAttributeOptionCollectionViewDelegate(), attributeOptionDelegate: self)
                     return cell
                 }
+            // Alcohol ratio
             case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "detail") as! AttributeDetailTableViewCell
-                cell.textLabel?.text = "Alcohol Ratio"
-                cell.detailTextLabel?.text = "Value"
-                return cell
+                // Volume
+                var detailCell = tableView.dequeueReusableCell(withIdentifier: "detail") as! AttributeDetailTableViewCell
+                if _customAlcoholRatioExpanded {
+                    let detailPickerCell = tableView.dequeueReusableCell(withIdentifier: "detailPicker") as! AttributeDetailPickerTableViewCell
+                    detailPickerCell.setPickerView(dataSouce: AlcoholRatioPickerViewDataSource())
+                    detailPickerCell.setPickerView(delegate: AlcoholRatioPickerViewDelegate(), attributeOptionDelegate: self)
+                    detailCell = detailPickerCell
+                }
+                detailCell.textLabel?.text = "Alcohol Ratio"
+                if let selectedAlcoholRatio = self._selectedAlcoholRatio {
+                    // TODO: Move the "VALUE %" formatter somewhere else
+                    detailCell.detailTextLabel?.text = "\(selectedAlcoholRatio) %"
+                } else {
+                    detailCell.detailTextLabel?.text = nil
+                }
+                return detailCell
             default:
                 break
             }
@@ -103,39 +222,50 @@ class AddDrinkTableViewController: UITableViewController {
         return UITableViewCell(style: .default, reuseIdentifier: nil)
     }
     
+    // MARK: Table View Delegate
+    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 44.0
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cardRowHeight = CGFloat(172.0)
-        let detailRowHeight = CGFloat(54.0)
         switch indexPath.section {
+        // Type
         case 0:
-            return cardRowHeight
+            return AddDrinkTableViewRowHeights.collectionViewRow
+        // Size
         case 1:
             if _customSize {
-                return detailRowHeight
+                if let selectedCell = tableView.cellForRow(at: indexPath), selectedCell.isSelected {
+                    return AddDrinkTableViewRowHeights.detailExpandedRow
+                } else {
+                    return AddDrinkTableViewRowHeights.detailCollapsedRow
+                }
             } else {
-                return cardRowHeight
+                return AddDrinkTableViewRowHeights.collectionViewRow
             }
         default:
             break
         }
-        return 172.0
+        return 44.0
     }
     
-    @objc func toggleSizeMode(_ sender: UIButton) {
-        self._customSize = !(_customSize)
-        self.tableView.reloadSections([1], with: .automatic)
-    }
-    
-    @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func addPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                if _customVolumeExpanded == false {
+                    _customVolumeExpanded = true
+                    _customAlcoholRatioExpanded = false
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                }
+            } else if indexPath.row == 1 {
+                if _customAlcoholRatioExpanded == false {
+                    _customVolumeExpanded = false
+                    _customAlcoholRatioExpanded = true
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                }
+            }
+        }
     }
     
 }

@@ -11,6 +11,8 @@ import UIKit
 
 class AttributeOptionCollectionViewDelegate: NSObject, UICollectionViewDelegate {
     
+    weak var attributeOptionDelegate: AttributeOptionDelegate!
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // If the cell is visible, select it visually
         if let cell = collectionView.cellForItem(at: indexPath) as? AttributeOptionCollectionViewCell {

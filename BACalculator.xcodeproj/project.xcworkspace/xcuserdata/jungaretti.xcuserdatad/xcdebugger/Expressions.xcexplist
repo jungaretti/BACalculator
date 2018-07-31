@@ -35,14 +35,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ThemedNavigationViewController.viewDidLoad():ThemedNavigationViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "topViewController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "AttributeOptionCollectionViewDelegate.collectionView(_:didSelectItemAt:):AttributeOptionCollectionViewDelegate.swift">
          <PersistentStrings>
             <PersistentString
@@ -59,6 +51,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "ThemedNavigationViewController.viewDidLoad():ThemedNavigationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "topViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "DrinkTableViewController.tableView(_:cellForRowAt:):DrinkTableViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -71,6 +71,22 @@
          <PersistentStrings>
             <PersistentString
                value = "bloodAlcoholContent">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AlcoholRatioPickerViewDelegate.pickerView(_:attributedTitleForRow:forComponent:):AlcoholRatioPickerViewDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIFont(name: &quot;AvenirNext-Medium&quot;, size: 17.0)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AddDrinkTableViewController.tableView(_:viewForHeaderInSection:):AddDrinkTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "headerActionCell.attributeLabel">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
