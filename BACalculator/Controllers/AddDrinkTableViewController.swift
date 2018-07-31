@@ -57,6 +57,7 @@ class AddDrinkTableViewController: UITableViewController, AttributeOptionDelegat
     }
     
     @IBAction func addPressed(_ sender: UIBarButtonItem) {
+        DrinkManager.drinks.append(assembleDrink())
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -100,7 +101,7 @@ class AddDrinkTableViewController: UITableViewController, AttributeOptionDelegat
     }
     
     func alcoholRatioAttributeDidChange(sender: UIPickerView) {
-        _selectedAlcoholRatio = AlcoholRatioPickerViewDataSource.alcoholRatios[sender.selectedRow(inComponent: 0)]
+        _selectedAlcoholRatio = AlcoholRatioPickerViewDataSource.alcoholRatios[sender.selectedRow(inComponent: 0)] / 100.0
         updateAddButtonState()
     }
     
@@ -115,6 +116,18 @@ class AddDrinkTableViewController: UITableViewController, AttributeOptionDelegat
         } else {
             self.addButton.isEnabled = self._readyToAddStandardSize
         }
+    }
+    
+    private func assembleDrink() -> Drink {
+        let type = _selectedType!
+        let size: DrinkSize
+        if _customSize {
+            size = CustomDrinkSize(volume: _selectedVolume!, alcoholRatio: _selectedAlcoholRatio!)
+        } else {
+            size = _selectedStandardSize!
+        }
+        let date = Date()
+        return Drink(type: type, consumptionDate: date, size: size)
     }
     
     // MARK: Table View Data Source
