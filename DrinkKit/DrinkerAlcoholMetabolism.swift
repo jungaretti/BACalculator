@@ -9,11 +9,11 @@
 import Foundation
 
 /// Constants describing the alcohol metabolism of a drinker. Alcohol metabolism is influenced by a drinker's frequency and quantity of alcohol consumption.
-public enum DrinkerAlcoholMetabolism {
+public enum DrinkerAlcoholMetabolism: String, Codable {
     
-    case belowAverage
-    case average
-    case aboveAverage
+    case belowAverage = "belowAverage"
+    case average = "average"
+    case aboveAverage = "aboveAverage"
     
     /// The measure of how much alcohol is metabolized from a drinker's blood each hour.
     var hourlyAlcoholMetabolism: BloodAlcoholContent {

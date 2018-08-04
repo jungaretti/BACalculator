@@ -9,10 +9,10 @@
 import Foundation
 
 /// Constants describing the biological sex of a drinker.
-public enum DrinkerSex {
+public enum DrinkerSex: Int, Codable {
     
-    case male
-    case female
+    case male = 0
+    case female = 1
     
     /// The bodyMass:waterMass ratio of a drinker.
     var waterComposition: Double {

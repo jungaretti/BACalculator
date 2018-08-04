@@ -9,7 +9,7 @@
 import Foundation
 
 /// Information about a drinker.
-public struct DrinkerInformation {
+public struct DrinkerInformation: Codable {
     
     /// The weight of the drinker.
     public var weight: Measurement<UnitMass>
