@@ -45,7 +45,7 @@ class HistoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "drink") as! DrinkTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "drink") as! DrinkHistoryTableViewCell
         let drink = DrinkManager.drinks[indexPath.row]
         cell.typeLabel.text = drink.type.description
         cell.sizeLabel.text = "\(drink.size)"

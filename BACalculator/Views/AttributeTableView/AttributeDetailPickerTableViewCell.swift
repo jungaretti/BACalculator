@@ -19,7 +19,7 @@ class AttributeDetailPickerTableViewCell: AttributeDetailTableViewCell {
         self.pickerView.dataSource = self.pickerViewDataSource
     }
     
-    func setPickerView(delegate: CustomSizePickerViewDelegate, attributeOptionDelegate: AttributeOptionDelegate) {
+    func setPickerView(delegate: CustomSizePickerViewDelegate, attributeOptionDelegate: AttributeDelegate) {
         self.pickerViewDelegate = delegate
         self.pickerViewDelegate!.detailTextLabel = self.detailTextLabel
         self.pickerViewDelegate!.attributeOptionDelegate = attributeOptionDelegate

@@ -11,6 +11,6 @@ import UIKit
 class CustomSizePickerViewDelegate: NSObject, UIPickerViewDelegate {
     
     weak var detailTextLabel: UILabel!
-    weak var attributeOptionDelegate: AttributeOptionDelegate!
+    weak var attributeOptionDelegate: AttributeDelegate!
 
 }

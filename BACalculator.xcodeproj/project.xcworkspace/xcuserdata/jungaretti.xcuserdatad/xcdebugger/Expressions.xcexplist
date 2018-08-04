@@ -3,58 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "TypeAttributeOptionCollectionViewDataSource.collectionView(_:cellForItemAt:):TypeAttributeOptionCollectionViewDataSource.swift">
+         contextName = "AddDrinkTableViewController.tableView(_:viewForHeaderInSection:):AddDrinkTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "collectionView.indexPathsForSelectedItems.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "DrinkTableViewController.stop():DrinkTableViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "(firstCell as! DrinkAttributeTableViewCell).collectionView.collectionViewLayout.collectionViewContentSize">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "DrinkTableViewController.addPressed(_:):DrinkTableViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "firstCell.collectionView.visibleCells.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ThemeNavigationViewController.viewDidLoad():ThemeNavigationViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "topViewController.view.backgroundColor == UIColor(named: &quot;Green&quot;)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AttributeOptionCollectionViewDelegate.collectionView(_:didSelectItemAt:):AttributeOptionCollectionViewDelegate.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "collectionView.indexPathsForSelectedItems">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AttributeOptionCollectionViewDelegate.collectionView(_:didDeselectItemAt:):AttributeOptionCollectionViewDelegate.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "indexPath">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "ThemedNavigationViewController.viewDidLoad():ThemedNavigationViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "topViewController">
+               value = "headerActionCell.attributeLabel">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -67,6 +19,33 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "WeightPickerViewDelegate.pickerView(_:didSelectRow:inComponent:):WeightPickerViewDelegate.swift">
+      </ContextState>
+      <ContextState
+         contextName = "AttributeOptionCollectionViewDelegate.collectionView(_:didSelectItemAt:):AttributeOptionCollectionViewDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "collectionView.indexPathsForSelectedItems">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrinkTableViewController.stop():DrinkTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(firstCell as! DrinkAttributeTableViewCell).collectionView.collectionViewLayout.collectionViewContentSize">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ThemeNavigationViewController.viewDidLoad():ThemeNavigationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "topViewController.view.backgroundColor == UIColor(named: &quot;Green&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "HomeViewController.updateBloodAlcoholContentLabel(forBAC:):HomeViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -75,18 +54,50 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "AlcoholRatioPickerViewDelegate.pickerView(_:attributedTitleForRow:forComponent:):AlcoholRatioPickerViewDelegate.swift">
+         contextName = "SettingsDetailTableViewController.viewWillDisappear(_:):SettingsDetailTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UIFont(name: &quot;AvenirNext-Medium&quot;, size: 17.0)">
+               value = "self.delegate">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "AddDrinkTableViewController.tableView(_:viewForHeaderInSection:):AddDrinkTableViewController.swift">
+         contextName = "DrinkTableViewController.addPressed(_:):DrinkTableViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "headerActionCell.attributeLabel">
+               value = "firstCell.collectionView.visibleCells.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ThemedNavigationViewController.viewDidLoad():ThemedNavigationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "topViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TypeAttributeOptionCollectionViewDataSource.collectionView(_:cellForItemAt:):TypeAttributeOptionCollectionViewDataSource.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "collectionView.indexPathsForSelectedItems.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AttributeOptionCollectionViewDelegate.collectionView(_:didDeselectItemAt:):AttributeOptionCollectionViewDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "AlcoholRatioPickerViewDelegate.pickerView(_:attributedTitleForRow:forComponent:):AlcoholRatioPickerViewDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIFont(name: &quot;AvenirNext-Medium&quot;, size: 17.0)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

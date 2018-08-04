@@ -1,5 +1,5 @@
 //
-//  DrinkTableViewCell.swift
+//  DrinkHistoryTableViewCell.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/31/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DrinkTableViewCell: UITableViewCell {
+class DrinkHistoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!

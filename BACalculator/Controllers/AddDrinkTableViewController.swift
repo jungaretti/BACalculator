@@ -9,7 +9,7 @@
 import DrinkKit
 import UIKit
 
-class AddDrinkTableViewController: UITableViewController, AttributeOptionDelegate {
+class AddDrinkTableViewController: UITableViewController, AttributeDelegate {
     
     private struct AddDrinkTableViewRowHeights {
         

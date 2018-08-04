@@ -30,7 +30,7 @@ class AttributeCollectionTableViewCell: AttributeTableViewCell {
         collectionView.dataSource = self.collectionViewDataSource
     }
     
-    func setCollectionView(delegate: AttributeOptionCollectionViewDelegate?, attributeOptionDelegate: AttributeOptionDelegate) {
+    func setCollectionView(delegate: AttributeOptionCollectionViewDelegate?, attributeOptionDelegate: AttributeDelegate) {
         self.collectionViewDelegate = delegate
         self.collectionViewDelegate?.attributeOptionDelegate = attributeOptionDelegate
         collectionView.delegate = self.collectionViewDelegate

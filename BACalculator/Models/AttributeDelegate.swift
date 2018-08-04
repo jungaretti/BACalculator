@@ -1,5 +1,5 @@
 //
-//  AttributeOptionDelegate.swift
+//  AttributeDelegate.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/30/18.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-/// The `AttributeOptionDelegate` protocol defines methods that allow you manage how an an object responds to an attribute change.
-protocol AttributeOptionDelegate: class {
+/// The `AttributeDelegate` protocol defines methods that allow you manage how an an object responds to an attribute change.
+protocol AttributeDelegate: class {
     
     func typeAttributeDidChange(sender: UICollectionView)
     
