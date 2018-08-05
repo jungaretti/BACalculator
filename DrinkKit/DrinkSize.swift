@@ -9,7 +9,7 @@
 import Foundation
 
 /// A measurement of an alcoholic drink's size.
-public protocol DrinkSize {
+public protocol DrinkSize: Codable {
     
     /// The mass of alcohol in a drink.
     var alcoholMass: Measurement<UnitMass> { get }

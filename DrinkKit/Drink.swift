@@ -44,6 +44,69 @@ extension Drink: Comparable {
     
 }
 
+extension Drink: Codable {
+    
+    /// Constants describing the type of `DrinkSize` stored by the `Drink`.
+    private enum DrinkSizeType: Int, Codable {
+        
+        case standard = 0
+        case custom = 1
+        
+    }
+    
+    /// Constants describing the coding keys of the `Drink`.
+    enum DrinkCodingKeys: String, CodingKey {
+        
+        case type
+        case consumptionDate
+        case size
+        
+    }
+    
+    /// Constants describing the coding keys of the `Drink`'s `DrinkSize`.
+    enum DrinkSizeCodingKeys: String, CodingKey {
+        
+        case type
+        case size
+        
+    }
+    
+    public init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: DrinkCodingKeys.self)
+        // Decode basic information about the Drink
+        self.type = try values.decode(DrinkType.self, forKey: .type)
+        self.consumptionDate = try values.decode(Date.self, forKey: .consumptionDate)
+        // Decode size information about the Drink
+        let sizeValues = try values.nestedContainer(keyedBy: DrinkSizeCodingKeys.self, forKey: .size)
+        let sizeType = try sizeValues.decode(DrinkSizeType.self, forKey: .type)
+        switch sizeType {
+        case .standard:
+            self.size = try sizeValues.decode(StandardDrinkSize.self, forKey: .size)
+        case .custom:
+            self.size = try sizeValues.decode(CustomDrinkSize.self, forKey: .size)
+        }
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: DrinkCodingKeys.self)
+        // Encode basic information about the Drink
+        try container.encode(self.type, forKey: .type)
+        try container.encode(self.consumptionDate, forKey: .consumptionDate)
+        // Encode size information about the Drink
+        var sizeContainer = container.nestedContainer(keyedBy: DrinkSizeCodingKeys.self, forKey: .size)
+        if let standardSize = self.size as? StandardDrinkSize {
+            try sizeContainer.encode(DrinkSizeType.standard, forKey: .type)
+            try sizeContainer.encode(standardSize, forKey: .size)
+        } else if let customSize = self.size as? CustomDrinkSize {
+            try sizeContainer.encode(DrinkSizeType.custom, forKey: .type)
+            try sizeContainer.encode(customSize, forKey: .size)
+        } else {
+            throw EncodingError.invalidValue(self.size, .init(codingPath: [DrinkCodingKeys.size, DrinkSizeCodingKeys.type], debugDescription: "The DrinkSize could not be encoded."))
+        }
+    }
+    
+}
+
 public extension Array where Element == Drink {
     
     /// Sort an `Array` of `Drink`s by consumption date.

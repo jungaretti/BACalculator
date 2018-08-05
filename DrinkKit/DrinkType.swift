@@ -9,12 +9,12 @@
 import Foundation
 
 /// Constants describing different types of alcoholic beverages.
-public enum DrinkType {
+public enum DrinkType: String, Codable {
     
-    case beer
-    case wine
-    case liquor
-    case mixed
+    case beer = "beer"
+    case wine = "wine"
+    case liquor = "liquor"
+    case mixed = "mixed"
     
     /// A description of the `DrinkType` with capitilization.
     public var description: String {
