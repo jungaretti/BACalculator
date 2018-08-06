@@ -1,5 +1,5 @@
 //
-//  TimeControlButton.swift
+//  HourControlButton.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/25/18.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class TimeControlButton: UIButton {
+class HourControlButton: UIButton {
 
-    @IBInspectable var stepSizeHours: Int = 0
+    @IBInspectable var step: Int = 0
 
 }

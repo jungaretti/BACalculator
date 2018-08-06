@@ -53,7 +53,7 @@
 		1568BFB9210CEFA70077C6E7 /* AttributeHeaderActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1568BFB8210CEFA70077C6E7 /* AttributeHeaderActionTableViewCell.swift */; };
 		1568BFBB210CEFB50077C6E7 /* AttributeCollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1568BFBA210CEFB50077C6E7 /* AttributeCollectionTableViewCell.swift */; };
 		15905F23210E380C00FED891 /* AttributeDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15905F22210E380C00FED891 /* AttributeDetailTableViewCell.swift */; };
-		1591E81A21095B5600F56581 /* TimeControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1591E81921095B5600F56581 /* TimeControlButton.swift */; };
+		1591E81A21095B5600F56581 /* HourControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1591E81921095B5600F56581 /* HourControlButton.swift */; };
 		15A7C4F82109668900F260FB /* ThemeAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7C4F72109668900F260FB /* ThemeAgent.swift */; };
 		15A7C54A2109824B00F260FB /* ThemeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7C5492109824B00F260FB /* ThemeNavigationViewController.swift */; };
 		15AB925A2117AFFD00BD2276 /* DiskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB92592117AFFD00BD2276 /* DiskManager.swift */; };
@@ -70,7 +70,6 @@
 		15B57642210AB272007F48D1 /* AddDrinkTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B57641210AB272007F48D1 /* AddDrinkTableViewController.swift */; };
 		15B57648210ABEB0007F48D1 /* TypeAttributeOptionCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B57647210ABEB0007F48D1 /* TypeAttributeOptionCollectionViewDataSource.swift */; };
 		15B5764C210ACCB7007F48D1 /* SizeAttributeOptionCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5764B210ACCB7007F48D1 /* SizeAttributeOptionCollectionViewDataSource.swift */; };
-		15B57657210AE086007F48D1 /* BloodAlcoholContentAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B57656210AE086007F48D1 /* BloodAlcoholContentAgent.swift */; };
 		15D29E4C2117DA7D009D0B93 /* SettingsNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D29E4B2117DA7D009D0B93 /* SettingsNavigationViewController.swift */; };
 		15D551E02107EDAB000F0889 /* DrinkType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551DF2107EDAB000F0889 /* DrinkType.swift */; };
 		15D551E22107EDC5000F0889 /* StandardDrinkSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551E12107EDC5000F0889 /* StandardDrinkSize.swift */; };
@@ -200,7 +199,7 @@
 		1568BFB8210CEFA70077C6E7 /* AttributeHeaderActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeHeaderActionTableViewCell.swift; sourceTree = "<group>"; };
 		1568BFBA210CEFB50077C6E7 /* AttributeCollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeCollectionTableViewCell.swift; sourceTree = "<group>"; };
 		15905F22210E380C00FED891 /* AttributeDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeDetailTableViewCell.swift; sourceTree = "<group>"; };
-		1591E81921095B5600F56581 /* TimeControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeControlButton.swift; sourceTree = "<group>"; };
+		1591E81921095B5600F56581 /* HourControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourControlButton.swift; sourceTree = "<group>"; };
 		15A7C4F72109668900F260FB /* ThemeAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAgent.swift; sourceTree = "<group>"; };
 		15A7C5492109824B00F260FB /* ThemeNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeNavigationViewController.swift; sourceTree = "<group>"; };
 		15AB92592117AFFD00BD2276 /* DiskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskManager.swift; sourceTree = "<group>"; };
@@ -217,7 +216,6 @@
 		15B57641210AB272007F48D1 /* AddDrinkTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDrinkTableViewController.swift; sourceTree = "<group>"; };
 		15B57647210ABEB0007F48D1 /* TypeAttributeOptionCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAttributeOptionCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		15B5764B210ACCB7007F48D1 /* SizeAttributeOptionCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeAttributeOptionCollectionViewDataSource.swift; sourceTree = "<group>"; };
-		15B57656210AE086007F48D1 /* BloodAlcoholContentAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodAlcoholContentAgent.swift; sourceTree = "<group>"; };
 		15D29E4B2117DA7D009D0B93 /* SettingsNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationViewController.swift; sourceTree = "<group>"; };
 		15D551DF2107EDAB000F0889 /* DrinkType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkType.swift; sourceTree = "<group>"; };
 		15D551E12107EDC5000F0889 /* StandardDrinkSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDrinkSize.swift; sourceTree = "<group>"; };
@@ -393,7 +391,6 @@
 		15B57651210ADB45007F48D1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				15B57656210AE086007F48D1 /* BloodAlcoholContentAgent.swift */,
 				154310A1210F9CEB008A4CF5 /* DrinkAttributeAgent.swift */,
 				15A7C4F72109668900F260FB /* ThemeAgent.swift */,
 				154310B8211000A7008A4CF5 /* AttributeDelegate.swift */,
@@ -445,7 +442,7 @@
 		15D551FF21082BAD000F0889 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1591E81921095B5600F56581 /* TimeControlButton.swift */,
+				1591E81921095B5600F56581 /* HourControlButton.swift */,
 				1506B4F2210A824D00CBDD14 /* XIBView.swift */,
 				15E8F7F521164F4800810DD3 /* AttributeTableView */,
 				15EBF901210E3A3500877A0B /* AttributeCard */,
@@ -775,13 +772,12 @@
 				1542212421112674001515BF /* SexDetailTableViewDelegate.swift in Sources */,
 				15D551F921082574000F0889 /* DrinkManager.swift in Sources */,
 				15D5520121082BD9000F0889 /* HomeViewController.swift in Sources */,
-				1591E81A21095B5600F56581 /* TimeControlButton.swift in Sources */,
+				1591E81A21095B5600F56581 /* HourControlButton.swift in Sources */,
 				15A7C54A2109824B00F260FB /* ThemeNavigationViewController.swift in Sources */,
 				154310B9211000A7008A4CF5 /* AttributeDelegate.swift in Sources */,
 				15A7C4F82109668900F260FB /* ThemeAgent.swift in Sources */,
 				15B57642210AB272007F48D1 /* AddDrinkTableViewController.swift in Sources */,
 				1542212021112630001515BF /* SettingsDetailTableViewDelegate.swift in Sources */,
-				15B57657210AE086007F48D1 /* BloodAlcoholContentAgent.swift in Sources */,
 				15AB925E2117D5CA00BD2276 /* PreferenceManagerKeys.swift in Sources */,
 				154310A4210FB024008A4CF5 /* AttributeDetailPickerTableViewCell.swift in Sources */,
 				154310BD211019A0008A4CF5 /* SizeAttributeOptionCollectionViewDelegate.swift in Sources */,

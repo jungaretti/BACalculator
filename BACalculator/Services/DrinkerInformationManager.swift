@@ -17,13 +17,8 @@ class DrinkerInformationManager: DiskManager<DrinkerInformation> {
     static var `default` = DrinkerInformationManager(fileURL: FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appendingPathComponent("DrinkerInformation").appendingPathExtension("json"))
     
     /// The `DrinkerInformation` managed by the `DrinkerInformationManager`, or a default `DrinkerInformation` if the information cannot be loaded from persistent storage.
-    var drinkerInformation: DrinkerInformation {
-        if managedData == nil {
-            managedData = DrinkerInformation(weight: Measurement(value: 180.0, unit: UnitMass.pounds), sex: .male, alcoholMetabolism: .average)
-            os_log("DrinkInformationManager initialized managedData.")
-            saveToDisk()
-        }
-        return managedData!
+    var drinkerInformation: DrinkerInformation? {
+        return managedData
     }
     
     /// Update the `DrinkerInformation` managed by the `DrinkerInformationManager`.

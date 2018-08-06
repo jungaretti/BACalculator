@@ -16,104 +16,107 @@ class HomeViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
     override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return .none
     }
     
-    @IBOutlet weak var settingsButton: UIBarButtonItem!
-    @IBOutlet weak var historyButton: UIBarButtonItem!
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var rewindButton: UIButton!
     @IBOutlet weak var advanceButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var bloodAlcoholContentLabel: UILabel!
     
-    private var bloodAlcoholContentAgent: BloodAlcoholContentAgent = BloodAlcoholContentAgent()
-    private var latestBloodAlcoholContent: BloodAlcoholContent = 0.00
+    private var offsetHours: Int = 0
+    private var offsetTimeInterval: TimeInterval {
+        return TimeInterval(3600 * offsetHours)
+    }
+    private var bloodAlcoholContentNumberFormatter = NumberFormatter()
+    private var latestBloodAlcoholContentTheme: BloodAlcoholContent = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Configure colors
+        timeLabel.textColor = UIColor.white
+        bloodAlcoholContentLabel.textColor = UIColor.white
+        for button in [historyButton, settingsButton, rewindButton, addButton, advanceButton] {
+            button?.tintColor = UIColor.white
+        }
+        // Update measurement
+        updateTimeLabel(animated: false)
+        updateMeasurement(animated: false)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        updateMeasurement(animated: animated)
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-        
-    /// Update the simulated time.
-    func updateTime() {
-        updateTimeLabel()
+    
+    @IBAction func timeControlPressed(_ sender: HourControlButton) {
+        offsetHours += sender.step
+        updateTimeLabel(animated: true)
         updateMeasurement(animated: true)
     }
     
-    /// Update the BAC measurement.
-    ///
-    /// - Parameter animated: If `true`, updates to on-screen measurements will be animated.
     func updateMeasurement(animated: Bool) {
-        let bloodAlcoholContent = bloodAlcoholContentAgent.calculateBAC(safeMode: PreferenceManager.default.safeMode)
-        latestBloodAlcoholContent = bloodAlcoholContent
-        updateBloodAlcoholContentLabel(withBAC: bloodAlcoholContent, animated: animated)
-        updateBackgroundColor(forBAC: bloodAlcoholContent, animated: animated)
-    }
-    
-    /// Update the on-screen BAC label with a formatted version of the calculated BAC.
-    ///
-    /// - Parameters:
-    ///   - bloodAlcoholContent: The `BloodAlcoholContent` to format and display on-screen.
-    ///   - animated: If `true`, an update to the BAC label will be animated.
-    private func updateBloodAlcoholContentLabel(withBAC bloodAlcoholContent: BloodAlcoholContent, animated: Bool) {
-        bloodAlcoholContentLabel.text = bloodAlcoholContentAgent.formatBloodAlcoholContent(bloodAlcoholContent)
-    }
-    
-    /// Update the background color with a color matching the calculated BAC.
-    ///
-    /// - Parameters:
-    ///   - bloodAlcoholContent: The `BloodAlcoholContent` to use for picking a background color.
-    ///   - animated: If `true`, an update to the background color will be animated.
-    private func updateBackgroundColor(forBAC bloodAlcoholContent: BloodAlcoholContent, animated: Bool) {
-        let newBackgroundColor = ThemeAgent.themeColor(forBAC: bloodAlcoholContent)
-        let updateBackgroundColor = {
-            self.view.backgroundColor = newBackgroundColor.normal
+        let bloodAlcoholContent = calculateBloodAlcoholContent()
+        let bloodAlcoholContentFormatted = format(bloodAlcoholContent: bloodAlcoholContent)!
+        let bloodAlcoholContentTheme = Double(bloodAlcoholContentFormatted)!
+        latestBloodAlcoholContentTheme = bloodAlcoholContentTheme
+        let updateFunction = {
+            // Update the BAC label
+            self.bloodAlcoholContentLabel.text = bloodAlcoholContentFormatted
+            // Update the background color to match the label
+            self.view.backgroundColor = ThemeAgent.themeColor(forBAC: Double(bloodAlcoholContentFormatted)!).normal
         }
         if animated {
-            let animationDuration: TimeInterval = 0.30
-            let animationDelay: TimeInterval = 0.0
-            UIView.animate(withDuration: animationDuration, delay: animationDelay, options: [.allowUserInteraction, .beginFromCurrentState], animations: updateBackgroundColor, completion: nil)
+            UIView.animate(withDuration: 0.50, delay: 0.0, options: [.allowUserInteraction, .beginFromCurrentState], animations: updateFunction, completion: nil)
         } else {
-            updateBackgroundColor()
+            updateFunction()
         }
     }
     
-    /// Update the time label with the proper number of hours offset.
-    private func updateTimeLabel() {
-        if bloodAlcoholContentAgent.offsetHours < -1 {
-            timeLabel.text = "\(abs(bloodAlcoholContentAgent.offsetHours)) Hours Ago"
-        } else if bloodAlcoholContentAgent.offsetHours == -1 {
+    func updateTimeLabel(animated: Bool) {
+        if offsetHours < -1 {
+            timeLabel.text = "\(abs(offsetHours)) Hours Ago"
+        } else if offsetHours == -1 {
             timeLabel.text = "1 Hour Ago"
-        } else if bloodAlcoholContentAgent.offsetHours > 1 {
-            timeLabel.text = "In \(bloodAlcoholContentAgent.offsetHours) Hours"
-        } else if bloodAlcoholContentAgent.offsetHours == 1 {
+        } else if offsetHours == 1 {
             timeLabel.text = "In 1 Hour"
+        } else if offsetHours > 1 {
+            timeLabel.text = "In \(offsetHours) Hours"
         } else {
             timeLabel.text = "Right Now"
         }
     }
     
-    @IBAction func timeControlPressed(_ sender: TimeControlButton) {
-        bloodAlcoholContentAgent.adjustOffset(byHours: sender.stepSizeHours)
-        updateTime()
+    private func calculateBloodAlcoholContent() -> BloodAlcoholContent {
+        if let drinkerInformation = DrinkerInformationManager.default.drinkerInformation {
+            let safeMode = PreferenceManager.default.safeMode
+            let measureDate = Date().addingTimeInterval(offsetTimeInterval)
+            let measureDrinks = DrinkManager.default.drinks
+            let alcoholCalculator = AlcoholCalculator(drinkerInformation: drinkerInformation, safeMode: safeMode)
+            let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: measureDate, afterDrinks: measureDrinks)
+            os_log("BAC was recalculated to be %f. Measure date: %@, safe mode: %@.", bloodAlcoholContent, measureDate.description, safeMode.description)
+            return bloodAlcoholContent
+        } else {
+            os_log("BAC could not be calculated because drinker information is not avaliable. A default value of 0.00 will be used instead.")
+            return BloodAlcoholContent(0.00)
+        }
+    }
+    
+    private func format(bloodAlcoholContent: BloodAlcoholContent) -> String? {
+        bloodAlcoholContentNumberFormatter.numberStyle = .decimal
+        bloodAlcoholContentNumberFormatter.minimumFractionDigits = 2
+        bloodAlcoholContentNumberFormatter.maximumFractionDigits = 2
+        bloodAlcoholContentNumberFormatter.maximumIntegerDigits = 2
+        return bloodAlcoholContentNumberFormatter.string(from: NSNumber(value: bloodAlcoholContent))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ThemeNavigationViewController {
-            destination.themeColor = ThemeAgent.themeColor(forBAC: latestBloodAlcoholContent)
+            destination.themeColor = ThemeAgent.themeColor(forBAC: latestBloodAlcoholContentTheme)
         }
     }
     

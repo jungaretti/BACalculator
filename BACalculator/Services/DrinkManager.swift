@@ -18,11 +18,6 @@ class DrinkManager: DiskManager<[Drink]> {
     
     /// The `[Drink]` managed by the `DrinkManager`, or an empty `[Drink]` if the drinks cannot be loaded from persistent storage.
     var drinks: [Drink] {
-        if managedData == nil {
-            managedData = [Drink]()
-            os_log("DrinkManager initialized managedData.")
-            saveToDisk()
-        }
         return managedData!
     }
     
@@ -58,6 +53,15 @@ class DrinkManager: DiskManager<[Drink]> {
     func removeAllDrinks() {
         managedData?.removeAll()
         saveToDisk()
+    }
+    
+    override func loadFromDisk() {
+        super.loadFromDisk()
+        if managedData == nil {
+            managedData = [Drink]()
+            os_log("DrinkManager initialized an empty [Drink].")
+            saveToDisk()
+        }
     }
     
 }

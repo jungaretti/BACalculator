@@ -41,12 +41,12 @@ class HistoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DrinkManager.default.drinks.count
+        return DrinkManager.default.drinks.count // TODO: Handle optional better
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "drink") as! DrinkHistoryTableViewCell
-        let drink = DrinkManager.default.drinks[indexPath.row]
+        let drink = DrinkManager.default.drinks[indexPath.row] // TODO: Handle optional better
         cell.typeLabel.text = drink.type.description
         cell.sizeLabel.text = "\(drink.size)"
         cell.dateLabel.text = drink.consumptionDate.description
