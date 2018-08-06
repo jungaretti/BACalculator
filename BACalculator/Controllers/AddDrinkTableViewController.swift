@@ -77,7 +77,7 @@ class AddDrinkTableViewController: UITableViewController, AttributeDelegate {
     
     func typeAttributeDidChange(sender: UICollectionView) {
         if let indexPathForSelectedItem = sender.indexPathsForSelectedItems?.first {
-            _selectedType = DrinkAttributeManager.types[indexPathForSelectedItem.row]
+            _selectedType = DrinkAttributeAgent.types[indexPathForSelectedItem.row]
         } else {
             _selectedType = nil
         }

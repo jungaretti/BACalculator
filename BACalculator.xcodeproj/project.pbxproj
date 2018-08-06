@@ -34,7 +34,7 @@
 		1542212C211126E2001515BF /* SettingsPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1542212B211126E2001515BF /* SettingsPickerViewDelegate.swift */; };
 		1542212E211126F9001515BF /* WeightPickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1542212D211126F9001515BF /* WeightPickerViewDataSource.swift */; };
 		154221302111270D001515BF /* WeightPickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1542212F2111270D001515BF /* WeightPickerViewDelegate.swift */; };
-		154310A2210F9CEB008A4CF5 /* DrinkAttributeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154310A1210F9CEB008A4CF5 /* DrinkAttributeManager.swift */; };
+		154310A2210F9CEB008A4CF5 /* DrinkAttributeAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154310A1210F9CEB008A4CF5 /* DrinkAttributeAgent.swift */; };
 		154310A4210FB024008A4CF5 /* AttributeDetailPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154310A3210FB024008A4CF5 /* AttributeDetailPickerTableViewCell.swift */; };
 		154310A6210FE2EF008A4CF5 /* CustomSizePickerViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154310A5210FE2EF008A4CF5 /* CustomSizePickerViewDataSource.swift */; };
 		154310A8210FE2F9008A4CF5 /* CustomSizePickerViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154310A7210FE2F9008A4CF5 /* CustomSizePickerViewDelegate.swift */; };
@@ -180,7 +180,7 @@
 		1542212B211126E2001515BF /* SettingsPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPickerViewDelegate.swift; sourceTree = "<group>"; };
 		1542212D211126F9001515BF /* WeightPickerViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightPickerViewDataSource.swift; sourceTree = "<group>"; };
 		1542212F2111270D001515BF /* WeightPickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightPickerViewDelegate.swift; sourceTree = "<group>"; };
-		154310A1210F9CEB008A4CF5 /* DrinkAttributeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkAttributeManager.swift; sourceTree = "<group>"; };
+		154310A1210F9CEB008A4CF5 /* DrinkAttributeAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkAttributeAgent.swift; sourceTree = "<group>"; };
 		154310A3210FB024008A4CF5 /* AttributeDetailPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeDetailPickerTableViewCell.swift; sourceTree = "<group>"; };
 		154310A5210FE2EF008A4CF5 /* CustomSizePickerViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSizePickerViewDataSource.swift; sourceTree = "<group>"; };
 		154310A7210FE2F9008A4CF5 /* CustomSizePickerViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSizePickerViewDelegate.swift; sourceTree = "<group>"; };
@@ -392,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				15B57656210AE086007F48D1 /* BloodAlcoholContentAgent.swift */,
+				154310A1210F9CEB008A4CF5 /* DrinkAttributeAgent.swift */,
 				15A7C4F72109668900F260FB /* ThemeAgent.swift */,
 				154310B8211000A7008A4CF5 /* AttributeDelegate.swift */,
 				15E8F7F621164FC200810DD3 /* SettingsDelegate.swift */,
@@ -407,7 +408,6 @@
 		15D551F721082506000F0889 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				154310A1210F9CEB008A4CF5 /* DrinkAttributeManager.swift */,
 				15AB92592117AFFD00BD2276 /* DiskManager.swift */,
 				15D551F821082574000F0889 /* DrinkManager.swift */,
 				15D551FA21082A03000F0889 /* DrinkerInformationManager.swift */,
@@ -733,7 +733,7 @@
 				15B57648210ABEB0007F48D1 /* TypeAttributeOptionCollectionViewDataSource.swift in Sources */,
 				1506B4F3210A824D00CBDD14 /* XIBView.swift in Sources */,
 				15905F23210E380C00FED891 /* AttributeDetailTableViewCell.swift in Sources */,
-				154310A2210F9CEB008A4CF5 /* DrinkAttributeManager.swift in Sources */,
+				154310A2210F9CEB008A4CF5 /* DrinkAttributeAgent.swift in Sources */,
 				154310BB21101983008A4CF5 /* TypeAttributeOptionCollectionViewDelegate.swift in Sources */,
 				154310AC210FE514008A4CF5 /* AlcoholRatioPickerViewDataSource.swift in Sources */,
 				154221302111270D001515BF /* WeightPickerViewDelegate.swift in Sources */,

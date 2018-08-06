@@ -1,5 +1,5 @@
 //
-//  DrinkAttributeManager.swift
+//  DrinkAttributeAgent.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 7/30/18.
@@ -9,13 +9,13 @@
 import DrinkKit
 
 /// A manager for attributes of a `Drink`.
-struct DrinkAttributeManager {
+struct DrinkAttributeAgent {
     
     // MARK: Properties
     
     /// Choices for `DrinkType`s.
     static let types: [DrinkType] = [.beer, .wine, .liquor, .mixed]
-    /// Choices for `StandardDrinkSize` quantities.
+    /// Choices for `Sta ndardDrinkSize` quantities.
     static let standardSizes: [Int] = Array(1...5)
     
     // MARK: Methods
