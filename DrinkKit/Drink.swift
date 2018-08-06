@@ -46,16 +46,8 @@ extension Drink: Comparable {
 
 extension Drink: Codable {
     
-    /// Constants describing the type of `DrinkSize` stored by the `Drink`.
-    private enum DrinkSizeType: Int, Codable {
-        
-        case standard = 0
-        case custom = 1
-        
-    }
-    
-    /// Constants describing the coding keys of the `Drink`.
-    enum DrinkCodingKeys: String, CodingKey {
+    /// Coding keys for `Drink`.
+    private enum DrinkCodingKeys: String, CodingKey {
         
         case type
         case consumptionDate
@@ -63,11 +55,19 @@ extension Drink: Codable {
         
     }
     
-    /// Constants describing the coding keys of the `Drink`'s `DrinkSize`.
-    enum DrinkSizeCodingKeys: String, CodingKey {
+    /// Coding keys for instances that conform to `DrinkSize`.
+    private enum DrinkSizeCodingKeys: String, CodingKey {
         
         case type
         case size
+        
+    }
+    
+    /// Constants describing the type of `DrinkSize` stored by the `Drink`.
+    private enum DrinkSizeType: Int, Codable {
+        
+        case standard = 0
+        case custom = 1
         
     }
     
