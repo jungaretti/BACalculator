@@ -15,7 +15,7 @@ class ThemeNavigationViewController: UINavigationController {
         return .lightContent
     }
     
-    var themeColor: (normal: UIColor?, dark: UIColor?)
+    var themeColor: ThemeColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()

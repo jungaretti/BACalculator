@@ -32,8 +32,10 @@ class HomeViewController: UIViewController {
     private var offsetTimeInterval: TimeInterval {
         return TimeInterval(3600 * offsetHours)
     }
-    private var bloodAlcoholContentNumberFormatter = NumberFormatter()
-    private var latestBloodAlcoholContentTheme: BloodAlcoholContent = 0.0
+    
+    private var numberFormatter = NumberFormatter()
+    private var themeColor: ThemeColor!
+    private var recalculationTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,16 +61,18 @@ class HomeViewController: UIViewController {
         updateMeasurement(animated: true)
     }
     
+    /// Update the on-screen measurement.
+    ///
+    /// - Parameter animated: If `true`, updates to the time label will be animated.
     func updateMeasurement(animated: Bool) {
         let bloodAlcoholContent = calculateBloodAlcoholContent()
         let bloodAlcoholContentFormatted = format(bloodAlcoholContent: bloodAlcoholContent)!
-        let bloodAlcoholContentTheme = Double(bloodAlcoholContentFormatted)!
-        latestBloodAlcoholContentTheme = bloodAlcoholContentTheme
+        themeColor = ThemeAgent.themeColor(forBAC: Double(bloodAlcoholContentFormatted)!)
         let updateFunction = {
             // Update the BAC label
             self.bloodAlcoholContentLabel.text = bloodAlcoholContentFormatted
             // Update the background color to match the label
-            self.view.backgroundColor = ThemeAgent.themeColor(forBAC: Double(bloodAlcoholContentFormatted)!).normal
+            self.view.backgroundColor = self.themeColor.normal
         }
         if animated {
             UIView.animate(withDuration: 0.50, delay: 0.0, options: [.allowUserInteraction, .beginFromCurrentState], animations: updateFunction, completion: nil)
@@ -77,6 +81,9 @@ class HomeViewController: UIViewController {
         }
     }
     
+    /// Update the on-screen time label.
+    ///
+    /// - Parameter animated: If `true`, updates to the time label will be animated.
     func updateTimeLabel(animated: Bool) {
         if offsetHours < -1 {
             timeLabel.text = "\(abs(offsetHours)) Hours Ago"
@@ -98,7 +105,7 @@ class HomeViewController: UIViewController {
             let measureDrinks = DrinkManager.default.drinks
             let alcoholCalculator = AlcoholCalculator(drinkerInformation: drinkerInformation, safeMode: safeMode)
             let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: measureDate, afterDrinks: measureDrinks)
-            os_log("BAC was recalculated to be %f. Measure date: %@, safe mode: %@.", bloodAlcoholContent, measureDate.description, safeMode.description)
+            os_log("BAC was calculated to be %f at %@. Safe mode %@.", bloodAlcoholContent, measureDate.description, safeMode.description)
             return bloodAlcoholContent
         } else {
             os_log("BAC could not be calculated because drinker information is not avaliable. A default value of 0.00 will be used instead.")
@@ -107,16 +114,16 @@ class HomeViewController: UIViewController {
     }
     
     private func format(bloodAlcoholContent: BloodAlcoholContent) -> String? {
-        bloodAlcoholContentNumberFormatter.numberStyle = .decimal
-        bloodAlcoholContentNumberFormatter.minimumFractionDigits = 2
-        bloodAlcoholContentNumberFormatter.maximumFractionDigits = 2
-        bloodAlcoholContentNumberFormatter.maximumIntegerDigits = 2
-        return bloodAlcoholContentNumberFormatter.string(from: NSNumber(value: bloodAlcoholContent))
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.maximumIntegerDigits = 2
+        return numberFormatter.string(from: NSNumber(value: bloodAlcoholContent))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ThemeNavigationViewController {
-            destination.themeColor = ThemeAgent.themeColor(forBAC: latestBloodAlcoholContentTheme)
+            destination.themeColor = themeColor
         }
     }
     
