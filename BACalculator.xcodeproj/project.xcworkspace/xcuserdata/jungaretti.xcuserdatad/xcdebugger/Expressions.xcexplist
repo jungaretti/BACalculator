@@ -11,6 +11,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "DiskManager.managedData.getter:DiskManager.swift">
+      </ContextState>
+      <ContextState
          contextName = "DrinkTableViewController.tableView(_:cellForRowAt:):DrinkTableViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -82,6 +85,17 @@
          <PersistentStrings>
             <PersistentString
                value = "topViewController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DiskManager.saveToDisk():DiskManager.swift">
+      </ContextState>
+      <ContextState
+         contextName = "DrinkerInformationManager.default.unsafeMutableAddressor:DrinkerInformationManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

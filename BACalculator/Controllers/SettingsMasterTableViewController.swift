@@ -85,6 +85,17 @@ class SettingsMasterTableViewController: UITableViewController, SettingsDelegate
         return UITableViewCell(style: .default, reuseIdentifier: nil)
     }
     
+    // MARK: Table View Delegate
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0:
+            return "Personal Information"
+        default:
+            return nil
+        }
+    }
+    
     // MARK: Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

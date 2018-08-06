@@ -40,6 +40,7 @@ class DiskManager<T: Codable> {
         let encoder = JSONEncoder()
         do {
             let encodedData = try encoder.encode(self.managedData)
+            try FileManager.default.createDirectory(at: FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!, withIntermediateDirectories: true)
             try encodedData.write(to: self.managedFileURL)
             os_log("Saved %@ to %@.", "\(T.self)", self.managedFileURL.lastPathComponent)
         } catch {
