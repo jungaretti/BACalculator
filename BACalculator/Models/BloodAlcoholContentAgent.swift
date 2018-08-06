@@ -65,9 +65,9 @@ struct BloodAlcoholContentAgent {
     ///   - safeMode: The Safe Mode preference. If `safeMode` is specified and `true`, a conservative alcohol metabolism is used in calculations.
     /// - Returns: `BloodAlcoholContent` measurement at the specified `Date`.
     func calculateBAC(atDate date: Date, safeMode: Bool?) -> BloodAlcoholContent {
-        var alcoholCalculator = AlcoholCalculator(drinkerInformation: DrinkerInformationManager.drinkerInformation)
+        var alcoholCalculator = AlcoholCalculator(drinkerInformation: DrinkerInformationManager.default.drinkerInformation)
         alcoholCalculator.safeMode = safeMode
-        let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: date, afterDrinks: DrinkManager.drinks)
+        let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: date, afterDrinks: DrinkManager.default.drinks)
         os_log("BAC was recalculated. %f at %@.", bloodAlcoholContent, date.description)
         return bloodAlcoholContent
     }

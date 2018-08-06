@@ -61,18 +61,18 @@ class SettingsMasterTableViewController: UITableViewController, SettingsDelegate
             case 0:
                 cell = tableView.dequeueReusableCell(withIdentifier: "detail") as! SettingsTableViewCell
                 cell.textLabel?.text = "Sex"
-                cell.detailTextLabel?.text = DrinkerInformationManager.drinkerInformation.sex.description
+                cell.detailTextLabel?.text = DrinkerInformationManager.default.drinkerInformation.sex.description
                 cell.detailTableViewDataSourceType = SexDetailTableViewDataSource.self
                 cell.detailTableViewDelegateType = SexDetailTableViewDelegate.self
                 return cell
             case 1:
                 let pickerCell = tableView.dequeueReusableCell(withIdentifier: "picker") as! SettingsPickerTableViewCell
                 pickerCell.textLabel?.text = "Weight"
-                pickerCell.detailTextLabel?.text = DrinkerInformationManager.drinkerInformation.weight.description
+                pickerCell.detailTextLabel?.text = DrinkerInformationManager.default.drinkerInformation.weight.description
                 pickerCell.pickerViewDataSourceType = WeightPickerViewDataSource.self
                 pickerCell.pickerViewDelegateType = WeightPickerViewDelegate.self
                 pickerCell.detailTextLabelUpdateFunction = {
-                    return DrinkerInformationManager.drinkerInformation.weight.description
+                    return DrinkerInformationManager.default.drinkerInformation.weight.description
                 }
                 cell = pickerCell
                 return cell

@@ -57,7 +57,7 @@ class AddDrinkTableViewController: UITableViewController, AttributeDelegate {
     }
     
     @IBAction func addPressed(_ sender: UIBarButtonItem) {
-        DrinkManager.drinks.append(assembleDrink())
+        DrinkManager.default.logDrink(assembleDrink())
         self.dismiss(animated: true, completion: nil)
     }
     

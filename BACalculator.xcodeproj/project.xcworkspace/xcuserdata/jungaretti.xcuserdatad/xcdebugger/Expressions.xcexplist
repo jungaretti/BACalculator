@@ -46,6 +46,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "SettingsDetailTableViewController.viewWillDisappear(_:):SettingsDetailTableViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.delegate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "HomeViewController.updateBloodAlcoholContentLabel(forBAC:):HomeViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -54,10 +62,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SettingsDetailTableViewController.viewWillDisappear(_:):SettingsDetailTableViewController.swift">
+         contextName = "DrinkManager.init(drinksURL:):DrinkManager.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.delegate">
+               value = "FileManager.default.fileExists(atPath: drinksURL.path)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -8,13 +8,17 @@
 
 import DrinkKit
 
-/// A persistent storage manager for attributes of a `Drink`.
+/// A manager for attributes of a `Drink`.
 struct DrinkAttributeManager {
+    
+    // MARK: Properties
     
     /// Choices for `DrinkType`s.
     static let types: [DrinkType] = [.beer, .wine, .liquor, .mixed]
     /// Choices for `StandardDrinkSize` quantities.
     static let standardSizes: [Int] = Array(1...5)
+    
+    // MARK: Methods
     
     /// Determine the appropriate icon for a specific `DrinkType`.
     ///

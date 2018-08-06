@@ -27,7 +27,7 @@ class SexDetailTableViewDataSource: SettingsDetailTableViewDataSource {
         let sexForCell = SexDetailTableViewDataSource.sexes[indexPath.row]
         cell.textLabel?.text = sexForCell.description
         cell.detailTextLabel?.text = nil
-        if sexForCell == DrinkerInformationManager.drinkerInformation.sex {
+        if sexForCell == DrinkerInformationManager.default.drinkerInformation.sex {
             cell.accessoryType = .checkmark
         }
         return cell

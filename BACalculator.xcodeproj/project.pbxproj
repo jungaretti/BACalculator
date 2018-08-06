@@ -56,6 +56,9 @@
 		1591E81A21095B5600F56581 /* TimeControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1591E81921095B5600F56581 /* TimeControlButton.swift */; };
 		15A7C4F82109668900F260FB /* ThemeAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7C4F72109668900F260FB /* ThemeAgent.swift */; };
 		15A7C54A2109824B00F260FB /* ThemeNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A7C5492109824B00F260FB /* ThemeNavigationViewController.swift */; };
+		15AB925A2117AFFD00BD2276 /* DiskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB92592117AFFD00BD2276 /* DiskManager.swift */; };
+		15AB925E2117D5CA00BD2276 /* PreferenceManagerKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB925D2117D5CA00BD2276 /* PreferenceManagerKeys.swift */; };
+		15AB92602117D5FB00BD2276 /* PreferenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15AB925F2117D5FB00BD2276 /* PreferenceManager.swift */; };
 		15B2A66D210A8BE4002C33AE /* AttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A66C210A8BE4002C33AE /* AttributeCardView.swift */; };
 		15B2A66F210A8E54002C33AE /* GlyphAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A66E210A8E54002C33AE /* GlyphAttributeCardView.swift */; };
 		15B2A671210A8EC0002C33AE /* HeaderAttributeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B2A670210A8EC0002C33AE /* HeaderAttributeCardView.swift */; };
@@ -82,7 +85,6 @@
 		15D551F6210816B4000F0889 /* AlcoholCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551F5210816B4000F0889 /* AlcoholCalculatorTests.swift */; };
 		15D551F921082574000F0889 /* DrinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551F821082574000F0889 /* DrinkManager.swift */; };
 		15D551FB21082A03000F0889 /* DrinkerInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551FA21082A03000F0889 /* DrinkerInformationManager.swift */; };
-		15D551FD21082B0C000F0889 /* PreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551FC21082B0C000F0889 /* PreferencesManager.swift */; };
 		15D5520121082BD9000F0889 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D5520021082BD9000F0889 /* HomeViewController.swift */; };
 		15E8F7EE2116445000810DD3 /* SettingsPickerDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E8F7ED2116445000810DD3 /* SettingsPickerDetailTableViewController.swift */; };
 		15E8F7F02116481200810DD3 /* SettingsPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E8F7EF2116481200810DD3 /* SettingsPickerTableViewCell.swift */; };
@@ -200,6 +202,9 @@
 		1591E81921095B5600F56581 /* TimeControlButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeControlButton.swift; sourceTree = "<group>"; };
 		15A7C4F72109668900F260FB /* ThemeAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAgent.swift; sourceTree = "<group>"; };
 		15A7C5492109824B00F260FB /* ThemeNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeNavigationViewController.swift; sourceTree = "<group>"; };
+		15AB92592117AFFD00BD2276 /* DiskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskManager.swift; sourceTree = "<group>"; };
+		15AB925D2117D5CA00BD2276 /* PreferenceManagerKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceManagerKeys.swift; sourceTree = "<group>"; };
+		15AB925F2117D5FB00BD2276 /* PreferenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferenceManager.swift; sourceTree = "<group>"; };
 		15B2A66C210A8BE4002C33AE /* AttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeCardView.swift; sourceTree = "<group>"; };
 		15B2A66E210A8E54002C33AE /* GlyphAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlyphAttributeCardView.swift; sourceTree = "<group>"; };
 		15B2A670210A8EC0002C33AE /* HeaderAttributeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderAttributeCardView.swift; sourceTree = "<group>"; };
@@ -226,7 +231,6 @@
 		15D551F5210816B4000F0889 /* AlcoholCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholCalculatorTests.swift; sourceTree = "<group>"; };
 		15D551F821082574000F0889 /* DrinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkManager.swift; sourceTree = "<group>"; };
 		15D551FA21082A03000F0889 /* DrinkerInformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerInformationManager.swift; sourceTree = "<group>"; };
-		15D551FC21082B0C000F0889 /* PreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesManager.swift; sourceTree = "<group>"; };
 		15D5520021082BD9000F0889 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		15E8F7ED2116445000810DD3 /* SettingsPickerDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPickerDetailTableViewController.swift; sourceTree = "<group>"; };
 		15E8F7EF2116481200810DD3 /* SettingsPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPickerTableViewCell.swift; sourceTree = "<group>"; };
@@ -403,10 +407,12 @@
 		15D551F721082506000F0889 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				15D551F821082574000F0889 /* DrinkManager.swift */,
 				154310A1210F9CEB008A4CF5 /* DrinkAttributeManager.swift */,
+				15AB92592117AFFD00BD2276 /* DiskManager.swift */,
+				15D551F821082574000F0889 /* DrinkManager.swift */,
 				15D551FA21082A03000F0889 /* DrinkerInformationManager.swift */,
-				15D551FC21082B0C000F0889 /* PreferencesManager.swift */,
+				15AB925F2117D5FB00BD2276 /* PreferenceManager.swift */,
+				15AB925D2117D5CA00BD2276 /* PreferenceManagerKeys.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -730,7 +736,6 @@
 				154310A2210F9CEB008A4CF5 /* DrinkAttributeManager.swift in Sources */,
 				154310BB21101983008A4CF5 /* TypeAttributeOptionCollectionViewDelegate.swift in Sources */,
 				154310AC210FE514008A4CF5 /* AlcoholRatioPickerViewDataSource.swift in Sources */,
-				15D551FD21082B0C000F0889 /* PreferencesManager.swift in Sources */,
 				154221302111270D001515BF /* WeightPickerViewDelegate.swift in Sources */,
 				15B2A671210A8EC0002C33AE /* HeaderAttributeCardView.swift in Sources */,
 				15E8F7EE2116445000810DD3 /* SettingsPickerDetailTableViewController.swift in Sources */,
@@ -742,6 +747,7 @@
 				1542212E211126F9001515BF /* WeightPickerViewDataSource.swift in Sources */,
 				1542212221112654001515BF /* SexDetailTableViewDataSource.swift in Sources */,
 				1568BFBB210CEFB50077C6E7 /* AttributeCollectionTableViewCell.swift in Sources */,
+				15AB925A2117AFFD00BD2276 /* DiskManager.swift in Sources */,
 				1504CE742110FF3600E1CF53 /* DrinkHistoryTableViewCell.swift in Sources */,
 				15E8F7F721164FC200810DD3 /* SettingsDelegate.swift in Sources */,
 				1542211B211125D6001515BF /* SettingsDetailTableViewController.swift in Sources */,
@@ -764,6 +770,7 @@
 				15B57642210AB272007F48D1 /* AddDrinkTableViewController.swift in Sources */,
 				1542212021112630001515BF /* SettingsDetailTableViewDelegate.swift in Sources */,
 				15B57657210AE086007F48D1 /* BloodAlcoholContentAgent.swift in Sources */,
+				15AB925E2117D5CA00BD2276 /* PreferenceManagerKeys.swift in Sources */,
 				154310A4210FB024008A4CF5 /* AttributeDetailPickerTableViewCell.swift in Sources */,
 				154310BD211019A0008A4CF5 /* SizeAttributeOptionCollectionViewDelegate.swift in Sources */,
 				1542211E2111260D001515BF /* SettingsDetailTableViewDataSource.swift in Sources */,
@@ -775,6 +782,7 @@
 				154310A6210FE2EF008A4CF5 /* CustomSizePickerViewDataSource.swift in Sources */,
 				155CA6D7210E69EF009F9BAB /* AttributeTableViewCell.swift in Sources */,
 				15422119211125CF001515BF /* SettingsMasterTableViewController.swift in Sources */,
+				15AB92602117D5FB00BD2276 /* PreferenceManager.swift in Sources */,
 				15B2A673210A9062002C33AE /* TypeAttributeCardView.swift in Sources */,
 				1504CE712110FD3800E1CF53 /* HistoryTableViewController.swift in Sources */,
 			);

@@ -57,7 +57,7 @@ class HomeViewController: UIViewController {
     ///
     /// - Parameter animated: If `true`, updates to on-screen measurements will be animated.
     func updateMeasurement(animated: Bool) {
-        let bloodAlcoholContent = bloodAlcoholContentAgent.calculateBAC(safeMode: PreferencesManager.safeMode)
+        let bloodAlcoholContent = bloodAlcoholContentAgent.calculateBAC(safeMode: PreferenceManager.default.safeMode)
         latestBloodAlcoholContent = bloodAlcoholContent
         updateBloodAlcoholContentLabel(withBAC: bloodAlcoholContent, animated: animated)
         updateBackgroundColor(forBAC: bloodAlcoholContent, animated: animated)

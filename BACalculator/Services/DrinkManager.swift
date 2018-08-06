@@ -8,15 +8,56 @@
 
 import DrinkKit
 import Foundation
+import os.log
 
 /// A persistent storage manager for `Drink`s.
-class DrinkManager {
+class DrinkManager: DiskManager<[Drink]> {
     
-    static var drinks: [Drink] = {
-        var drinks = [Drink]()
-        drinks.append(Drink(type: .wine, consumptionDate: Date().addingTimeInterval(-3600.0), size: StandardDrinkSize(standardDrinks: 1.0)))
-        drinks.append(Drink(type: .liquor, consumptionDate: Date().addingTimeInterval(-1800.0), size: StandardDrinkSize(standardDrinks: 1.0)))
-        return drinks
-    }()
+    /// The default `DrinkManager`. This `DrinkManager` saves information to `Drinks.json` in the Application Support directory.
+    static var `default` = DrinkManager(fileURL: FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appendingPathComponent("Drinks").appendingPathExtension("json"))
+    
+    /// The `[Drink]` managed by the `DrinkManager`, or an empty `[Drink]` if the drinks cannot be loaded from persistent storage.
+    var drinks: [Drink] {
+        if managedData == nil {
+            managedData = [Drink]()
+            os_log("DrinkManager initialized managedData.")
+            saveToDisk()
+        }
+        return managedData!
+    }
+    
+    /// Log a new `Drink`.
+    ///
+    /// - Parameter newDrink: The new `Drink` to log.
+    func logDrink(_ newDrink: Drink) {
+        if managedData != nil {
+            // Determine if the [Drink] needs sorting
+            let needsSorting: Bool
+            if let lastDrink = managedData!.last {
+                if lastDrink.consumptionDate > newDrink.consumptionDate { needsSorting = true }
+                else { needsSorting = false }
+            } else { needsSorting = false }
+            // Append the newDrink and sort if needed
+            managedData!.append(newDrink)
+            if needsSorting { managedData!.sortByDate() }
+        } else {
+            managedData = [newDrink]
+        }
+        saveToDisk()
+    }
+    
+    /// Remove a `Drink` at a certain index.
+    ///
+    /// - Parameter index: The index of the `Drink` to remove.
+    func removeDrink(atIndex index: Int) {
+        managedData?.remove(at: index)
+        saveToDisk()
+    }
+    
+    /// Remove all `Drink`s.
+    func removeAllDrinks() {
+        managedData?.removeAll()
+        saveToDisk()
+    }
     
 }

@@ -17,7 +17,8 @@ class SexDetailTableViewDelegate: SettingsDetailTableViewDelegate {
         }
         tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
         tableView.deselectRow(at: indexPath, animated: true)
-        DrinkerInformationManager.drinkerInformation.sex = SexDetailTableViewDataSource.sexes[indexPath.row]
+        let selectedSex = SexDetailTableViewDataSource.sexes[indexPath.row]
+        DrinkerInformationManager.default.updateDrinker(sex: selectedSex)
     }
     
 }

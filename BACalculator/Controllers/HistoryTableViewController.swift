@@ -41,12 +41,12 @@ class HistoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DrinkManager.drinks.count
+        return DrinkManager.default.drinks.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "drink") as! DrinkHistoryTableViewCell
-        let drink = DrinkManager.drinks[indexPath.row]
+        let drink = DrinkManager.default.drinks[indexPath.row]
         cell.typeLabel.text = drink.type.description
         cell.sizeLabel.text = "\(drink.size)"
         cell.dateLabel.text = drink.consumptionDate.description
@@ -61,7 +61,7 @@ class HistoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            DrinkManager.drinks.remove(at: indexPath.row)
+            DrinkManager.default.removeDrink(atIndex: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
