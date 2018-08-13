@@ -58,6 +58,11 @@ class HomeViewController: UIViewController, CalculationDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        if DrinkerInformationManager.default.drinkerInformation == nil {
+            DrinkerInformationManager.default.update(drinkerInformation: DrinkerInformation(weight: Measurement(value: 200, unit: UnitMass.pounds), sex: .male, alcoholMetabolism: .average))
+            performSegue(withIdentifier: "showSettings", sender: self)
+        }
+        
         if needsUpdate {
             updateTimeLabel(animated: true)
             updateMeasurement(animated: true)
@@ -135,7 +140,7 @@ class HomeViewController: UIViewController, CalculationDelegate {
             os_log("BAC was calculated to be %f at %@ with safe mode %@.", bloodAlcoholContent, measureDate.description, safeMode.description)
             return bloodAlcoholContent
         } else {
-            os_log("BAC could not be calculated because drinker information is not avaliable. A default value of 0.00 will be used instead.")
+            os_log("BAC could not be calculated because there is not enough information avaliable. A default value of 0.00 will be used.")
             return BloodAlcoholContent(0.00)
         }
     }

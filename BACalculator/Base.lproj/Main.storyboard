@@ -590,7 +590,7 @@
                                 </constraints>
                                 <state key="normal" image="AddDrink"/>
                                 <connections>
-                                    <segue destination="wlD-VV-6xg" kind="popoverPresentation" popoverAnchorView="kCd-xX-JQ5" id="sz4-ED-gXK">
+                                    <segue destination="wlD-VV-6xg" kind="popoverPresentation" identifier="showAddDrink" popoverAnchorView="kCd-xX-JQ5" id="sz4-ED-gXK">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -602,7 +602,7 @@
                                 </constraints>
                                 <state key="normal" image="History"/>
                                 <connections>
-                                    <segue destination="s48-EQ-MuS" kind="popoverPresentation" popoverAnchorView="srf-ZD-Gb8" id="ybW-FZ-2pq">
+                                    <segue destination="s48-EQ-MuS" kind="popoverPresentation" identifier="showHistory" popoverAnchorView="srf-ZD-Gb8" id="ybW-FZ-2pq">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
@@ -631,7 +631,7 @@
                                 </constraints>
                                 <state key="normal" image="Settings"/>
                                 <connections>
-                                    <segue destination="A6U-8I-Bsg" kind="popoverPresentation" popoverAnchorView="c2L-8d-xMj" id="w4J-Ga-gQh">
+                                    <segue destination="A6U-8I-Bsg" kind="popoverPresentation" identifier="showSettings" popoverAnchorView="c2L-8d-xMj" id="w4J-Ga-gQh">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                     </segue>
                                 </connections>
