@@ -48,6 +48,10 @@ class HomeViewController: UIViewController, CalculationDelegate {
             button?.tintColor = UIColor.white
         }
         
+        if DrinkManager.default.drinks == nil {
+            DrinkManager.default.updateManaged([Drink]())
+        }
+        
         // Update measurement
         updateTimeLabel(animated: false)
         updateMeasurement(animated: false)
