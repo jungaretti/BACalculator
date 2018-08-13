@@ -51,8 +51,11 @@ class HistoryTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "drink") as! DrinkHistoryTableViewCell
         let drink = DrinkManager.default.drinks![indexPath.row]
         cell.typeLabel.text = drink.type.description
-        cell.sizeLabel.text = "\(drink.size)"
-        cell.dateLabel.text = drink.consumptionDate.description
+        cell.sizeLabel.text = "\(drink.size.alcoholMass) of alcohol"
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        cell.dateLabel.text = dateFormatter.string(from: drink.consumptionDate)
         return cell
     }
     
