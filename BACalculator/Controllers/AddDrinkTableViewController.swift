@@ -24,6 +24,8 @@ class AddDrinkTableViewController: UITableViewController, AttributeDelegate {
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
+    weak var calculationDelegate: CalculationDelegate!
+    
     private var _customSize: Bool = false
     private var _customVolumeExpanded: Bool = false
     private var _customAlcoholRatioExpanded: Bool = false
@@ -58,6 +60,7 @@ class AddDrinkTableViewController: UITableViewController, AttributeDelegate {
     
     @IBAction func addPressed(_ sender: UIBarButtonItem) {
         DrinkManager.default.log(drink: assembleDrink())
+        calculationDelegate.calculationVariableDidChange()
         self.dismiss(animated: true, completion: nil)
     }
     

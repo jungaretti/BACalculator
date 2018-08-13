@@ -11,7 +11,7 @@ import UIKit
 import os.log
 
 /// A view controller that specializes in managing the home view of BACalculator.
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, CalculationDelegate {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -33,21 +33,45 @@ class HomeViewController: UIViewController {
         return TimeInterval(3600 * offsetHours)
     }
     
-    private var numberFormatter = NumberFormatter()
-    private var themeColor: ThemeColor!
+    private var needsUpdate: Bool = false
     private var recalculationTimer: Timer?
+    
+    private var themeColor: ThemeColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Configure colors
         timeLabel.textColor = UIColor.white
         bloodAlcoholContentLabel.textColor = UIColor.white
         for button in [historyButton, settingsButton, rewindButton, addButton, advanceButton] {
             button?.tintColor = UIColor.white
         }
+        
         // Update measurement
         updateTimeLabel(animated: false)
         updateMeasurement(animated: false)
+        
+        needsUpdate = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if needsUpdate {
+            updateTimeLabel(animated: true)
+            updateMeasurement(animated: true)
+        }
+        
+        startRecalculationTimer()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        needsUpdate = false
+        
+        stopRecalculationTImer()
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,6 +83,10 @@ class HomeViewController: UIViewController {
         offsetHours += sender.step
         updateTimeLabel(animated: true)
         updateMeasurement(animated: true)
+    }
+    
+    func calculationVariableDidChange() {
+        needsUpdate = true
     }
     
     /// Update the on-screen measurement.
@@ -99,13 +127,12 @@ class HomeViewController: UIViewController {
     }
     
     private func calculateBloodAlcoholContent() -> BloodAlcoholContent {
-        if let drinkerInformation = DrinkerInformationManager.default.drinkerInformation {
+        if let drinks = DrinkManager.default.drinks, let drinkerInformation = DrinkerInformationManager.default.drinkerInformation {
             let safeMode = SafeModeManager.default.safeMode
             let measureDate = Date().addingTimeInterval(offsetTimeInterval)
-            let measureDrinks = DrinkManager.default.drinks
             let alcoholCalculator = AlcoholCalculator(drinkerInformation: drinkerInformation, safeMode: safeMode)
-            let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: measureDate, afterDrinks: measureDrinks ?? [Drink]()) // TODO: Handle optional better
-            os_log("BAC was calculated to be %f at %@. Safe mode %@.", bloodAlcoholContent, measureDate.description, safeMode.description)
+            let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: measureDate, afterDrinks: drinks)
+            os_log("BAC was calculated to be %f at %@ with safe mode %@.", bloodAlcoholContent, measureDate.description, safeMode.description)
             return bloodAlcoholContent
         } else {
             os_log("BAC could not be calculated because drinker information is not avaliable. A default value of 0.00 will be used instead.")
@@ -114,6 +141,7 @@ class HomeViewController: UIViewController {
     }
     
     private func format(bloodAlcoholContent: BloodAlcoholContent) -> String? {
+        let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         numberFormatter.minimumFractionDigits = 2
         numberFormatter.maximumFractionDigits = 2
@@ -121,9 +149,30 @@ class HomeViewController: UIViewController {
         return numberFormatter.string(from: NSNumber(value: bloodAlcoholContent))
     }
     
+    private func startRecalculationTimer() {
+        recalculationTimer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true, block: { (timer) in
+            self.updateMeasurement(animated: true)
+        })
+    }
+    
+    private func stopRecalculationTImer() {
+        recalculationTimer?.invalidate()
+        recalculationTimer = nil
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ThemeNavigationViewController {
             destination.themeColor = themeColor
+        }
+        // TODO: Clean up how the calculationDelegate is linked.
+        if let destination = (segue.destination as? UINavigationController)?.topViewController as? AddDrinkTableViewController {
+            destination.calculationDelegate = self
+        }
+        if let destination = (segue.destination as? UINavigationController)?.topViewController as? HistoryTableViewController {
+            destination.calculationDelegate = self
+        }
+        if let destination = (segue.destination as? UINavigationController)?.topViewController as? SettingsMasterTableViewController {
+            destination.calculationDelegate = self
         }
     }
     

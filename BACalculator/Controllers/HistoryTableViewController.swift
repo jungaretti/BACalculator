@@ -13,6 +13,10 @@ class HistoryTableViewController: UITableViewController {
     
     // MARK: Properties
     
+    weak var calculationDelegate: CalculationDelegate!
+    
+    // MARK: Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -28,9 +32,8 @@ class HistoryTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: Methods
-    
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
+        calculationDelegate.calculationVariableDidChange()
         self.dismiss(animated: true, completion: nil)
     }
     

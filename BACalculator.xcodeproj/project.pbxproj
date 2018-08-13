@@ -92,6 +92,7 @@
 		15E8F7F921164FD300810DD3 /* SettingsDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E8F7F821164FD300810DD3 /* SettingsDetailDelegate.swift */; };
 		15F3EC9D2121251A001CE84C /* SafeModeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F3EC9C2121251A001CE84C /* SafeModeManager.swift */; };
 		15F3EC9F212125E9001CE84C /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F3EC9E212125E9001CE84C /* Manager.swift */; };
+		15F3ECA12121354D001CE84C /* CalculationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F3ECA02121354D001CE84C /* CalculationDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -240,6 +241,7 @@
 		15E8F7F821164FD300810DD3 /* SettingsDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsDetailDelegate.swift; sourceTree = "<group>"; };
 		15F3EC9C2121251A001CE84C /* SafeModeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeModeManager.swift; sourceTree = "<group>"; };
 		15F3EC9E212125E9001CE84C /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		15F3ECA02121354D001CE84C /* CalculationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +401,7 @@
 				15A7C4F72109668900F260FB /* ThemeAgent.swift */,
 				15D29E4D2117F7E5009D0B93 /* ThemeColor.swift */,
 				154310B8211000A7008A4CF5 /* AttributeDelegate.swift */,
+				15F3ECA02121354D001CE84C /* CalculationDelegate.swift */,
 				15E8F7F621164FC200810DD3 /* SettingsDelegate.swift */,
 				15E8F7F821164FD300810DD3 /* SettingsDetailDelegate.swift */,
 				15E8F7F121164E1C00810DD3 /* AttributeOptionCollectionView */,
@@ -792,6 +795,7 @@
 				154310BD211019A0008A4CF5 /* SizeAttributeOptionCollectionViewDelegate.swift in Sources */,
 				1542211E2111260D001515BF /* SettingsDetailTableViewDataSource.swift in Sources */,
 				15B5764C210ACCB7007F48D1 /* SizeAttributeOptionCollectionViewDataSource.swift in Sources */,
+				15F3ECA12121354D001CE84C /* CalculationDelegate.swift in Sources */,
 				1542212A211126CC001515BF /* SettingsPickerViewDataSource.swift in Sources */,
 				1568BFB7210CEF9A0077C6E7 /* AttributeHeaderTableViewCell.swift in Sources */,
 				154310B4210FF07D008A4CF5 /* VolumePickerViewDelegate.swift in Sources */,
