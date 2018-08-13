@@ -2,66 +2,48 @@
 //  DrinkManager.swift
 //  BACalculator
 //
-//  Created by James Ungaretti on 7/24/18.
+//  Created by James Ungaretti on 8/12/18.
 //  Copyright © 2018 James Ungaretti. All rights reserved.
 //
 
-import DrinkKit
 import Foundation
-import os.log
+import DrinkKit
 
-/// A persistent storage manager for `Drink`s.
+/// The persistent data manager for drinks in BACalculator.
 class DrinkManager: DiskManager<[Drink]> {
     
-    /// The default `DrinkManager`. This `DrinkManager` saves information to `Drinks.json` in the Application Support directory.
+    /// The default `DrinkManager`.
     static var `default` = DrinkManager(fileURL: FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appendingPathComponent("Drinks").appendingPathExtension("json"))
     
-    /// The `[Drink]` managed by the `DrinkManager`, or an empty `[Drink]` if the drinks cannot be loaded from persistent storage.
-    var drinks: [Drink] {
-        return managedData!
+    /// The `[Drink]` managed by the `DrinkManager`.
+    var drinks: [Drink]? {
+        return managed
     }
     
-    /// Log a new `Drink`.
+    /// Log a new `Drink` and save the drinks.
     ///
     /// - Parameter newDrink: The new `Drink` to log.
-    func logDrink(_ newDrink: Drink) {
-        if managedData != nil {
-            // Determine if the [Drink] needs sorting
-            let needsSorting: Bool
-            if let lastDrink = managedData!.last {
-                if lastDrink.consumptionDate > newDrink.consumptionDate { needsSorting = true }
-                else { needsSorting = false }
-            } else { needsSorting = false }
-            // Append the newDrink and sort if needed
-            managedData!.append(newDrink)
-            if needsSorting { managedData!.sortByDate() }
-        } else {
-            managedData = [newDrink]
+    func log(drink newDrink: Drink) {
+        if managed == nil {
+            managed = [Drink]()
         }
+        managed!.append(newDrink)
+        managed!.sortByDate()
         saveToDisk()
     }
     
-    /// Remove a `Drink` at a certain index.
+    /// Remove a `Drink` from a certain index and save the drinks.
     ///
     /// - Parameter index: The index of the `Drink` to remove.
-    func removeDrink(atIndex index: Int) {
-        managedData?.remove(at: index)
+    func remove(atIndex index: Int) {
+        managed?.remove(at: index)
         saveToDisk()
     }
     
-    /// Remove all `Drink`s.
-    func removeAllDrinks() {
-        managedData?.removeAll()
+    /// Remove all `Drink`s and save an empty file.
+    func removeAll() {
+        managed?.removeAll()
         saveToDisk()
-    }
-    
-    override func loadFromDisk() {
-        super.loadFromDisk()
-        if managedData == nil {
-            managedData = [Drink]()
-            os_log("DrinkManager initialized an empty [Drink].")
-            saveToDisk()
-        }
     }
     
 }

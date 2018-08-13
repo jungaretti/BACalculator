@@ -2,55 +2,56 @@
 //  DrinkerInformationManager.swift
 //  BACalculator
 //
-//  Created by James Ungaretti on 7/24/18.
+//  Created by James Ungaretti on 8/12/18.
 //  Copyright © 2018 James Ungaretti. All rights reserved.
 //
 
-import DrinkKit
 import Foundation
-import os.log
+import DrinkKit
 
-/// A persistent storage manager for `DrinkerInformation`.
+/// The persistent storage manager for drinker information in
 class DrinkerInformationManager: DiskManager<DrinkerInformation> {
     
-    /// The default `DrinkerInformationManager`. This `DrinkerInformationManager` saves information to `DrinkerInformation.json` in the Application Support directory.
+    /// The default `DrinkerInformationManager`.
     static var `default` = DrinkerInformationManager(fileURL: FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appendingPathComponent("DrinkerInformation").appendingPathExtension("json"))
     
-    /// The `DrinkerInformation` managed by the `DrinkerInformationManager`, or a default `DrinkerInformation` if the information cannot be loaded from persistent storage.
+    /// The `DrinkerInformation` managed by the `DrinkerInformationManager`.
     var drinkerInformation: DrinkerInformation? {
-        return managedData
+        return managed
     }
     
-    /// Update the `DrinkerInformation` managed by the `DrinkerInformationManager`.
+    /// Update the `drinkerInformation` managed by the `DrinkerInformationManager`.
     ///
-    /// - Parameter drinkerInformation: The new `DrinkerInformation`.
-    func updateDrinkerInformation(_ drinkerInformation: DrinkerInformation) {
-        managedData = drinkerInformation
-        saveToDisk()
+    /// - Parameter newDrinkerInformation: The new `DrinkerInformation`.
+    func update(drinkerInformation newDrinkerInformation: DrinkerInformation) {
+        super.updateManaged(newDrinkerInformation)
     }
     
-    /// Update the `weight` property of the `DrinkerInformation` managed by the `DrinkerInformationManager`.
+    /// Update the `weight` of the `drinkerInformation` managed by the `DrinkerInformationManager`. If `drinkerInformation` is `nil`, nothing will change.
     ///
-    /// - Parameter weight: The new `weight`.
-    func updateDrinker(weight: Measurement<UnitMass>) {
-        managedData?.weight = weight
-        saveToDisk()
+    /// - Parameter newWeight: The new `weight`.
+    func update(weight newWeight: Measurement<UnitMass>) {
+        var drinkerInformation = self.drinkerInformation
+        drinkerInformation?.weight = newWeight
+        if let newDrinkerInformation = drinkerInformation { update(drinkerInformation: newDrinkerInformation) }
     }
     
-    /// Update the `sex` property of the `DrinkerInformation` managed by the `DrinkerInformationManager`.
+    /// Update the `sex` of the `drinkerInformation` managed by the `DrinkerInformationManager`. If `drinkerInformation` is `nil`, nothing will change.
     ///
-    /// - Parameter sex: The new `sex`.
-    func updateDrinker(sex: DrinkerSex) {
-        managedData?.sex = sex
-        saveToDisk()
+    /// - Parameter newSex: The new `sex`.
+    func update(sex newSex: DrinkerSex) {
+        var drinkerInformation = self.drinkerInformation
+        drinkerInformation?.sex = newSex
+        if let newDrinkerInformation = drinkerInformation { update(drinkerInformation: newDrinkerInformation) }
     }
     
-    /// Update the `alcoholMetabolism` property of the `DrinkerInformation` managed by the `DrinkerInformationManager`.
+    /// Update the `sex` of the `drinkerInformation` managed by the `DrinkerInformationManager`. If `drinkerInformation` is `nil`, nothing will change.
     ///
-    /// - Parameter alcoholMetabolism: The new `alcoholMetabolism`.
-    func updateDrinker(alcoholMetabolism: DrinkerAlcoholMetabolism) {
-        managedData?.alcoholMetabolism = alcoholMetabolism
-        saveToDisk()
+    /// - Parameter newSex: The new `sex`.
+    func update(alcoholMetabolism newAlcoholMetabolism: DrinkerAlcoholMetabolism) {
+        var drinkerInformation = self.drinkerInformation
+        drinkerInformation?.alcoholMetabolism = newAlcoholMetabolism
+        if let newDrinkerInformation = drinkerInformation { update(drinkerInformation: newDrinkerInformation) }
     }
     
 }

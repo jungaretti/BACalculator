@@ -57,7 +57,7 @@ class AddDrinkTableViewController: UITableViewController, AttributeDelegate {
     }
     
     @IBAction func addPressed(_ sender: UIBarButtonItem) {
-        DrinkManager.default.logDrink(assembleDrink())
+        DrinkManager.default.log(drink: assembleDrink())
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -86,7 +86,7 @@ class AddDrinkTableViewController: UITableViewController, AttributeDelegate {
     
     func standardSizeAttributeDidChange(sender: UICollectionView) {
         if let indexPathForSelectedItem = sender.indexPathsForSelectedItems?.first {
-            _selectedStandardSize = StandardDrinkSize(standardDrinks: Double(indexPathForSelectedItem.row))
+            _selectedStandardSize = StandardDrinkSize(standardDrinks: Double(DrinkAttributeAgent.standardSizes[indexPathForSelectedItem.row]))
         } else {
             _selectedStandardSize = nil
         }

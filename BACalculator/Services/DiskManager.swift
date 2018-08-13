@@ -2,63 +2,94 @@
 //  DiskManager.swift
 //  BACalculator
 //
-//  Created by James Ungaretti on 8/5/18.
+//  Created by James Ungaretti on 8/12/18.
 //  Copyright © 2018 James Ungaretti. All rights reserved.
 //
 
 import Foundation
 import os.log
 
-/// A `DiskManager` that stores data persistently in JSON files.
-class DiskManager<T: Codable> {
+/// A generic persistent data manager for a certain file `URL`. A `Codable` type is read from and written to this `URL`.
+class DiskManager<T: Codable>: Manager {
     
-    /// The URL of the file to store information in.
-    let managedFileURL: URL
-    /// The `Data` managed by the `DiskManager`.
-    ///
-    /// It is important to remeber that `managedData` is not saved to persistent storage when it is changed. To save `managedData`, use `saveToDisk()`.
-    var managedData: T?
+    /// The `FileManager` used for file read and write operations.
+    private let fileManager: FileManager
+    /// The `URL` of the file being managed.
+    private let fileURL: URL
+    /// The data managed by the `DiskManager`.
+    var managed: T? // TODO: Add didSet
     
-    /// Create a `DiskManager` with a specific file URL for storage.
+    /// Create a `DiskManager` for a specific `URL` and attempt to load the managed data from that `URL`.
     ///
-    /// - Parameter fileURL: The URL of the the file to use for storage.
+    /// - Parameter fileURL: The `URL` of the file being managed by the `DiskManager`.
     init(fileURL: URL) {
-        self.managedFileURL = fileURL
+        self.fileManager = FileManager.default
+        self.fileURL = fileURL
         loadFromDisk()
     }
     
-    /// Update and save the `managedData` to a new value.
+    /// Update the managed data with a new value.
     ///
-    /// - Parameter newValue: The new `managedData` value.
-    func updateManaged(to newValue: T) {
-        self.managedData = newValue
+    /// - Parameter newManaged: The updated data.
+    func updateManaged(_ newManaged: T) {
+        self.managed = newManaged
         saveToDisk()
     }
     
-    /// Save the `managedData` to the specified `managedFileURL`.
+    /// Called before the managed data is saved to the disk.
+    func willSaveToDisk() {}
+    
+    /// Save the managed data to the disk at the specified `URL`.
     func saveToDisk() {
+        willSaveToDisk()
         let encoder = JSONEncoder()
         do {
-            let encodedData = try encoder.encode(self.managedData)
-            try FileManager.default.createDirectory(at: FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!, withIntermediateDirectories: true)
-            try encodedData.write(to: self.managedFileURL)
-            os_log("Saved %@ to %@.", "\(T.self)", self.managedFileURL.lastPathComponent)
+            let encoded = try encoder.encode(managed)
+            fileManager.createFile(atPath: fileURL.path, contents: encoded, attributes: nil)
+            didSaveToDisk()
         } catch {
-            os_log("Unable to save %@ to %@.", "\(T.self)", self.managedFileURL.path)
+            didNotSaveToDisk()
         }
     }
     
-    /// Load the contents of the specified `managedFileURL' to `managedData` as the specified type.
+    /// Called after the managed data is successfully saved to the disk.
+    func didSaveToDisk() {
+        os_log("%@ was saved to %@.", "\(T.self)", fileURL.lastPathComponent)
+    }
+    
+    /// Called when the managed data cannot be saved to the disk.
+    func didNotSaveToDisk() {
+        os_log("%@ could not be saved to %@.", type: .error, "\(T.self)", fileURL.path)
+    }
+    
+    /// Called before the managed data is load from the disk.
+    func willLoadFromDisk() {}
+    
+    /// Load the managed data from the disk at the specified `URL`.
     func loadFromDisk() {
-        let decoder = JSONDecoder()
-        do {
-            let encodedData = try Data(contentsOf: self.managedFileURL)
-            self.managedData = try decoder.decode(T.self, from: encodedData)
-            os_log("Loaded %@ from %@.", "\(T.self)", self.managedFileURL.lastPathComponent)
-        } catch {
-            self.managedData = nil
-            os_log("Unable to load %@ from %@.", "\(T.self)", self.managedFileURL.path)
+        willLoadFromDisk()
+        if let encoded = fileManager.contents(atPath: fileURL.path) {
+            let decoder = JSONDecoder()
+            do {
+                managed = try decoder.decode(T.self, from: encoded)
+                didLoadFromDisk()
+            } catch {
+                didNotLoadFromDisk()
+            }
+        } else {
+            didNotLoadFromDisk()
         }
+    }
+    
+    /// Called when the managed data is successfully loaded from the disk.
+    func didLoadFromDisk() {
+        os_log("%@ was loaded from %@.", "\(T.self)", fileURL.lastPathComponent)
+    }
+    
+    /// Called when the managed data cannot be loaded from the disk.
+    func didNotLoadFromDisk() {
+        managed = nil
+        os_log("%@ could not be loaded from %@", type: .error, "\(T.self)", fileURL.path)
     }
     
 }

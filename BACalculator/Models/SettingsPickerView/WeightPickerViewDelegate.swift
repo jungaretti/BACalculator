@@ -25,7 +25,7 @@ class WeightPickerViewDelegate: SettingsPickerViewDelegate {
     override func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedValue = WeightPickerViewDataSource.values[pickerView.selectedRow(inComponent: 0)]
         let selectedUnit = WeightPickerViewDataSource.units[pickerView.selectedRow(inComponent: 1)]
-        DrinkerInformationManager.default.updateDrinker(weight: Measurement(value: selectedValue, unit: selectedUnit))
+        DrinkerInformationManager.default.update(weight: Measurement(value: selectedValue, unit: selectedUnit))
         super.pickerView(pickerView, didSelectRow: row, inComponent: component)
     }
     

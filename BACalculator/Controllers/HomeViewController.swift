@@ -100,11 +100,11 @@ class HomeViewController: UIViewController {
     
     private func calculateBloodAlcoholContent() -> BloodAlcoholContent {
         if let drinkerInformation = DrinkerInformationManager.default.drinkerInformation {
-            let safeMode = PreferenceManager.default.safeMode
+            let safeMode = SafeModeManager.default.safeMode
             let measureDate = Date().addingTimeInterval(offsetTimeInterval)
             let measureDrinks = DrinkManager.default.drinks
             let alcoholCalculator = AlcoholCalculator(drinkerInformation: drinkerInformation, safeMode: safeMode)
-            let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: measureDate, afterDrinks: measureDrinks)
+            let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: measureDate, afterDrinks: measureDrinks ?? [Drink]()) // TODO: Handle optional better
             os_log("BAC was calculated to be %f at %@. Safe mode %@.", bloodAlcoholContent, measureDate.description, safeMode.description)
             return bloodAlcoholContent
         } else {
