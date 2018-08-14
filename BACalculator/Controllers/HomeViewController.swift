@@ -139,7 +139,7 @@ class HomeViewController: UIViewController, CalculationDelegate {
         if let drinks = DrinkManager.default.drinks, let drinkerInformation = DrinkerInformationManager.default.drinkerInformation {
             let safeMode = SafeModeManager.default.safeMode
             let measureDate = Date().addingTimeInterval(offsetTimeInterval)
-            let alcoholCalculator = AlcoholCalculator(drinkerInformation: drinkerInformation, safeMode: safeMode)
+            let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: drinkerInformation)
             let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: measureDate, afterDrinks: drinks)
             os_log("BAC was calculated to be %f at %@ with safe mode %@.", bloodAlcoholContent, measureDate.description, safeMode.description)
             return bloodAlcoholContent

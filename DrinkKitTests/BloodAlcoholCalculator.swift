@@ -1,5 +1,5 @@
 //
-//  AlcoholCalculatorTests.swift
+//  BloodAlcoholCalculatorTests.swift
 //  DrinkKitTests
 //
 //  Created by James Ungaretti on 7/24/18.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import DrinkKit
 
-class AlcoholCalculatorTests: XCTestCase {
+class BloodAlcoholCalculatorTests: XCTestCase {
     
     var testDrinkerInformation: DrinkerInformation!
     
@@ -24,17 +24,11 @@ class AlcoholCalculatorTests: XCTestCase {
     }
     
     func test_init() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation)
-        XCTAssert(alcoholCalculator.safeMode == nil, "AlcoholCalculator assigned a value to safeMode, even though no value was specified.")
-    }
-    
-    func test_init_safeMode() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation, safeMode: true)
-        XCTAssert(alcoholCalculator.safeMode == true, "AlcoholCalculator did not assign the proper value to safeMode.")
+        let _ = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
     }
     
     func test_impact_standard() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
         let drink = Drink(type: .beer, consumptionDate: Date(), size: StandardDrinkSize(standardDrinks: 1.0))
         let expectedImpact = 0.03350884039
         let difference = abs(alcoholCalculator.impact(of: drink) - expectedImpact)
@@ -42,31 +36,15 @@ class AlcoholCalculatorTests: XCTestCase {
     }
     
     func test_impact_custom() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
         let drink = Drink(type: .liquor, consumptionDate: Date(), size: CustomDrinkSize(volume: Measurement(value: 3.0, unit: UnitVolume.fluidOunces), alcoholRatio: 0.40))
         let expectedImpact = 0.06710338995
         let difference = abs(alcoholCalculator.impact(of: drink) - expectedImpact)
         XCTAssert(difference < 0.005, "Drink impact was not calculated properly. Expected \(expectedImpact), actual \(alcoholCalculator.impact(of: drink)).")
     }
     
-    func test_metabolized() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation)
-        let timeInterval = 5400.0
-        let expectedAlcoholMetabolized = 0.0255
-        let difference = abs(alcoholCalculator.alcoholMetabolized(over: timeInterval) - expectedAlcoholMetabolized)
-        XCTAssert(difference < 0.005, "Alcohol metabolized was not calculated properly. Expected \(expectedAlcoholMetabolized), actual \(alcoholCalculator.alcoholMetabolized(over: timeInterval)).")
-    }
-    
-    func test_metabolized_safeMode() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation, safeMode: true)
-        let timeInterval = 7200.0
-        let expectedAlcoholMetabolized = 0.024
-        let difference = abs(alcoholCalculator.alcoholMetabolized(over: timeInterval) - expectedAlcoholMetabolized)
-        XCTAssert(difference < 0.005, "Alcohol metabolized was not calculated properly. Expected \(expectedAlcoholMetabolized), actual \(alcoholCalculator.alcoholMetabolized(over: timeInterval)).")
-    }
-    
     func test_bloodAlcoholContent() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(3600.0)
@@ -75,11 +53,11 @@ class AlcoholCalculatorTests: XCTestCase {
         // Calculate difference
         let expectedBAC = 0.01650884039
         let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks) - expectedBAC)
-        XCTAssert(difference < 0.0005, "AlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
+        XCTAssert(difference < 0.0005, "BloodAlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
     }
     
     func test_bloodAlcoholContent_safeMode() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation, safeMode: true)
+        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(3600.0)
@@ -87,12 +65,12 @@ class AlcoholCalculatorTests: XCTestCase {
         drinks.append(Drink(type: .beer, consumptionDate: referenceDate, size: StandardDrinkSize(standardDrinks: 1.0)))
         // Calculate difference
         let expectedBAC = 0.02150884039
-        let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks) - expectedBAC)
-        XCTAssert(difference < 0.0005, "AlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
+        let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks, safeMode: true) - expectedBAC)
+        XCTAssert(difference < 0.0005, "BloodAlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
     }
     
     func test_bloodAlcoholContent_threeHours() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(10800)
@@ -101,11 +79,11 @@ class AlcoholCalculatorTests: XCTestCase {
         // Calculate difference
         let expectedBAC = 0.0
         let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks) - expectedBAC)
-        XCTAssert(difference < 0.0005, "AlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
+        XCTAssert(difference < 0.0005, "BloodAlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
     }
     
     func test_bloodAlcoholContent_threeHoursSafeMode() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation, safeMode: true)
+        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(10800)
@@ -113,12 +91,12 @@ class AlcoholCalculatorTests: XCTestCase {
         drinks.append(Drink(type: .beer, consumptionDate: referenceDate, size: StandardDrinkSize(standardDrinks: 1.0)))
         // Calculate difference
         let expectedBAC = 0.0
-        let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks) - expectedBAC)
-        XCTAssert(difference < 0.0005, "AlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
+        let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks, safeMode: true) - expectedBAC)
+        XCTAssert(difference < 0.0005, "BloodAlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
     }
     
     func test_bloodAlcoholContent_warp() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(25200.0)
@@ -128,11 +106,11 @@ class AlcoholCalculatorTests: XCTestCase {
         // Calculate difference
         let expectedBAC = 0.01650884039
         let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks) - expectedBAC)
-        XCTAssert(difference < 0.0005, "AlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
+        XCTAssert(difference < 0.0005, "BloodAlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
     }
     
     func test_bloodAlcoholContent_warpSafeMode() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation, safeMode: true)
+        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(25200.0)
@@ -141,12 +119,12 @@ class AlcoholCalculatorTests: XCTestCase {
         drinks.append(Drink(type: .beer, consumptionDate: referenceDate.addingTimeInterval(21600.0), size: StandardDrinkSize(standardDrinks: 1.0)))
         // Calculate difference
         let expectedBAC = 0.02150884039
-        let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks) - expectedBAC)
-        XCTAssert(difference < 0.0005, "AlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
+        let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks, safeMode: true) - expectedBAC)
+        XCTAssert(difference < 0.0005, "BloodAlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
     }
     
     func test_bloodAlcoholContent_warpThreeHours() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(32400.0)
@@ -156,11 +134,11 @@ class AlcoholCalculatorTests: XCTestCase {
         // Calculate difference
         let expectedBAC = 0.0
         let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks) - expectedBAC)
-        XCTAssert(difference < 0.0005, "AlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
+        XCTAssert(difference < 0.0005, "BloodAlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
     }
     
     func test_bloodAlcoholContent_warpThreeHoursSafeMode() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation, safeMode: true)
+        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(32400.0)
@@ -169,12 +147,12 @@ class AlcoholCalculatorTests: XCTestCase {
         drinks.append(Drink(type: .beer, consumptionDate: referenceDate.addingTimeInterval(21600.0), size: StandardDrinkSize(standardDrinks: 1.0)))
         // Calculate difference
         let expectedBAC = 0.0
-        let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks) - expectedBAC)
-        XCTAssert(difference < 0.0005, "AlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
+        let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks, safeMode: true) - expectedBAC)
+        XCTAssert(difference < 0.0005, "BloodAlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
     }
     
     func test_bloodAlcoholContent_many() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(3600.0)
@@ -185,11 +163,11 @@ class AlcoholCalculatorTests: XCTestCase {
         // Calculate difference
         let expectedBAC = 0.0835692523 // TODO: Fix
         let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks) - expectedBAC)
-        XCTAssert(difference < 0.0005, "AlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
+        XCTAssert(difference < 0.0005, "BloodAlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
     }
     
     func test_bloodAlcoholContent_warpMany() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(25200)
@@ -203,11 +181,11 @@ class AlcoholCalculatorTests: XCTestCase {
         // Calculate difference
         let expectedBAC = 0.0835692523 // TODO: Fix
         let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks) - expectedBAC)
-        XCTAssert(difference < 0.0005, "AlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
+        XCTAssert(difference < 0.0005, "BloodAlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
     }
     
     func test_bloodAlcoholContent_empty() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate
@@ -215,11 +193,11 @@ class AlcoholCalculatorTests: XCTestCase {
         // Calculate difference
         let expectedBAC = 0.0
         let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks) - expectedBAC)
-        XCTAssert(difference < 0.0005, "AlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
+        XCTAssert(difference < 0.0005, "BloodAlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
     }
     
     func test_bloodAlcoholContent_before() {
-        let alcoholCalculator = AlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(-3600)
@@ -228,7 +206,7 @@ class AlcoholCalculatorTests: XCTestCase {
         // Calculate difference
         let expectedBAC = 0.0
         let difference = abs(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks) - expectedBAC)
-        XCTAssert(difference < 0.0005, "AlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
+        XCTAssert(difference < 0.0005, "BloodAlcoholCalculator did not calculate BAC properly. Expected \(expectedBAC), actual \(alcoholCalculator.bloodAlcoholContent(atDate: measurementDate, afterDrinks: drinks)).")
     }
     
 }

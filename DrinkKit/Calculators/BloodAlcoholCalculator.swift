@@ -1,5 +1,5 @@
 //
-//  AlcoholCalculator.swift
+//  BloodAlcoholCalculator.swift
 //  DrinkKit
 //
 //  Created by James Ungaretti on 7/24/18.
@@ -8,32 +8,20 @@
 
 import Foundation
 
-/// A calculator for operations relating to alcohol and BAC.
-public struct AlcoholCalculator {
+/// A calculator for operations relating to blood alcohol content.
+public struct BloodAlcoholCalculator: Calculator {
     
     /// The ratio of water in blood.
     static let waterCompositionRatioBlood = 0.806
     
     /// The drinker information to use for calculations.
     public var drinkerInformation: DrinkerInformation
-    /// The Safe Mode setting. When Safe Mode is enabled, a conservative alcohol metabolism is used in calculations.
-    public var safeMode: Bool?
     
-    /// Create an `AlcoholCalculator` for a specific drinker.
+    /// Create a `BloodAlcoholCalculator` for a specific drinker.
     ///
-    /// - Parameter drinkerInformation: Information about the drinker using the `AlcoholCalculator`.
+    /// - Parameter drinkerInformation: Information about the drinker using the `BloodAlcoholCalculator`.
     public init(drinkerInformation: DrinkerInformation) {
         self.drinkerInformation = drinkerInformation
-    }
-    
-    /// Create an `AlcoholCalculator` for a specific drinker and specify a Safe Mode setting.
-    ///
-    /// - Parameters:
-    ///   - drinkerInformation: Information about the drinker using the `AlcoholCalculator`.
-    ///   - safeMode: The setting for Safe Mode. When Safe Mode is enabled, a conservative alcohol metabolism is used in calculations.
-    public init(drinkerInformation: DrinkerInformation, safeMode: Bool) {
-        self.drinkerInformation = drinkerInformation
-        self.safeMode = safeMode
     }
     
     /// Calculate the impact of a drink on BAC.
@@ -45,37 +33,31 @@ public struct AlcoholCalculator {
         // Determine the amount of alcohol absorbed into water, alcohol(g)/water(mL)
         let alcoholGramsOverWaterML = alcoholConsumedGrams / self.drinkerInformation.waterVolume.converted(to: UnitVolume.milliliters).value
         // Determine the amount of alcohol absorbed into blood, alcohol(g)/blood(mL)
-        let alcoholGramsOverBloodML = alcoholGramsOverWaterML * AlcoholCalculator.waterCompositionRatioBlood
+        let alcoholGramsOverBloodML = alcoholGramsOverWaterML * BloodAlcoholCalculator.waterCompositionRatioBlood
         return alcoholGramsOverBloodML * 100.0 // Convert to grams percent
     }
-    
-    /// Calculate the amount of alcohol metabolized over a certain `TimeInterval`. This value represents how much BAC would decrease over a certain amount of time.
-    ///
-    /// This calculation respects the `safeMode` setting of the `AlcoholCalculator`.
-    ///
-    /// - Parameter timeInterval: The `TimeInterval` to metabolize alcohol over.
-    /// - Returns: The amount of alcohol metabolized over the `TimeInterval`.
-    public func alcoholMetabolized(over timeInterval: TimeInterval) -> BloodAlcoholContent {
-        let alcoholMetabolism: DrinkerAlcoholMetabolism
-        if let safeMode = self.safeMode, safeMode == true {
-            alcoholMetabolism = DrinkerAlcoholMetabolism.belowAverage
-        } else {
-            alcoholMetabolism = drinkerInformation.alcoholMetabolism
-        }
-        let hours = timeInterval / 3600.0
-        return alcoholMetabolism.hourlyAlcoholMetabolism * hours
-    }
-    
-    /// Calculate BAC at a certain date after consuming a collection of `Drink`s. BAC is calculated by iterating over a `[Drink]` from oldest drink to most recent drink.
-    ///
-    /// This calculation respects the `safeMode` setting of the `AlcoholCalculator`.
+
+    /// Calculate `BloodAlcoholContent`.
     ///
     /// - Parameters:
-    ///   - date: The `Date` to calculate BAC at.
-    ///   - drinks: The `Drink`s to use for calculating BAC.
-    /// - Returns: The drinker's BAC at the specified `Date`.
+    ///   - date: The `Date` to calculate `BloodAlcoholContent` at.
+    ///   - drinks: The `[Drink]` to use for `BloodAlcoholContent` calculation.
+    /// - Returns: The `BloodAlcoholContent` at the specified `Date.
     public func bloodAlcoholContent(atDate date: Date, afterDrinks drinks: [Drink]) -> BloodAlcoholContent {
+        return bloodAlcoholContent(atDate: date, afterDrinks: drinks, safeMode: false)
+    }
+
+    /// Calculate `BloodAlcoholContent` and specify a safe mode preference.
+    ///
+    /// - Parameters:
+    ///   - date: The `Date` to calculate `BloodAlcoholContent` at.
+    ///   - drinks: The `[Drink]` to use for `BloodAlcoholContent` calculation.
+    ///   - safeMode: The safe mode preference.
+    /// - Returns: The `BloodAlcoholContent` at the specified `Date.
+    public func bloodAlcoholContent(atDate date: Date, afterDrinks drinks: [Drink], safeMode: Bool) -> BloodAlcoholContent {
         let sortedDrinks = drinks.sortedByDate()
+        var metabolismCalculator = MetabolismCalculator(alcoholMetabolism: drinkerInformation.alcoholMetabolism)
+        metabolismCalculator.safeMode = safeMode
         // Check that there have been drinks logged
         guard sortedDrinks.count > 0 else {
             return 0.0
@@ -93,7 +75,7 @@ public struct AlcoholCalculator {
             var previousDrinkIndex = 0
             while currentDrinkIndex < sortedDrinks.count && sortedDrinks[currentDrinkIndex].consumptionDate <= date {
                 let timeIntervalSinceLastDrink = sortedDrinks[currentDrinkIndex].consumptionDate.timeIntervalSince(sortedDrinks[previousDrinkIndex].consumptionDate)
-                let metabolized = alcoholMetabolized(over: timeIntervalSinceLastDrink)
+                let metabolized = metabolismCalculator.alcoholMetabolized(over: timeIntervalSinceLastDrink)
                 bloodAlcoholContent -= metabolized
                 // If BAC dipped below zero, reset it to zero
                 if bloodAlcoholContent < 0.0 {
@@ -111,7 +93,7 @@ public struct AlcoholCalculator {
         }
         // Calculate final BAC by accounting for metabolism
         let timeIntervalSinceLastDrink = date.timeIntervalSince(sortedDrinks[finalDrinkIndex].consumptionDate)
-        let metabolized = alcoholMetabolized(over: timeIntervalSinceLastDrink)
+        let metabolized = metabolismCalculator.alcoholMetabolized(over: timeIntervalSinceLastDrink)
         bloodAlcoholContent -= metabolized
         if bloodAlcoholContent < 0.0 {
             return 0.0
