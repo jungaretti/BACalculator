@@ -34,7 +34,43 @@ class DrinkTests: XCTestCase {
         XCTAssert(drink.type == testType, "Drink did not properly initialize type.")
         XCTAssert(drink.consumptionDate == testConsumptionDate, "Drink did not properly initialize consumption date.")
         XCTAssert(drink.size.alcoholMass == testSize.alcoholMass, "Drink did not properly initialize size. Expected alcohol mass \(testSize.alcoholMass), actual alcohol mass \(drink.size.alcoholMass).")
-        XCTAssertTrue(drink.size is StandardDrinkSize, "Drink did not properly initialize size. A `StandardDrinkSize` was not stored.")
+        XCTAssertTrue(drink.size is StandardDrinkSize, "Drink did not properly initialize size. A StandardDrinkSize was not stored.")
+    }
+    
+    func test_encodeDecodeStandard() {
+        let encoder = JSONEncoder()
+        let decoder = JSONDecoder()
+        let testStandardDrinks = 1.0
+        let testDrink = Drink(type: testType, consumptionDate: testConsumptionDate, size: StandardDrinkSize(standardDrinks: testStandardDrinks))
+        let testDrinkData = try! encoder.encode(testDrink)
+        let decodedDrink = try! decoder.decode(Drink.self, from: testDrinkData)
+        XCTAssert(testDrink.type == decodedDrink.type)
+        XCTAssert(testDrink.consumptionDate == decodedDrink.consumptionDate)
+        if let decodedStandardSize = decodedDrink.size as? StandardDrinkSize {
+            XCTAssert(decodedStandardSize.standardDrinks == testStandardDrinks)
+        } else {
+            XCTFail("The decoded drink does not hold a StandardDrinkSize.")
+        }
+    }
+    
+    func test_encodedDecodeCustom() {
+        let encoder = JSONEncoder()
+        let decoder = JSONDecoder()
+        let testVolume = Measurement(value: 1.5, unit: UnitVolume.fluidOunces)
+        let testAlcoholRatio = 0.40
+        let testDrink = Drink(type: testType, consumptionDate: testConsumptionDate, size: CustomDrinkSize(volume: testVolume, alcoholRatio: testAlcoholRatio))
+        let testDrinkData = try! encoder.encode(testDrink)
+        let decodedDrink = try! decoder.decode(Drink.self, from: testDrinkData)
+        XCTAssert(testDrink.type == decodedDrink.type)
+        XCTAssert(testDrink.consumptionDate == decodedDrink.consumptionDate)
+        if let decodedCustomSize = decodedDrink.size as? CustomDrinkSize {
+            let volumeDifference = abs((testVolume - decodedCustomSize.volume).converted(to: UnitVolume.milliliters).value)
+            XCTAssertLessThan(volumeDifference, 0.001)
+            let alcoholRatioDifference = abs(testAlcoholRatio - decodedCustomSize.alcoholRatio)
+            XCTAssertLessThan(alcoholRatioDifference, 0.001)
+        } else {
+            XCTFail("The decoded drink does not hold a CustomDrinkSize.")
+        }
     }
     
     func test_comparison_lessThan_standard() {

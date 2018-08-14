@@ -32,14 +32,4 @@ public struct StandardDrinkSize: DrinkSize {
         else { self.standardDrinks = 0.0 }
     }
     
-    /// Create a `StandardDrinkSize` using a specific alcohol mass.
-    ///
-    /// - Parameter alcoholMass: The alcohol mass of the drink.
-    public init(alcoholMass: Measurement<UnitMass>) {
-        if alcoholMass.value > 0.00 {
-            let drinkAlcoholMassGrams = alcoholMass.converted(to: UnitMass.grams).value
-            self.standardDrinks = drinkAlcoholMassGrams / StandardDrinkSize.standardDrinkAlcoholMass.converted(to: UnitMass.grams).value
-        } else { self.standardDrinks = 0.0 }
-    }
-    
 }

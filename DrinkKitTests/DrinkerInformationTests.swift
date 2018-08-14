@@ -43,34 +43,4 @@ class DrinkerInformationTests: XCTestCase {
         XCTAssert(difference < 0.05, "Water volume was not calculated properly. Expected \(expectedWaterVolume), actual \(drinkerInformation.waterVolume).")
     }
     
-    func test_waterComposition_male() {
-        let drinkerInformation = DrinkerInformation(weight: testWeight, sex: .male, alcoholMetabolism: testAlcoholMetabolism)
-        let expectedWaterComposition = 0.58
-        XCTAssert(drinkerInformation.sex.waterComposition == expectedWaterComposition, "DrinkerSex.male did not return the expcted waterComposition. Expected \(expectedWaterComposition), actual \(drinkerInformation.sex.waterComposition).")
-    }
-    
-    func test_waterComposition_female() {
-        let drinkerInformation = DrinkerInformation(weight: testWeight, sex: .female, alcoholMetabolism: testAlcoholMetabolism)
-        let expectedWaterComposition = 0.49
-        XCTAssert(drinkerInformation.sex.waterComposition == expectedWaterComposition, "DrinkerSex.female did not return the expcted waterComposition. Expected \(expectedWaterComposition), actual \(drinkerInformation.sex.waterComposition).")
-    }
-    
-    func test_hourlyAlcoholMetabolism_belowAverage() {
-        let drinkerInformation = DrinkerInformation(weight: testWeight, sex: testSex, alcoholMetabolism: .belowAverage)
-        let expectedHourlyAlcoholMetabolism = 0.012
-        XCTAssert(drinkerInformation.alcoholMetabolism.hourlyAlcoholMetabolism == expectedHourlyAlcoholMetabolism, "DrinkerAlcoholMetabolism.belowAverage did not return the expected hourlyAlcoholMetabolism. Expected \(expectedHourlyAlcoholMetabolism), actual \(drinkerInformation.alcoholMetabolism.hourlyAlcoholMetabolism).")
-    }
-    
-    func test_hourlyAlcoholMetabolism_average() {
-        let drinkerInformation = DrinkerInformation(weight: testWeight, sex: testSex, alcoholMetabolism: .average)
-        let expectedHourlyAlcoholMetabolism = 0.017
-        XCTAssert(drinkerInformation.alcoholMetabolism.hourlyAlcoholMetabolism == expectedHourlyAlcoholMetabolism, "DrinkerAlcoholMetabolism.average did not return the expected hourlyAlcoholMetabolism. Expected \(expectedHourlyAlcoholMetabolism), actual \(drinkerInformation.alcoholMetabolism.hourlyAlcoholMetabolism).")
-    }
-    
-    func test_hourlyAlcoholMetabolism_aboveAverage() {
-        let drinkerInformation = DrinkerInformation(weight: testWeight, sex: testSex, alcoholMetabolism: .aboveAverage)
-        let expectedHourlyAlcoholMetabolism = 0.02
-        XCTAssert(drinkerInformation.alcoholMetabolism.hourlyAlcoholMetabolism == expectedHourlyAlcoholMetabolism, "DrinkerAlcoholMetabolism.aboveAverage did not return the expected hourlyAlcoholMetabolism. Expected \(expectedHourlyAlcoholMetabolism), actual \(drinkerInformation.alcoholMetabolism.hourlyAlcoholMetabolism).")
-    }
-    
 }

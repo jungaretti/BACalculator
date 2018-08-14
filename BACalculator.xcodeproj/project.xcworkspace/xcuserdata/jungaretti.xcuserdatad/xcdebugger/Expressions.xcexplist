@@ -11,7 +11,20 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "DiskManager.managedData.getter:DiskManager.swift">
+         contextName = "AlcoholRatioPickerViewDelegate.pickerView(_:attributedTitleForRow:forComponent:):AlcoholRatioPickerViewDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UIFont(name: &quot;AvenirNext-Medium&quot;, size: 17.0)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "DrinkTests.test_initCustomJSON():DrinkTests.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(drinkCustomSize.volume - expectedVolume).value">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "DrinkTableViewController.tableView(_:cellForRowAt:):DrinkTableViewController.swift">
@@ -57,18 +70,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "HomeViewController.updateBloodAlcoholContentLabel(forBAC:):HomeViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "bloodAlcoholContent">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "DrinkManager.init(drinksURL:):DrinkManager.swift">
          <PersistentStrings>
             <PersistentString
                value = "FileManager.default.fileExists(atPath: drinksURL.path)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HomeViewController.updateBloodAlcoholContentLabel(forBAC:):HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "bloodAlcoholContent">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -100,6 +113,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "DiskManager.managedData.getter:DiskManager.swift">
+      </ContextState>
+      <ContextState
          contextName = "TypeAttributeOptionCollectionViewDataSource.collectionView(_:cellForItemAt:):TypeAttributeOptionCollectionViewDataSource.swift">
          <PersistentStrings>
             <PersistentString
@@ -112,14 +128,6 @@
          <PersistentStrings>
             <PersistentString
                value = "indexPath">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "AlcoholRatioPickerViewDelegate.pickerView(_:attributedTitleForRow:forComponent:):AlcoholRatioPickerViewDelegate.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "UIFont(name: &quot;AvenirNext-Medium&quot;, size: 17.0)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
