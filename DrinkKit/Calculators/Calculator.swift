@@ -8,4 +8,5 @@
 
 import Foundation
 
+/// A calculator performs operations.
 protocol Calculator {}
