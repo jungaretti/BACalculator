@@ -53,8 +53,21 @@ class CustomDrinkSizeTests: XCTestCase {
     }
     
     func test_isEmpty_true() {
-        let standardDrinkSize = CustomDrinkSize(volume: Measurement(value: -40.0, unit: UnitVolume.milliliters), alcoholRatio: 0.05)
-        XCTAssertTrue(standardDrinkSize.isEmpty)
+        let customDrinkSize = CustomDrinkSize(volume: Measurement(value: -40.0, unit: UnitVolume.milliliters), alcoholRatio: 0.05)
+        XCTAssertTrue(customDrinkSize.isEmpty)
+    }
+    
+    func test_description() {
+        let customDrinkSize = CustomDrinkSize(volume: testVolume, alcoholRatio: testAlcoholRatio)
+        let expectedDescription = "1.5 fl oz, 40% abv"
+        XCTAssert(customDrinkSize.description == expectedDescription, "CustomDrinkSize did not return the proper description. Expected \(expectedDescription), actual \(customDrinkSize.description).")
+    }
+    
+    func test_descriptionForType() {
+        let customDrinkSize = CustomDrinkSize(volume: testVolume, alcoholRatio: testAlcoholRatio)
+        let testType = DrinkType.liquor
+        let expectedDescription = "1.5 fl oz, 40% abv"
+        XCTAssert(customDrinkSize.description(forType: testType) == expectedDescription, "CustomDrinkSize did not return the proper description. Expected \(expectedDescription), actual \(customDrinkSize.description).")
     }
 
 }

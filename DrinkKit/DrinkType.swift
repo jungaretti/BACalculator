@@ -30,4 +30,34 @@ public enum DrinkType: String, Codable {
         }
     }
     
+    /// Determine the appropriate unit for the `DrinkType` for a certain quantity of drinks.
+    ///
+    /// - Parameter quantity: The quantity of drinks for the `DrinkType`.
+    /// - Returns: The appropriate unit of the `DrinkType`.
+    public func unit(forQuantity quantity: Double) -> String {
+        if quantity == 1.0 {
+            switch self {
+            case .beer:
+                return "can"
+            case .wine:
+                return "glass"
+            case .liquor:
+                return "shot"
+            default:
+                return "standard drink"
+            }
+        } else {
+            switch self {
+            case .beer:
+                return "cans"
+            case .wine:
+                return "glasses"
+            case .liquor:
+                return "shots"
+            default:
+                return "standard drinks"
+            }
+        }
+    }
+    
 }
