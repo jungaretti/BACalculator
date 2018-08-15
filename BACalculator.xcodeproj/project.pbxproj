@@ -339,6 +339,7 @@
 				15D551FE21082BA6000F0889 /* Controllers */,
 				15D551FF21082BAD000F0889 /* Views */,
 				15B57651210ADB45007F48D1 /* Models */,
+				152D60592123C30800DC0496 /* Protocols */,
 				15D551F721082506000F0889 /* Services */,
 				152AB6CB2107DA95001918EF /* BACalculator.xcdatamodeld */,
 				152AB6CE2107DA96001918EF /* Assets.xcassets */,
@@ -401,6 +402,17 @@
 			path = DrinkKitTests;
 			sourceTree = "<group>";
 		};
+		152D60592123C30800DC0496 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				154310B8211000A7008A4CF5 /* AttributeDelegate.swift */,
+				15F3ECA02121354D001CE84C /* CalculationDelegate.swift */,
+				15E8F7F621164FC200810DD3 /* SettingsDelegate.swift */,
+				15E8F7F821164FD300810DD3 /* SettingsDetailDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		1548BFC6211413E6008E8C60 /* SettingsTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,10 +438,6 @@
 				154310A1210F9CEB008A4CF5 /* DrinkAttributeAgent.swift */,
 				15A7C4F72109668900F260FB /* ThemeAgent.swift */,
 				15D29E4D2117F7E5009D0B93 /* ThemeColor.swift */,
-				154310B8211000A7008A4CF5 /* AttributeDelegate.swift */,
-				15F3ECA02121354D001CE84C /* CalculationDelegate.swift */,
-				15E8F7F621164FC200810DD3 /* SettingsDelegate.swift */,
-				15E8F7F821164FD300810DD3 /* SettingsDetailDelegate.swift */,
 				15E8F7F121164E1C00810DD3 /* AttributeOptionCollectionView */,
 				15E8F7F221164E2600810DD3 /* CustomSizePickerView */,
 				15E8F7F321164E4000810DD3 /* SettingsDetailTableView */,
