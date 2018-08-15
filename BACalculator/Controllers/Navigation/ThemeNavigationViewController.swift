@@ -12,6 +12,11 @@ class ThemeNavigationViewController: UINavigationController {
     
     var themeColor: ThemeColor?
     var topViewShouldMatchTheme: Bool?
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        if themeColor != nil { return .lightContent }
+        else { return .default }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
