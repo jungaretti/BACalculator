@@ -9,11 +9,7 @@
 import UIKit
 
 class SettingsMasterTableViewController: UITableViewController, SettingsDelegate {
-    
-    // MARK: Properties
-    
-    weak var calculationDelegate: CalculationDelegate!
-    
+        
     // MARK: Methods
 
     override func viewDidLoad() {
@@ -26,7 +22,6 @@ class SettingsMasterTableViewController: UITableViewController, SettingsDelegate
     }
     
     @IBAction func closePressed(_ sender: UIBarButtonItem) {
-        calculationDelegate.calculationVariableDidChange()
         self.dismiss(animated: true, completion: nil)
     }
     

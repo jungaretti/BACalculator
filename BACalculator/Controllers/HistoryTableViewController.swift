@@ -10,11 +10,7 @@ import DrinkKit
 import UIKit
 
 class HistoryTableViewController: UITableViewController {
-    
-    // MARK: Properties
-    
-    weak var calculationDelegate: CalculationDelegate!
-    
+        
     // MARK: Methods
     
     override func viewDidLoad() {
@@ -33,7 +29,6 @@ class HistoryTableViewController: UITableViewController {
     }
     
     @IBAction func cancelPressed(_ sender: UIBarButtonItem) {
-        calculationDelegate.calculationVariableDidChange()
         self.dismiss(animated: true, completion: nil)
     }
     

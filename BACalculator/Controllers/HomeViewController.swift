@@ -11,7 +11,7 @@ import UIKit
 import os.log
 
 /// A view controller that specializes in managing the home view of BACalculator.
-class HomeViewController: UIViewController, CalculationDelegate {
+class HomeViewController: UIViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -36,7 +36,7 @@ class HomeViewController: UIViewController, CalculationDelegate {
     private var needsUpdate: Bool = false
     private var recalculationTimer: Timer?
     
-    private var themeColor: ThemeColor!
+    private var latestThemeColor: ThemeColor!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,25 +61,21 @@ class HomeViewController: UIViewController, CalculationDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        // TODO: Improve managment of conditions when this is presented
         if DrinkerInformationManager.default.drinkerInformation == nil {
             DrinkerInformationManager.default.update(drinkerInformation: DrinkerInformation(weight: Measurement(value: 200, unit: UnitMass.pounds), sex: .male, alcoholMetabolism: .average))
             performSegue(withIdentifier: "showSettings", sender: self)
         }
-        
         if needsUpdate {
             updateTimeLabel(animated: true)
             updateMeasurement(animated: true)
         }
-        
         startRecalculationTimer()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
-        needsUpdate = false
-        
+        needsUpdate = true
         stopRecalculationTImer()
     }
     
@@ -104,12 +100,12 @@ class HomeViewController: UIViewController, CalculationDelegate {
     func updateMeasurement(animated: Bool) {
         let bloodAlcoholContent = calculateBloodAlcoholContent()
         let bloodAlcoholContentFormatted = format(bloodAlcoholContent: bloodAlcoholContent)!
-        themeColor = ThemeAgent.themeColor(forBAC: Double(bloodAlcoholContentFormatted)!)
+        latestThemeColor = ThemeAgent.themeColor(forBAC: Double(bloodAlcoholContentFormatted)!)
         let updateFunction = {
             // Update the BAC label
             self.bloodAlcoholContentLabel.text = bloodAlcoholContentFormatted
             // Update the background color to match the label
-            self.view.backgroundColor = self.themeColor.normal
+            self.view.backgroundColor = self.latestThemeColor.normal
         }
         if animated {
             UIView.animate(withDuration: 0.50, delay: 0.0, options: [.allowUserInteraction, .beginFromCurrentState], animations: updateFunction, completion: nil)
@@ -171,17 +167,10 @@ class HomeViewController: UIViewController, CalculationDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? ThemeNavigationViewController {
-            destination.themeColor = themeColor
-        }
-        // TODO: Clean up how the calculationDelegate is linked.
-        if let destination = (segue.destination as? UINavigationController)?.topViewController as? AddDrinkTableViewController {
-            destination.calculationDelegate = self
-        }
-        if let destination = (segue.destination as? UINavigationController)?.topViewController as? HistoryTableViewController {
-            destination.calculationDelegate = self
-        }
-        if let destination = (segue.destination as? UINavigationController)?.topViewController as? SettingsMasterTableViewController {
-            destination.calculationDelegate = self
+            destination.themeColor = self.latestThemeColor
+            if segue.identifier == "showHistory" || segue.identifier == "showAddDrink" {
+                destination.topViewShouldMatchTheme = true
+            }
         }
     }
     

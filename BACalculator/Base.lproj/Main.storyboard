@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -16,7 +15,7 @@
             <objects>
                 <tableViewController id="LUF-Ki-3Uw" customClass="AddDrinkTableViewController" customModule="BACalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CkV-x4-zMQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -314,13 +313,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Drink" id="E39-PS-QjI">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="Cancel" id="lS6-ol-bdJ">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelPressed:" destination="LUF-Ki-3Uw" id="7Ya-cn-UWz"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="Check" id="1cS-6y-5ub">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="addPressed:" destination="LUF-Ki-3Uw" id="SUY-gu-Kob"/>
                             </connections>
@@ -333,35 +330,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rv1-hc-LqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2048.8000000000002" y="896.30541871921184"/>
-        </scene>
-        <!--Theme Navigation View Controller-->
-        <scene sceneID="dBV-wx-D9r">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wlD-VV-6xg" customClass="ThemeNavigationViewController" customModule="BACalculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="o7B-QU-nCv">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rax-f1-xLc">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="LUF-Ki-3Uw" kind="relationship" relationship="rootViewController" id="a0L-vq-WzE"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ivy-VG-9dq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1108" y="897"/>
+            <point key="canvasLocation" x="2991.1999999999998" y="896.30541871921184"/>
         </scene>
         <!--Settings-->
         <scene sceneID="IU0-kH-6EX">
@@ -442,7 +411,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QaQ-ao-lRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2046" y="-624"/>
+            <point key="canvasLocation" x="2988" y="-644"/>
         </scene>
         <!--Settings Picker Detail Table View Controller-->
         <scene sceneID="4Wd-dO-6ct">
@@ -514,7 +483,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5k8-Kt-395" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2989.5999999999999" y="-1383.2512315270938"/>
+            <point key="canvasLocation" x="3934" y="-1398"/>
         </scene>
         <!--Settings Detail Table View Controller-->
         <scene sceneID="ao8-mj-SdD">
@@ -558,7 +527,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXe-ay-i4V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2986" y="-624"/>
+            <point key="canvasLocation" x="3926" y="-644"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="mKR-uz-Xdb">
@@ -590,9 +559,7 @@
                                 </constraints>
                                 <state key="normal" image="AddDrink"/>
                                 <connections>
-                                    <segue destination="wlD-VV-6xg" kind="popoverPresentation" identifier="showAddDrink" popoverAnchorView="kCd-xX-JQ5" id="sz4-ED-gXK">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="rFP-hr-sNP" kind="show" identifier="showAddDrink" id="QAa-Cz-ts2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srf-ZD-Gb8">
@@ -602,9 +569,7 @@
                                 </constraints>
                                 <state key="normal" image="History"/>
                                 <connections>
-                                    <segue destination="s48-EQ-MuS" kind="popoverPresentation" identifier="showHistory" popoverAnchorView="srf-ZD-Gb8" id="ybW-FZ-2pq">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="pG2-zc-zvA" kind="show" identifier="showHistory" id="cQD-27-kZi"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Gna-t1-XuE">
@@ -631,9 +596,7 @@
                                 </constraints>
                                 <state key="normal" image="Settings"/>
                                 <connections>
-                                    <segue destination="A6U-8I-Bsg" kind="popoverPresentation" identifier="showSettings" popoverAnchorView="c2L-8d-xMj" id="w4J-Ga-gQh">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="cBO-wT-nlC" kind="show" identifier="showSettings" id="O4K-Cg-MkN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3Z-AF-tG5" customClass="HourControlButton" customModule="BACalculator" customModuleProvider="target">
@@ -683,40 +646,12 @@
             </objects>
             <point key="canvasLocation" x="1102" y="132"/>
         </scene>
-        <!--Theme Navigation View Controller-->
-        <scene sceneID="fjK-16-eJA">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s48-EQ-MuS" customClass="ThemeNavigationViewController" customModule="BACalculator" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="uNT-SM-Rh3">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                        <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DmA-Rk-1xq">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="d4j-7D-bEj" kind="relationship" relationship="rootViewController" id="Q0V-p7-9uf"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6n9-tQ-O1T" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2049" y="132"/>
-        </scene>
         <!--History-->
         <scene sceneID="0Xn-iv-W8C">
             <objects>
                 <tableViewController id="d4j-7D-bEj" customClass="HistoryTableViewController" customModule="BACalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f9P-29-2lW">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -794,7 +729,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="History" id="h99-wJ-ztw">
                         <barButtonItem key="leftBarButtonItem" image="Cancel" id="Uzw-SA-sN6">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelPressed:" destination="d4j-7D-bEj" id="sj5-GS-eIH"/>
                             </connections>
@@ -803,25 +737,61 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKQ-Mb-sVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2989.5999999999999" y="131.52709359605913"/>
+            <point key="canvasLocation" x="2991" y="132"/>
         </scene>
-        <!--Settings Navigation View Controller-->
-        <scene sceneID="Pwe-Ax-tcE">
+        <!--Theme Navigation View Controller-->
+        <scene sceneID="Ik5-r3-uew">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="A6U-8I-Bsg" customClass="SettingsNavigationViewController" customModule="BACalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pG2-zc-zvA" customClass="ThemeNavigationViewController" customModule="BACalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Pmv-nz-mU1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ATU-MY-t6x">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="pau-nB-jS0" kind="relationship" relationship="rootViewController" id="sXv-kf-68D"/>
+                        <segue destination="d4j-7D-bEj" kind="relationship" relationship="rootViewController" id="HAM-BL-L0p"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QD1-a4-2wY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HEu-9z-Tvy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1103" y="-624"/>
+            <point key="canvasLocation" x="2049" y="132"/>
+        </scene>
+        <!--Theme Navigation View Controller-->
+        <scene sceneID="UzC-zz-Ga7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rFP-hr-sNP" customClass="ThemeNavigationViewController" customModule="BACalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="riw-i0-LH6">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LUF-Ki-3Uw" kind="relationship" relationship="rootViewController" id="P8L-Oc-ssc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AGR-mG-gH2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2048.8000000000002" y="896.30541871921184"/>
+        </scene>
+        <!--Theme Navigation View Controller-->
+        <scene sceneID="XVq-Mn-VXc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cBO-wT-nlC" customClass="ThemeNavigationViewController" customModule="BACalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zEX-kK-GqX">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pau-nB-jS0" kind="relationship" relationship="rootViewController" id="U82-d9-bzU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WXG-qU-naU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2046" y="-644"/>
         </scene>
     </scenes>
     <resources>
