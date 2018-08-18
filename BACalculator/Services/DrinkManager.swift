@@ -2,48 +2,63 @@
 //  DrinkManager.swift
 //  BACalculator
 //
-//  Created by James Ungaretti on 8/12/18.
+//  Created by James Ungaretti on 8/17/18.
 //  Copyright © 2018 James Ungaretti. All rights reserved.
 //
 
-import Foundation
 import DrinkKit
+import Foundation
 
-/// The persistent data manager for drinks in BACalculator.
+/// A persistent data manager for the drinks logged into BACalculator.
 class DrinkManager: DiskManager<[Drink]> {
+    
+    private var _drinks: [Drink]?
+    /// The `Drink`s managed by the `DrinkManager`, sorted by consumption date.
+    var drinks: [Drink]? {
+        return _drinks
+    }
     
     /// The default `DrinkManager`.
     static var `default` = DrinkManager(fileURL: FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appendingPathComponent("Drinks").appendingPathExtension("json"))
     
-    /// The `[Drink]` managed by the `DrinkManager`.
-    var drinks: [Drink]? {
-        return managed
-    }
-    
-    /// Log a new `Drink` and save the drinks.
+    /// Log a new `Drink` and save the new information to disk.
     ///
-    /// - Parameter newDrink: The new `Drink` to log.
-    func log(drink newDrink: Drink) {
-        if managed == nil {
-            managed = [Drink]()
+    /// - Parameter newDrink: The new `Drink`.
+    func logDrink(_ newDrink: Drink) {
+        // Initialize an empty drinks array if needed
+        if _drinks == nil {
+            _drinks = [Drink]()
         }
-        managed!.append(newDrink)
-        managed!.sortByDate()
-        saveToDisk()
+        // Determine if the drinks array must be sorted
+        let drinksAreSorted: Bool
+        if let lastDrink = _drinks!.last {
+            drinksAreSorted = lastDrink.consumptionDate <= newDrink.consumptionDate
+        } else {
+            drinksAreSorted = true
+        }
+        // Append the new drink and sort if needed
+        _drinks!.append(newDrink)
+        if !(drinksAreSorted) { _drinks!.sortByDate() }
+        // Save the new drink array to disk
+        saveToDisk(_drinks!)
     }
     
-    /// Remove a `Drink` from a certain index and save the drinks.
+    /// Remove a `Drink` at a certain index.
     ///
-    /// - Parameter index: The index of the `Drink` to remove.
-    func remove(atIndex index: Int) {
-        managed?.remove(at: index)
-        saveToDisk()
+    /// - Parameter index: The index of the `Drink` to remove in `drinks`.
+    func removeDrink(atIndex index: Int) {
+        if _drinks != nil {
+            _drinks!.remove(at: index)
+            saveToDisk(_drinks!)
+        }
     }
     
-    /// Remove all `Drink`s and save an empty file.
-    func removeAll() {
-        managed?.removeAll()
-        saveToDisk()
+    /// Remove all `Drink`s.
+    func removeAllDrinks() {
+        if _drinks != nil {
+            _drinks!.removeAll()
+            saveToDisk(_drinks!)
+        }
     }
     
 }

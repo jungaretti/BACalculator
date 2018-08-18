@@ -2,94 +2,101 @@
 //  DiskManager.swift
 //  BACalculator
 //
-//  Created by James Ungaretti on 8/12/18.
+//  Created by James Ungaretti on 8/17/18.
 //  Copyright © 2018 James Ungaretti. All rights reserved.
 //
 
 import Foundation
 import os.log
 
-/// A generic persistent data manager for a certain file `URL`. A `Codable` type is read from and written to this `URL`.
-class DiskManager<T: Codable>: Manager {
+/// A generic persistent data manager that stores `Codable` data to a certain `URL`.
+class DiskManager<T: Codable> {
     
-    /// The `FileManager` used for file read and write operations.
+    /// The `URL` of the file to use for persistent storage.
+    let fileURL: URL
+    /// The `FileManager` to use for read and write operation.
     private let fileManager: FileManager
-    /// The `URL` of the file being managed.
-    private let fileURL: URL
-    /// The data managed by the `DiskManager`.
-    var managed: T? // TODO: Add didSet
+    /// The `JSONEncoder` to use for encode operations.
+    private var jsonEncoder: JSONEncoder
+    /// The `JSONDecoder` to use for decode operations.
+    private var jsonDecoder: JSONDecoder
     
-    /// Create a `DiskManager` for a specific `URL` and attempt to load the managed data from that `URL`.
+    /// Create a `DiskManager` for a certain `URL`.
     ///
-    /// - Parameter fileURL: The `URL` of the file being managed by the `DiskManager`.
+    /// - Parameter fileURL: The `URL` of the file to use for persistent storage.
     init(fileURL: URL) {
-        self.fileManager = FileManager.default
         self.fileURL = fileURL
-        loadFromDisk()
+        self.fileManager = FileManager.default
+        self.jsonEncoder = JSONEncoder()
+        self.jsonDecoder = JSONDecoder()
     }
     
-    /// Update the managed data with a new value.
-    ///
-    /// - Parameter newManaged: The updated data.
-    func updateManaged(_ newManaged: T) {
-        self.managed = newManaged
-        saveToDisk()
-    }
-    
-    /// Called before the managed data is saved to the disk.
+    /// Tells the `DiskManager` that data will be saved to disk.
     func willSaveToDisk() {}
     
-    /// Save the managed data to the disk at the specified `URL`.
-    func saveToDisk() {
+    /// Save `Codable` data to the `fileURL` of the `DiskManager`.
+    ///
+    /// Before data is saved to disk, `willSaveToDisk()` is called. After data is saved successfully, `didSaveToDisk()` is called. If data cannot be saved to disk, `didNotSaveToDisk(withError:)` is called.
+    ///
+    /// - Parameter data: The `Codable` to save to disk.
+    final func saveToDisk(_ data: T) {
         willSaveToDisk()
-        let encoder = JSONEncoder()
         do {
-            let encoded = try encoder.encode(managed)
-            fileManager.createFile(atPath: fileURL.path, contents: encoded, attributes: nil)
+            let encodedData = try jsonEncoder.encode(data)
+            fileManager.createFile(atPath: fileURL.path, contents: encodedData, attributes: nil)
             didSaveToDisk()
         } catch {
-            didNotSaveToDisk()
+            didNotSaveToDisk(withError: error)
         }
     }
     
-    /// Called after the managed data is successfully saved to the disk.
+    /// Tells the `DiskManager` that data was saved to disk.
     func didSaveToDisk() {
         os_log("%@ was saved to %@.", "\(T.self)", fileURL.lastPathComponent)
     }
     
-    /// Called when the managed data cannot be saved to the disk.
-    func didNotSaveToDisk() {
-        os_log("%@ could not be saved to %@.", type: .error, "\(T.self)", fileURL.path)
+    /// Tells the `DiskManager` that data could not be saved to disk because of an error.
+    ///
+    /// - Parameter error: The `Error` that prevented data from being saved to disk.
+    func didNotSaveToDisk(withError error: Error?) {
+        os_log("%@ could not be saved to %@.", "\(T.self)", fileURL.path)
     }
     
-    /// Called before the managed data is load from the disk.
+    /// Tells the `DiskManager` that data will be loaded from disk.
     func willLoadFromDisk() {}
     
-    /// Load the managed data from the disk at the specified `URL`.
-    func loadFromDisk() {
+    /// Load `Codable` data from the `fileURL` of the `DiskManager`.
+    ///
+    /// Before data is loaded from disk, `willLoadFromDisk()` is called. After data is loaded successfully, `didLoadFromDisk()` is called. If data cannot be loaded from disk, `didNotLoadFromDisk(withError:)` is called.
+    ///
+    /// - Returns: The data loaded from disk, or `nil` if an error occured.
+    final func loadFromDisk() -> T? {
         willLoadFromDisk()
-        if let encoded = fileManager.contents(atPath: fileURL.path) {
-            let decoder = JSONDecoder()
+        if let encodedData = fileManager.contents(atPath: fileURL.path) {
             do {
-                managed = try decoder.decode(T.self, from: encoded)
+                let decodedData = try jsonDecoder.decode(T.self, from: encodedData)
                 didLoadFromDisk()
+                return decodedData
             } catch {
-                didNotLoadFromDisk()
+                didNotLoadFromDisk(withError: error)
+                return nil
             }
         } else {
-            didNotLoadFromDisk()
+            didNotLoadFromDisk(withError: nil)
+            return nil
         }
     }
     
-    /// Called when the managed data is successfully loaded from the disk.
+    /// Tells the `DiskManager` that data was loaded from disk.
     func didLoadFromDisk() {
         os_log("%@ was loaded from %@.", "\(T.self)", fileURL.lastPathComponent)
     }
     
-    /// Called when the managed data cannot be loaded from the disk.
-    func didNotLoadFromDisk() {
-        managed = nil
-        os_log("%@ could not be loaded from %@", type: .error, "\(T.self)", fileURL.path)
+    /// Tells the `DiskManager` that data was not loaded from disk.
+    ///
+    /// - Parameter error: The `Error` that prevented data from being loaded from disk.
+    func didNotLoadFromDisk(withError error: Error?) {
+        os_log("%@ could not be loaded from %@.", "\(T.self)", fileURL.path)
     }
     
 }

@@ -49,7 +49,7 @@ class HomeViewController: UIViewController {
         }
         
         if DrinkManager.default.drinks == nil {
-            DrinkManager.default.updateManaged([Drink]())
+            DrinkManager.default.saveToDisk([Drink]())
         }
         
         // Update measurement

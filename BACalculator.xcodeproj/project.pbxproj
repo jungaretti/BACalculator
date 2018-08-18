@@ -10,9 +10,6 @@
 		1504CE712110FD3800E1CF53 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1504CE702110FD3800E1CF53 /* HistoryTableViewController.swift */; };
 		1504CE742110FF3600E1CF53 /* DrinkHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1504CE732110FF3600E1CF53 /* DrinkHistoryTableViewCell.swift */; };
 		1506B4F3210A824D00CBDD14 /* XIBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1506B4F2210A824D00CBDD14 /* XIBView.swift */; };
-		150853EB2120AE510085BA11 /* DiskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150853EA2120AE510085BA11 /* DiskManager.swift */; };
-		150853ED2120B73E0085BA11 /* DrinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150853EC2120B73E0085BA11 /* DrinkManager.swift */; };
-		150853EF2120B9EF0085BA11 /* DrinkerInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150853EE2120B9EF0085BA11 /* DrinkerInformationManager.swift */; };
 		150853F32120BED10085BA11 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150853F22120BED10085BA11 /* UserDefaultsManager.swift */; };
 		152AB6C52107DA95001918EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB6C42107DA95001918EF /* AppDelegate.swift */; };
 		152AB6CA2107DA95001918EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152AB6C82107DA95001918EF /* Main.storyboard */; };
@@ -52,6 +49,9 @@
 		154310BB21101983008A4CF5 /* TypeAttributeOptionCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154310BA21101983008A4CF5 /* TypeAttributeOptionCollectionViewDelegate.swift */; };
 		154310BD211019A0008A4CF5 /* SizeAttributeOptionCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154310BC211019A0008A4CF5 /* SizeAttributeOptionCollectionViewDelegate.swift */; };
 		1548BFC8211413FF008E8C60 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1548BFC7211413FF008E8C60 /* SettingsTableViewCell.swift */; };
+		155C01D32127C387000470B8 /* DiskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C01D22127C387000470B8 /* DiskManager.swift */; };
+		155C01D52127C713000470B8 /* DrinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C01D42127C713000470B8 /* DrinkManager.swift */; };
+		155C01D72127D1DF000470B8 /* DrinkerInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C01D62127D1DF000470B8 /* DrinkerInformationManager.swift */; };
 		155CA6D7210E69EF009F9BAB /* AttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155CA6D6210E69EF009F9BAB /* AttributeTableViewCell.swift */; };
 		155CA6DB210E85A0009F9BAB /* AttributeOptionCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155CA6DA210E85A0009F9BAB /* AttributeOptionCollectionViewDataSource.swift */; };
 		155CA6DD210E8CB6009F9BAB /* AttributeOptionCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155CA6DC210E8CB6009F9BAB /* AttributeOptionCollectionViewDelegate.swift */; };
@@ -155,9 +155,6 @@
 		1504CE702110FD3800E1CF53 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		1504CE732110FF3600E1CF53 /* DrinkHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		1506B4F2210A824D00CBDD14 /* XIBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBView.swift; sourceTree = "<group>"; };
-		150853EA2120AE510085BA11 /* DiskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskManager.swift; sourceTree = "<group>"; };
-		150853EC2120B73E0085BA11 /* DrinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkManager.swift; sourceTree = "<group>"; };
-		150853EE2120B9EF0085BA11 /* DrinkerInformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerInformationManager.swift; sourceTree = "<group>"; };
 		150853F22120BED10085BA11 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		152AB6C12107DA95001918EF /* BACalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BACalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		152AB6C42107DA95001918EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -205,6 +202,9 @@
 		154310BA21101983008A4CF5 /* TypeAttributeOptionCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAttributeOptionCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		154310BC211019A0008A4CF5 /* SizeAttributeOptionCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeAttributeOptionCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		1548BFC7211413FF008E8C60 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		155C01D22127C387000470B8 /* DiskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskManager.swift; sourceTree = "<group>"; };
+		155C01D42127C713000470B8 /* DrinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkManager.swift; sourceTree = "<group>"; };
+		155C01D62127D1DF000470B8 /* DrinkerInformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerInformationManager.swift; sourceTree = "<group>"; };
 		155CA6D6210E69EF009F9BAB /* AttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeTableViewCell.swift; sourceTree = "<group>"; };
 		155CA6DA210E85A0009F9BAB /* AttributeOptionCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeOptionCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		155CA6DC210E8CB6009F9BAB /* AttributeOptionCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeOptionCollectionViewDelegate.swift; sourceTree = "<group>"; };
@@ -453,9 +453,9 @@
 			isa = PBXGroup;
 			children = (
 				15F3EC9E212125E9001CE84C /* Manager.swift */,
-				150853EA2120AE510085BA11 /* DiskManager.swift */,
-				150853EC2120B73E0085BA11 /* DrinkManager.swift */,
-				150853EE2120B9EF0085BA11 /* DrinkerInformationManager.swift */,
+				155C01D22127C387000470B8 /* DiskManager.swift */,
+				155C01D42127C713000470B8 /* DrinkManager.swift */,
+				155C01D62127D1DF000470B8 /* DrinkerInformationManager.swift */,
 				150853F22120BED10085BA11 /* UserDefaultsManager.swift */,
 				15F3EC9C2121251A001CE84C /* SafeModeManager.swift */,
 			);
@@ -789,6 +789,7 @@
 				1548BFC8211413FF008E8C60 /* SettingsTableViewCell.swift in Sources */,
 				155CA6DB210E85A0009F9BAB /* AttributeOptionCollectionViewDataSource.swift in Sources */,
 				15E8F7F921164FD300810DD3 /* SettingsDetailDelegate.swift in Sources */,
+				155C01D72127D1DF000470B8 /* DrinkerInformationManager.swift in Sources */,
 				1568BFB9210CEFA70077C6E7 /* AttributeHeaderActionTableViewCell.swift in Sources */,
 				152AB6C52107DA95001918EF /* AppDelegate.swift in Sources */,
 				1542212E211126F9001515BF /* WeightPickerViewDataSource.swift in Sources */,
@@ -807,17 +808,15 @@
 				152AB6CD2107DA95001918EF /* BACalculator.xcdatamodeld in Sources */,
 				154310B2210FEFCA008A4CF5 /* VolumePickerViewDataSource.swift in Sources */,
 				15B2A675210A90C5002C33AE /* SizeAttributeCardView.swift in Sources */,
+				155C01D32127C387000470B8 /* DiskManager.swift in Sources */,
 				1542212421112674001515BF /* SexDetailTableViewDelegate.swift in Sources */,
 				15D5520121082BD9000F0889 /* HomeViewController.swift in Sources */,
-				150853ED2120B73E0085BA11 /* DrinkManager.swift in Sources */,
 				1591E81A21095B5600F56581 /* HourControlButton.swift in Sources */,
-				150853EB2120AE510085BA11 /* DiskManager.swift in Sources */,
 				154310B9211000A7008A4CF5 /* AttributeDelegate.swift in Sources */,
 				15A7C4F82109668900F260FB /* ThemeAgent.swift in Sources */,
 				15F3EC9D2121251A001CE84C /* SafeModeManager.swift in Sources */,
 				15B57642210AB272007F48D1 /* AddDrinkTableViewController.swift in Sources */,
 				1542212021112630001515BF /* SettingsDetailTableViewDelegate.swift in Sources */,
-				150853EF2120B9EF0085BA11 /* DrinkerInformationManager.swift in Sources */,
 				154310A4210FB024008A4CF5 /* AttributeDetailPickerTableViewCell.swift in Sources */,
 				154310BD211019A0008A4CF5 /* SizeAttributeOptionCollectionViewDelegate.swift in Sources */,
 				1542211E2111260D001515BF /* SettingsDetailTableViewDataSource.swift in Sources */,
@@ -831,6 +830,7 @@
 				15422119211125CF001515BF /* SettingsMasterTableViewController.swift in Sources */,
 				15B2A673210A9062002C33AE /* TypeAttributeCardView.swift in Sources */,
 				1504CE712110FD3800E1CF53 /* HistoryTableViewController.swift in Sources */,
+				155C01D52127C713000470B8 /* DrinkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

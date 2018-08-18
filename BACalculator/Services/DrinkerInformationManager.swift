@@ -2,56 +2,61 @@
 //  DrinkerInformationManager.swift
 //  BACalculator
 //
-//  Created by James Ungaretti on 8/12/18.
+//  Created by James Ungaretti on 8/17/18.
 //  Copyright © 2018 James Ungaretti. All rights reserved.
 //
 
-import Foundation
 import DrinkKit
+import Foundation
 
-/// The persistent storage manager for drinker information in
+/// A persistent data manager for the drinker information in BACalculator.
 class DrinkerInformationManager: DiskManager<DrinkerInformation> {
+    
+    private var _drinkerInformation: DrinkerInformation?
+    /// The `DrinkerInformation` managed by the `DrinkerInformationManager`.
+    var drinkerInformation: DrinkerInformation? {
+        return _drinkerInformation
+    }
     
     /// The default `DrinkerInformationManager`.
     static var `default` = DrinkerInformationManager(fileURL: FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appendingPathComponent("DrinkerInformation").appendingPathExtension("json"))
     
-    /// The `DrinkerInformation` managed by the `DrinkerInformationManager`.
-    var drinkerInformation: DrinkerInformation? {
-        return managed
+    /// Update and replace the `DrinkerInformation`.
+    ///
+    /// - Parameter drinkerInformation: The new `DrinkerInformation`.
+    func update(drinkerInformation: DrinkerInformation) {
+        _drinkerInformation = drinkerInformation
+        saveToDisk(_drinkerInformation!)
     }
     
-    /// Update the `drinkerInformation` managed by the `DrinkerInformationManager`.
+    /// Update the `weight` of the `drinkerInformation`. If `drinkerInformation` is `nil`, this method will do nothing.
     ///
-    /// - Parameter newDrinkerInformation: The new `DrinkerInformation`.
-    func update(drinkerInformation newDrinkerInformation: DrinkerInformation) {
-        super.updateManaged(newDrinkerInformation)
+    /// - Parameter weight: The new `weight`.
+    func update(weight: Measurement<UnitMass>) {
+        if _drinkerInformation != nil {
+            _drinkerInformation!.weight = weight
+            update(drinkerInformation: _drinkerInformation!)
+        }
     }
     
-    /// Update the `weight` of the `drinkerInformation` managed by the `DrinkerInformationManager`. If `drinkerInformation` is `nil`, nothing will change.
+    /// Update the `sex` of the `drinkerInformation`. If `drinkerInformation` is `nil`, this method will do nothing.
     ///
-    /// - Parameter newWeight: The new `weight`.
-    func update(weight newWeight: Measurement<UnitMass>) {
-        var drinkerInformation = self.drinkerInformation
-        drinkerInformation?.weight = newWeight
-        if let newDrinkerInformation = drinkerInformation { update(drinkerInformation: newDrinkerInformation) }
+    /// - Parameter sex: The new `sex`.
+    func update(sex: DrinkerSex) {
+        if _drinkerInformation != nil {
+            _drinkerInformation!.sex = sex
+            update(drinkerInformation: _drinkerInformation!)
+        }
     }
     
-    /// Update the `sex` of the `drinkerInformation` managed by the `DrinkerInformationManager`. If `drinkerInformation` is `nil`, nothing will change.
+    /// Update the `alcoholMetabolism` of the `drinkerInformation`. If `drinkerInformation` is `nil`, this method will do nothing.
     ///
-    /// - Parameter newSex: The new `sex`.
-    func update(sex newSex: DrinkerSex) {
-        var drinkerInformation = self.drinkerInformation
-        drinkerInformation?.sex = newSex
-        if let newDrinkerInformation = drinkerInformation { update(drinkerInformation: newDrinkerInformation) }
-    }
-    
-    /// Update the `sex` of the `drinkerInformation` managed by the `DrinkerInformationManager`. If `drinkerInformation` is `nil`, nothing will change.
-    ///
-    /// - Parameter newSex: The new `sex`.
-    func update(alcoholMetabolism newAlcoholMetabolism: DrinkerAlcoholMetabolism) {
-        var drinkerInformation = self.drinkerInformation
-        drinkerInformation?.alcoholMetabolism = newAlcoholMetabolism
-        if let newDrinkerInformation = drinkerInformation { update(drinkerInformation: newDrinkerInformation) }
+    /// - Parameter alcoholMetabolism: The new `alcoholMetabolism`.
+    func update(alcoholMetabolism: DrinkerAlcoholMetabolism) {
+        if _drinkerInformation != nil {
+            _drinkerInformation!.alcoholMetabolism = alcoholMetabolism
+            update(drinkerInformation: _drinkerInformation!)
+        }
     }
     
 }
