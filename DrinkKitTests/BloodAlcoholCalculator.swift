@@ -11,24 +11,24 @@ import XCTest
 
 class BloodAlcoholCalculatorTests: XCTestCase {
     
-    var testDrinkerInformation: DrinkerInformation!
+    var testDrinker: Drinker!
     
     override func setUp() {
         super.setUp()
-        testDrinkerInformation = DrinkerInformation(weight: Measurement(value: 128.0, unit: UnitMass.pounds), sex: .male, alcoholMetabolism: .average)
+        testDrinker = Drinker(weight: Measurement(value: 128.0, unit: UnitMass.pounds), sex: .male, alcoholMetabolism: .average)
     }
     
     override func tearDown() {
-        testDrinkerInformation = nil
+        testDrinker = nil
         super.tearDown()
     }
     
     func test_init() {
-        let _ = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let _ = BloodAlcoholCalculator(drinker: testDrinker)
     }
     
     func test_impact_standard() {
-        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinker: testDrinker)
         let drink = Drink(type: .beer, consumptionDate: Date(), size: StandardDrinkSize(standardDrinks: 1.0))
         let expectedImpact = 0.03350884039
         let difference = abs(alcoholCalculator.impact(of: drink) - expectedImpact)
@@ -36,7 +36,7 @@ class BloodAlcoholCalculatorTests: XCTestCase {
     }
     
     func test_impact_custom() {
-        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinker: testDrinker)
         let drink = Drink(type: .liquor, consumptionDate: Date(), size: CustomDrinkSize(volume: Measurement(value: 3.0, unit: UnitVolume.fluidOunces), alcoholRatio: 0.40))
         let expectedImpact = 0.06710338995
         let difference = abs(alcoholCalculator.impact(of: drink) - expectedImpact)
@@ -44,7 +44,7 @@ class BloodAlcoholCalculatorTests: XCTestCase {
     }
     
     func test_bloodAlcoholContent() {
-        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinker: testDrinker)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(3600.0)
@@ -57,7 +57,7 @@ class BloodAlcoholCalculatorTests: XCTestCase {
     }
     
     func test_bloodAlcoholContent_safeMode() {
-        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinker: testDrinker)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(3600.0)
@@ -70,7 +70,7 @@ class BloodAlcoholCalculatorTests: XCTestCase {
     }
     
     func test_bloodAlcoholContent_threeHours() {
-        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinker: testDrinker)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(10800)
@@ -83,7 +83,7 @@ class BloodAlcoholCalculatorTests: XCTestCase {
     }
     
     func test_bloodAlcoholContent_threeHoursSafeMode() {
-        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinker: testDrinker)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(10800)
@@ -96,7 +96,7 @@ class BloodAlcoholCalculatorTests: XCTestCase {
     }
     
     func test_bloodAlcoholContent_warp() {
-        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinker: testDrinker)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(25200.0)
@@ -110,7 +110,7 @@ class BloodAlcoholCalculatorTests: XCTestCase {
     }
     
     func test_bloodAlcoholContent_warpSafeMode() {
-        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinker: testDrinker)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(25200.0)
@@ -124,7 +124,7 @@ class BloodAlcoholCalculatorTests: XCTestCase {
     }
     
     func test_bloodAlcoholContent_warpThreeHours() {
-        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinker: testDrinker)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(32400.0)
@@ -138,7 +138,7 @@ class BloodAlcoholCalculatorTests: XCTestCase {
     }
     
     func test_bloodAlcoholContent_warpThreeHoursSafeMode() {
-        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinker: testDrinker)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(32400.0)
@@ -152,7 +152,7 @@ class BloodAlcoholCalculatorTests: XCTestCase {
     }
     
     func test_bloodAlcoholContent_many() {
-        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinker: testDrinker)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(3600.0)
@@ -167,7 +167,7 @@ class BloodAlcoholCalculatorTests: XCTestCase {
     }
     
     func test_bloodAlcoholContent_warpMany() {
-        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinker: testDrinker)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(25200)
@@ -185,7 +185,7 @@ class BloodAlcoholCalculatorTests: XCTestCase {
     }
     
     func test_bloodAlcoholContent_empty() {
-        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinker: testDrinker)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate
@@ -197,7 +197,7 @@ class BloodAlcoholCalculatorTests: XCTestCase {
     }
     
     func test_bloodAlcoholContent_before() {
-        let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: testDrinkerInformation)
+        let alcoholCalculator = BloodAlcoholCalculator(drinker: testDrinker)
         // Setup [Drink]
         let referenceDate = Date()
         let measurementDate = referenceDate.addingTimeInterval(-3600)

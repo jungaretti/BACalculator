@@ -15,13 +15,13 @@ public struct BloodAlcoholCalculator: Calculator {
     static let waterCompositionRatioBlood = 0.806
     
     /// The drinker information to use for calculations.
-    public var drinkerInformation: DrinkerInformation
+    public var drinker: Drinker
     
     /// Create a `BloodAlcoholCalculator` for a specific drinker.
     ///
-    /// - Parameter drinkerInformation: Information about the drinker using the `BloodAlcoholCalculator`.
-    public init(drinkerInformation: DrinkerInformation) {
-        self.drinkerInformation = drinkerInformation
+    /// - Parameter drinker: Information about the drinker using the `BloodAlcoholCalculator`.
+    public init(drinker: Drinker) {
+        self.drinker = drinker
     }
     
     /// Calculate the impact of a drink on BAC.
@@ -31,7 +31,7 @@ public struct BloodAlcoholCalculator: Calculator {
     public func impact(of drink: Drink) -> BloodAlcoholContent {
         let alcoholConsumedGrams = drink.size.alcoholMass.converted(to: UnitMass.grams).value
         // Determine the amount of alcohol absorbed into water, alcohol(g)/water(mL)
-        let alcoholGramsOverWaterML = alcoholConsumedGrams / self.drinkerInformation.waterVolume.converted(to: UnitVolume.milliliters).value
+        let alcoholGramsOverWaterML = alcoholConsumedGrams / self.drinker.waterVolume.converted(to: UnitVolume.milliliters).value
         // Determine the amount of alcohol absorbed into blood, alcohol(g)/blood(mL)
         let alcoholGramsOverBloodML = alcoholGramsOverWaterML * BloodAlcoholCalculator.waterCompositionRatioBlood
         return alcoholGramsOverBloodML * 100.0 // Convert to grams percent
@@ -56,7 +56,7 @@ public struct BloodAlcoholCalculator: Calculator {
     /// - Returns: The `BloodAlcoholContent` at the specified `Date.
     public func bloodAlcoholContent(atDate date: Date, afterDrinks drinks: [Drink], safeMode: Bool) -> BloodAlcoholContent {
         let sortedDrinks = drinks.sortedByDate()
-        var metabolismCalculator = MetabolismCalculator(alcoholMetabolism: drinkerInformation.alcoholMetabolism)
+        var metabolismCalculator = MetabolismCalculator(alcoholMetabolism: drinker.alcoholMetabolism)
         metabolismCalculator.safeMode = safeMode
         // Check that there have been drinks logged
         guard sortedDrinks.count > 0 else {

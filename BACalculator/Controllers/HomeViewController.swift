@@ -62,8 +62,8 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // TODO: Improve managment of conditions when this is presented
-        if DrinkerInformationManager.default.drinkerInformation == nil {
-            DrinkerInformationManager.default.update(drinkerInformation: DrinkerInformation(weight: Measurement(value: 200, unit: UnitMass.pounds), sex: .male, alcoholMetabolism: .average))
+        if DrinkerManager.default.drinker == nil {
+            DrinkerManager.default.update(drinker: Drinker(weight: Measurement(value: 200, unit: UnitMass.pounds), sex: .male, alcoholMetabolism: .average))
             performSegue(withIdentifier: "showSettings", sender: self)
         }
         if needsUpdate {
@@ -132,10 +132,10 @@ class HomeViewController: UIViewController {
     }
     
     private func calculateBloodAlcoholContent() -> BloodAlcoholContent {
-        if let drinks = DrinkManager.default.drinks, let drinkerInformation = DrinkerInformationManager.default.drinkerInformation {
+        if let drinks = DrinkManager.default.drinks, let drinkerInformation = DrinkerManager.default.drinker {
             let safeMode = SafeModeManager.default.safeMode
             let measureDate = Date().addingTimeInterval(offsetTimeInterval)
-            let alcoholCalculator = BloodAlcoholCalculator(drinkerInformation: drinkerInformation)
+            let alcoholCalculator = BloodAlcoholCalculator(drinker: drinkerInformation)
             let bloodAlcoholContent = alcoholCalculator.bloodAlcoholContent(atDate: measureDate, afterDrinks: drinks)
             os_log("BAC was calculated to be %f at %@ with safe mode %@.", bloodAlcoholContent, measureDate.description, safeMode.description)
             return bloodAlcoholContent

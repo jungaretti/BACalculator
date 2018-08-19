@@ -1,5 +1,5 @@
 //
-//  DrinkerInformation.swift
+//  Drinker.swift
 //  DrinkKit
 //
 //  Created by James Ungaretti on 7/24/18.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-/// Information about a drinker.
-public struct DrinkerInformation: Codable {
+/// An individual that consumes alcoholic beverages.
+public struct Drinker: Codable {
     
     /// The weight of the drinker.
     public var weight: Measurement<UnitMass>
@@ -26,7 +26,7 @@ public struct DrinkerInformation: Codable {
         return waterVolume
     }
     
-    /// Create a `DrinkerInformation` with a specific weight, sex, and alcohol metabolism.
+    /// Create a `Drinker` with a specific weight, sex, and alcohol metabolism.
     ///
     /// - Parameters:
     ///   - weight: The weight of the drinker.

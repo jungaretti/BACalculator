@@ -22,7 +22,7 @@
 		152AB70D2107DBDD001918EF /* DrinkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 152AB6FD2107DBDD001918EF /* DrinkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		152AB7102107DBDD001918EF /* DrinkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152AB6FB2107DBDD001918EF /* DrinkKit.framework */; };
 		152AB7112107DBDD001918EF /* DrinkKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 152AB6FB2107DBDD001918EF /* DrinkKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		152AB71A2107DC92001918EF /* DrinkerInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB7192107DC92001918EF /* DrinkerInformation.swift */; };
+		152AB71A2107DC92001918EF /* Drinker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB7192107DC92001918EF /* Drinker.swift */; };
 		152AB71C2107E03F001918EF /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB71B2107E03F001918EF /* Drink.swift */; };
 		152AB71E2107E091001918EF /* DrinkSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152AB71D2107E091001918EF /* DrinkSize.swift */; };
 		152D605821238D9E00DC0496 /* MetabolismCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152D605721238D9E00DC0496 /* MetabolismCalculatorTests.swift */; };
@@ -51,7 +51,7 @@
 		1548BFC8211413FF008E8C60 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1548BFC7211413FF008E8C60 /* SettingsTableViewCell.swift */; };
 		155C01D32127C387000470B8 /* DiskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C01D22127C387000470B8 /* DiskManager.swift */; };
 		155C01D52127C713000470B8 /* DrinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C01D42127C713000470B8 /* DrinkManager.swift */; };
-		155C01D72127D1DF000470B8 /* DrinkerInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C01D62127D1DF000470B8 /* DrinkerInformationManager.swift */; };
+		155C01D72127D1DF000470B8 /* DrinkerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C01D62127D1DF000470B8 /* DrinkerManager.swift */; };
 		155CA6D7210E69EF009F9BAB /* AttributeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155CA6D6210E69EF009F9BAB /* AttributeTableViewCell.swift */; };
 		155CA6DB210E85A0009F9BAB /* AttributeOptionCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155CA6DA210E85A0009F9BAB /* AttributeOptionCollectionViewDataSource.swift */; };
 		155CA6DD210E8CB6009F9BAB /* AttributeOptionCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155CA6DC210E8CB6009F9BAB /* AttributeOptionCollectionViewDelegate.swift */; };
@@ -85,7 +85,7 @@
 		15D551E82107EDF3000F0889 /* DrinkerAlcoholMetabolism.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551E72107EDF3000F0889 /* DrinkerAlcoholMetabolism.swift */; };
 		15D551EA2107EE47000F0889 /* BloodAlcoholContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551E92107EE47000F0889 /* BloodAlcoholContent.swift */; };
 		15D551EC2107FFC6000F0889 /* BloodAlcoholCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551EB2107FFC6000F0889 /* BloodAlcoholCalculator.swift */; };
-		15D551EE21080935000F0889 /* DrinkerInformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551ED21080935000F0889 /* DrinkerInformationTests.swift */; };
+		15D551EE21080935000F0889 /* DrinkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551ED21080935000F0889 /* DrinkerTests.swift */; };
 		15D551F021080C5A000F0889 /* DrinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551EF21080C5A000F0889 /* DrinkTests.swift */; };
 		15D551F221081100000F0889 /* StandardDrinkSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551F121081100000F0889 /* StandardDrinkSizeTests.swift */; };
 		15D551F4210811DB000F0889 /* CustomDrinkSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D551F3210811DB000F0889 /* CustomDrinkSizeTests.swift */; };
@@ -175,7 +175,7 @@
 		152AB6FE2107DBDD001918EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		152AB7032107DBDD001918EF /* DrinkKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrinkKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		152AB70C2107DBDD001918EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		152AB7192107DC92001918EF /* DrinkerInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerInformation.swift; sourceTree = "<group>"; };
+		152AB7192107DC92001918EF /* Drinker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinker.swift; sourceTree = "<group>"; };
 		152AB71B2107E03F001918EF /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		152AB71D2107E091001918EF /* DrinkSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkSize.swift; sourceTree = "<group>"; };
 		152D605721238D9E00DC0496 /* MetabolismCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetabolismCalculatorTests.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 		1548BFC7211413FF008E8C60 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		155C01D22127C387000470B8 /* DiskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskManager.swift; sourceTree = "<group>"; };
 		155C01D42127C713000470B8 /* DrinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkManager.swift; sourceTree = "<group>"; };
-		155C01D62127D1DF000470B8 /* DrinkerInformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerInformationManager.swift; sourceTree = "<group>"; };
+		155C01D62127D1DF000470B8 /* DrinkerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerManager.swift; sourceTree = "<group>"; };
 		155CA6D6210E69EF009F9BAB /* AttributeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeTableViewCell.swift; sourceTree = "<group>"; };
 		155CA6DA210E85A0009F9BAB /* AttributeOptionCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeOptionCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		155CA6DC210E8CB6009F9BAB /* AttributeOptionCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeOptionCollectionViewDelegate.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 		15D551E72107EDF3000F0889 /* DrinkerAlcoholMetabolism.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerAlcoholMetabolism.swift; sourceTree = "<group>"; };
 		15D551E92107EE47000F0889 /* BloodAlcoholContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodAlcoholContent.swift; sourceTree = "<group>"; };
 		15D551EB2107FFC6000F0889 /* BloodAlcoholCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodAlcoholCalculator.swift; sourceTree = "<group>"; };
-		15D551ED21080935000F0889 /* DrinkerInformationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerInformationTests.swift; sourceTree = "<group>"; };
+		15D551ED21080935000F0889 /* DrinkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerTests.swift; sourceTree = "<group>"; };
 		15D551EF21080C5A000F0889 /* DrinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTests.swift; sourceTree = "<group>"; };
 		15D551F121081100000F0889 /* StandardDrinkSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardDrinkSizeTests.swift; sourceTree = "<group>"; };
 		15D551F3210811DB000F0889 /* CustomDrinkSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDrinkSizeTests.swift; sourceTree = "<group>"; };
@@ -373,7 +373,7 @@
 				152AB71D2107E091001918EF /* DrinkSize.swift */,
 				15D551E12107EDC5000F0889 /* StandardDrinkSize.swift */,
 				15D551E32107EDCD000F0889 /* CustomDrinkSize.swift */,
-				152AB7192107DC92001918EF /* DrinkerInformation.swift */,
+				152AB7192107DC92001918EF /* Drinker.swift */,
 				15D551E52107EDE7000F0889 /* DrinkerSex.swift */,
 				15D551E72107EDF3000F0889 /* DrinkerAlcoholMetabolism.swift */,
 				152AB6FE2107DBDD001918EF /* Info.plist */,
@@ -390,7 +390,7 @@
 				15A08AF92123805800019A83 /* DrinkTypeTests.swift */,
 				15D551F121081100000F0889 /* StandardDrinkSizeTests.swift */,
 				15D551F3210811DB000F0889 /* CustomDrinkSizeTests.swift */,
-				15D551ED21080935000F0889 /* DrinkerInformationTests.swift */,
+				15D551ED21080935000F0889 /* DrinkerTests.swift */,
 				15A08AFB2123815B00019A83 /* DrinkerSexTests.swift */,
 				15A08AFD2123824300019A83 /* DrinkerAlcoholMetabolismTests.swift */,
 				152AB70C2107DBDD001918EF /* Info.plist */,
@@ -455,7 +455,7 @@
 				15F3EC9E212125E9001CE84C /* Manager.swift */,
 				155C01D22127C387000470B8 /* DiskManager.swift */,
 				155C01D42127C713000470B8 /* DrinkManager.swift */,
-				155C01D62127D1DF000470B8 /* DrinkerInformationManager.swift */,
+				155C01D62127D1DF000470B8 /* DrinkerManager.swift */,
 				150853F22120BED10085BA11 /* UserDefaultsManager.swift */,
 				15F3EC9C2121251A001CE84C /* SafeModeManager.swift */,
 			);
@@ -789,7 +789,7 @@
 				1548BFC8211413FF008E8C60 /* SettingsTableViewCell.swift in Sources */,
 				155CA6DB210E85A0009F9BAB /* AttributeOptionCollectionViewDataSource.swift in Sources */,
 				15E8F7F921164FD300810DD3 /* SettingsDetailDelegate.swift in Sources */,
-				155C01D72127D1DF000470B8 /* DrinkerInformationManager.swift in Sources */,
+				155C01D72127D1DF000470B8 /* DrinkerManager.swift in Sources */,
 				1568BFB9210CEFA70077C6E7 /* AttributeHeaderActionTableViewCell.swift in Sources */,
 				152AB6C52107DA95001918EF /* AppDelegate.swift in Sources */,
 				1542212E211126F9001515BF /* WeightPickerViewDataSource.swift in Sources */,
@@ -865,7 +865,7 @@
 				15D551E82107EDF3000F0889 /* DrinkerAlcoholMetabolism.swift in Sources */,
 				152AB71C2107E03F001918EF /* Drink.swift in Sources */,
 				15A08B05212387B000019A83 /* MetabolismCalculator.swift in Sources */,
-				152AB71A2107DC92001918EF /* DrinkerInformation.swift in Sources */,
+				152AB71A2107DC92001918EF /* Drinker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -876,7 +876,7 @@
 				15D551F021080C5A000F0889 /* DrinkTests.swift in Sources */,
 				15D551F221081100000F0889 /* StandardDrinkSizeTests.swift in Sources */,
 				15D551F4210811DB000F0889 /* CustomDrinkSizeTests.swift in Sources */,
-				15D551EE21080935000F0889 /* DrinkerInformationTests.swift in Sources */,
+				15D551EE21080935000F0889 /* DrinkerTests.swift in Sources */,
 				15A08AFA2123805800019A83 /* DrinkTypeTests.swift in Sources */,
 				152D605821238D9E00DC0496 /* MetabolismCalculatorTests.swift in Sources */,
 				15A08AFC2123815B00019A83 /* DrinkerSexTests.swift in Sources */,
