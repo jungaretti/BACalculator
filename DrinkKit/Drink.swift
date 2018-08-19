@@ -111,14 +111,18 @@ public extension Array where Element == Drink {
     
     /// Sort an `Array` of `Drink`s by consumption date.
     public mutating func sortByDate() {
-        self.sort(by: {$0.consumptionDate < $1.consumptionDate})
+        self.sort { (lhs, rhs) -> Bool in
+            return lhs.consumptionDate < rhs.consumptionDate
+        }
     }
     
     /// Sort an `Array` of `Drink`s by consumption date.
     ///
     /// - Returns: A sorted array of `Drink`s.
     public func sortedByDate() -> [Drink] {
-        return self.sorted(by: {$0.consumptionDate < $1.consumptionDate})
+        return self.sorted { (lhs, rhs) -> Bool in
+            return lhs.consumptionDate < rhs.consumptionDate
+        }
     }
     
 }
