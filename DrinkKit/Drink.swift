@@ -32,14 +32,10 @@ public struct Drink {
     
 }
 
-extension Drink: Comparable {
-    
-    public static func < (lhs: Drink, rhs: Drink) -> Bool {
-        return lhs.size.alcoholMass < rhs.size.alcoholMass
-    }
+extension Drink: Equatable {
     
     public static func == (lhs: Drink, rhs: Drink) -> Bool {
-        return lhs.size.alcoholMass == rhs.size.alcoholMass
+        return (lhs.type == rhs.type) && (lhs.consumptionDate == rhs.consumptionDate) && (lhs.size.alcoholMass == rhs.size.alcoholMass)
     }
     
 }
@@ -64,10 +60,10 @@ extension Drink: Codable {
     }
     
     /// Constants describing the type of `DrinkSize` stored by the `Drink`.
-    private enum DrinkSizeType: Int, Codable {
+    private enum DrinkSizeType: String, Codable {
         
-        case standard = 0
-        case custom = 1
+        case standard = "standard"
+        case custom = "custom"
         
     }
     

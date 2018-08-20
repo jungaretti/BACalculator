@@ -73,52 +73,28 @@ class DrinkTests: XCTestCase {
         }
     }
     
-    func test_comparison_lessThan_standard() {
-        let lhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: StandardDrinkSize(standardDrinks: 1.0))
-        let rhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: StandardDrinkSize(standardDrinks: 2.0))
-        XCTAssertTrue(lhs < rhs, "Two `StandardDrinkSize`s did not compare properly.")
-    }
-    
-    func test_comparison_lessThan_custom() {
-        let lhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: CustomDrinkSize(volume: Measurement(value: 1.5, unit: UnitVolume.fluidOunces), alcoholRatio: 0.40))
-        let rhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: CustomDrinkSize(volume: Measurement(value: 3.0, unit: UnitVolume.fluidOunces), alcoholRatio: 0.40))
-        XCTAssertTrue(lhs < rhs, "Two `CustomDrinkSize`s did not compare properly.")
-    }
-    
-    func test_comparison_lessThan_mixed() {
-        let lhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: StandardDrinkSize(standardDrinks: 1.0))
-        let rhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: CustomDrinkSize(volume: Measurement(value: 3.0, unit: UnitVolume.fluidOunces), alcoholRatio: 0.40))
-        XCTAssertTrue(lhs < rhs, "One `StandardDrinkSize` and one `CustomDrinkSize` did not compare properly.")
-    }
-    
-    func test_comparison_greaterThan_standard() {
-        let lhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: StandardDrinkSize(standardDrinks: 1.0))
-        let rhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: StandardDrinkSize(standardDrinks: 2.0))
-        XCTAssertFalse(lhs > rhs, "Two `StandardDrinkSize`s did not compare properly.")
-    }
-    
-    func test_comparison_greaterThan_custom() {
-        let lhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: CustomDrinkSize(volume: Measurement(value: 1.5, unit: UnitVolume.fluidOunces), alcoholRatio: 0.40))
-        let rhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: CustomDrinkSize(volume: Measurement(value: 3.0, unit: UnitVolume.fluidOunces), alcoholRatio: 0.40))
-        XCTAssertFalse(lhs > rhs, "Two `CustomDrinkSize`s did not compare properly.")
-    }
-    
-    func test_comparison_greaterThan_mixed() {
-        let lhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: StandardDrinkSize(standardDrinks: 1.0))
-        let rhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: CustomDrinkSize(volume: Measurement(value: 3.0, unit: UnitVolume.fluidOunces), alcoholRatio: 0.40))
-        XCTAssertFalse(lhs > rhs, "One `StandardDrinkSize` and one `CustomDrinkSize` did not compare properly.")
-    }
-    
-    func test_equatable_standard() {
+    func test_equatable_standardTrue() {
         let lhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: StandardDrinkSize(standardDrinks: 1.0))
         let rhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: StandardDrinkSize(standardDrinks: 1.0))
         XCTAssertTrue(lhs == rhs, "Two `StandardDrinkSize`s did not equate properly.")
     }
     
-    func test_equatable_custom() {
+    func test_equatable_standardFalse() {
+        let lhs = Drink(type: .beer, consumptionDate: testConsumptionDate, size: StandardDrinkSize(standardDrinks: 1.0))
+        let rhs = Drink(type: .wine, consumptionDate: testConsumptionDate, size: StandardDrinkSize(standardDrinks: 2.0))
+        XCTAssertTrue(lhs != rhs, "Two `StandardDrinkSize`s did not equate properly.")
+    }
+    
+    func test_equatable_customTrue() {
         let lhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: CustomDrinkSize(volume: Measurement(value: 1.5, unit: UnitVolume.fluidOunces), alcoholRatio: 0.40))
         let rhs = Drink(type: testType, consumptionDate: testConsumptionDate, size: CustomDrinkSize(volume: Measurement(value: 1.5, unit: UnitVolume.fluidOunces), alcoholRatio: 0.40))
         XCTAssertTrue(lhs == rhs, "Two `CustomDrinkSize`s did not equate properly.")
+    }
+    
+    func test_equatable_customFalse() {
+        let lhs = Drink(type: .beer, consumptionDate: testConsumptionDate, size: CustomDrinkSize(volume: Measurement(value: 1.5, unit: UnitVolume.fluidOunces), alcoholRatio: 0.40))
+        let rhs = Drink(type: .wine, consumptionDate: testConsumptionDate, size: CustomDrinkSize(volume: Measurement(value: 3.0, unit: UnitVolume.fluidOunces), alcoholRatio: 0.40))
+        XCTAssertTrue(lhs != rhs, "Two `StandardDrinkSize`s did not equate properly.")
     }
     
     func test_drinkSort() {
