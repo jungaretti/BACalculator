@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThemeNavigationViewController: UINavigationController {
+class ThemeNavigationViewController: UINavigationController, ThemeableViewController {
     
     var themeColor: ThemeColor?
     var topViewShouldMatchTheme: Bool?

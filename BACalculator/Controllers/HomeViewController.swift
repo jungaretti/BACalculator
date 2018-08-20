@@ -166,8 +166,8 @@ class HomeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? ThemeNavigationViewController {
-            destination.themeColor = self.latestThemeColor
+        if var destination = segue.destination as? ThemeableViewController {
+            destination.themeColor = latestThemeColor
             if segue.identifier == "showHistory" || segue.identifier == "showAddDrink" {
                 destination.topViewShouldMatchTheme = true
             }

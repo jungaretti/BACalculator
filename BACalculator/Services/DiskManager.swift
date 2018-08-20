@@ -40,13 +40,15 @@ class DiskManager<T: Codable> {
     ///
     /// - Parameter data: The `Codable` to save to disk.
     final func saveToDisk(_ data: T) {
-        willSaveToDisk()
-        do {
-            let encodedData = try jsonEncoder.encode(data)
-            fileManager.createFile(atPath: fileURL.path, contents: encodedData, attributes: nil)
-            didSaveToDisk()
-        } catch {
-            didNotSaveToDisk(withError: error)
+        DispatchQueue.main.async {
+            self.willSaveToDisk()
+            do {
+                let encodedData = try self.jsonEncoder.encode(data)
+                self.fileManager.createFile(atPath: self.fileURL.path, contents: encodedData, attributes: nil)
+                self.didSaveToDisk()
+            } catch {
+                self.didNotSaveToDisk(withError: error)
+            }
         }
     }
     

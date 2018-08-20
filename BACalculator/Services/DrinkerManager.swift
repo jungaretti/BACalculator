@@ -21,6 +21,14 @@ class DrinkerManager: DiskManager<Drinker> {
     /// The default `DrinkerInformationManager`.
     static var `default` = DrinkerManager(fileURL: FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!.appendingPathComponent("Drinker").appendingPathExtension("json"))
     
+    /// Create a `DrinkerManager` for a certain `URL` and attempt to load any existing data.
+    ///
+    /// - Parameter fileURL: The `URL` of the file to use for persistent storage.
+    override init(fileURL: URL) {
+        super.init(fileURL: fileURL)
+        self._drinker = loadFromDisk()
+    }
+    
     /// Update and replace the `Drinker`.
     ///
     /// - Parameter drinkerInformation: The new `Drinker`.
