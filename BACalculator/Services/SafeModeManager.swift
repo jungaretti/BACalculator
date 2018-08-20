@@ -15,18 +15,11 @@ class SafeModeManager: UserDefaultsManager<Bool> {
     
     /// The safe mode preference managed by the `SafeModeManager`.
     var safeMode: Bool {
-        if let managed = self.managed {
-            return managed
-        } else {
-            return false
+        get {
+            return loadFromDisk() ?? false
+        } set {
+            saveToUserDefaults(safeMode)
         }
-    }
-    
-    /// Update the safe mode preference.
-    ///
-    /// - Parameter safeMode: The new safe mode preference.
-    func update(safeMode: Bool) {
-        updateManaged(safeMode)
     }
     
 }

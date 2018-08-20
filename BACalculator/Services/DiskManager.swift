@@ -17,9 +17,9 @@ class DiskManager<T: Codable> {
     /// The `FileManager` to use for read and write operation.
     private let fileManager: FileManager
     /// The `JSONEncoder` to use for encode operations.
-    private var jsonEncoder: JSONEncoder
+    private var jsonEncoder: JSONEncoder = JSONEncoder()
     /// The `JSONDecoder` to use for decode operations.
-    private var jsonDecoder: JSONDecoder
+    private var jsonDecoder: JSONDecoder = JSONDecoder()
     
     /// Create a `DiskManager` for a certain `URL`.
     ///
@@ -27,8 +27,6 @@ class DiskManager<T: Codable> {
     init(fileURL: URL) {
         self.fileURL = fileURL
         self.fileManager = FileManager.default
-        self.jsonEncoder = JSONEncoder()
-        self.jsonDecoder = JSONDecoder()
     }
     
     /// Tells the `DiskManager` that data will be saved to disk.
