@@ -665,40 +665,36 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="63.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pma-c4-9Ir">
-                                            <rect key="frame" x="16" y="0.0" width="343" height="63.666666666666664"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7O0-sE-LbD">
+                                            <rect key="frame" x="16.000000000000004" y="8" width="37.333333333333343" height="46.666666666666664"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="E8M-3G-E52">
-                                                    <rect key="frame" x="0.0" y="7.6666666666666679" width="37.333333333333336" height="48.666666666666657"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4J-k9-L0o" userLabel="Type">
-                                                            <rect key="frame" x="0.0" y="0.0" width="37.333333333333336" height="23.333333333333332"/>
-                                                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xV-Gj-FbM" userLabel="Size">
-                                                            <rect key="frame" x="0.0" y="25.333333333333336" width="37.333333333333336" height="23.333333333333336"/>
-                                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keB-TK-hO9" userLabel="Date">
-                                                    <rect key="frame" x="37.333333333333343" y="20.333333333333336" width="305.66666666666663" height="23.333333333333336"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4J-k9-L0o" userLabel="Type">
+                                                    <rect key="frame" x="0.0" y="0.0" width="37.333333333333336" height="23.333333333333332"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Size" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xV-Gj-FbM" userLabel="Size">
+                                                    <rect key="frame" x="0.0" y="23.333333333333336" width="37.333333333333336" height="23.333333333333336"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keB-TK-hO9" userLabel="Date">
+                                            <rect key="frame" x="321.66666666666669" y="20.333333333333336" width="37.333333333333314" height="23.333333333333336"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="pma-c4-9Ir" secondAttribute="trailing" constant="16" id="77v-13-viW"/>
-                                        <constraint firstAttribute="bottom" secondItem="pma-c4-9Ir" secondAttribute="bottom" id="OXN-Jy-NH0"/>
-                                        <constraint firstItem="pma-c4-9Ir" firstAttribute="leading" secondItem="6bE-jA-jmw" secondAttribute="leading" constant="16" id="aVu-sv-BYT"/>
-                                        <constraint firstItem="pma-c4-9Ir" firstAttribute="top" secondItem="6bE-jA-jmw" secondAttribute="top" id="xlq-mG-ubF"/>
+                                        <constraint firstItem="keB-TK-hO9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6bE-jA-jmw" secondAttribute="leading" constant="20" symbolic="YES" id="1HI-Ss-MSZ"/>
+                                        <constraint firstItem="keB-TK-hO9" firstAttribute="centerY" secondItem="6bE-jA-jmw" secondAttribute="centerY" id="ebP-7J-DBq"/>
+                                        <constraint firstAttribute="trailing" secondItem="keB-TK-hO9" secondAttribute="trailing" constant="16" id="neU-he-txM"/>
+                                        <constraint firstItem="7O0-sE-LbD" firstAttribute="leading" secondItem="6bE-jA-jmw" secondAttribute="leading" constant="16" id="p17-rX-bVc"/>
+                                        <constraint firstItem="7O0-sE-LbD" firstAttribute="centerY" secondItem="6bE-jA-jmw" secondAttribute="centerY" id="r5j-uf-AQQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

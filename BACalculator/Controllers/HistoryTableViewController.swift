@@ -11,23 +11,29 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
     
-    /// The `Drink`s logged by the `Drinker`, grouped by the start of each `Drink`'s `consumptionDate`. Each `[Drink]` value is sorted in desending order by `consumptionDate`.
-    var drinksByDate: [Date: [Drink]]?
-    /// The start of `Date`s that have `Drink`s logged, sorted in descending order.
-    var days: [Date]? {
+    /// The `Drink`s to display, keyed by the start of each `Drink`'s `consumptionDate`. Each `[Drink]` value is sorted from youngest to oldest.
+    private var drinksByDate: [Date: [Drink]]?
+    /// The start of `Date`s to display, sorted from youngest to oldest.
+    private var dates: [Date]? {
         return drinksByDate?.keys.sorted().reversed()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let editButton = self.editButtonItem
+        let editButtonAttributes: [NSAttributedStringKey: Any] = [
+            NSAttributedStringKey.font: UIFont(name: "AvenirNext-DemiBold", size: 17.0)!,
+            NSAttributedStringKey.foregroundColor: UIColor.white,
+        ]
+        editButton.setTitleTextAttributes(editButtonAttributes, for: .normal)
+        editButton.setTitleTextAttributes(editButtonAttributes, for: .highlighted)
+        editButton.tintColor = UIColor.white
+        navigationItem.setRightBarButton(editButton, animated: false)
         groupDrinks()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func closePressed(_ sender: UIBarButtonItem) {
@@ -35,80 +41,100 @@ class HistoryTableViewController: UITableViewController {
     }
     
     private func groupDrinks() {
-        let unsortedDrinks = DrinkManager.default.drinks!
-        let unsortedDrinksByDate = Dictionary(grouping: unsortedDrinks, by: { Calendar.current.startOfDay(for: $0.consumptionDate) })
-        drinksByDate = unsortedDrinksByDate.mapValues({ return $0.sortedByDate().reversed() })
+        var drinksByDate = Dictionary(grouping: DrinkManager.default.drinks, by: { Calendar.current.startOfDay(for: $0.consumptionDate) })
+        drinksByDate = drinksByDate.mapValues({ (drinks) -> [Drink] in
+            // Sort `[Drink]` value by `Date` from youngest to oldest
+            return drinks.sortedByDate().reversed()
+        })
+        self.drinksByDate = drinksByDate
+    }
+    
+    private func drinkForIndexPath(_ indexPath: IndexPath) -> Drink {
+        return drinksByDate![dateForSection(indexPath.section)]![indexPath.row]
+    }
+    
+    private func drinksForSection(_ section: Int) -> [Drink] {
+        return drinksByDate![dateForSection(section)]!
+    }
+    
+    private func dateForSection(_ section: Int) -> Date {
+        return dates![section]
+    }
+    
+    private func timeText(forDate date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: date)
+    }
+    
+    private func dateText(forDate date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        return dateFormatter.string(from: date)
     }
     
     // MARK: Table View Data Source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return days!.count
+        return dates!.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return drinksByDate![days![section]]!.count
+        return drinksForSection(section).count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyEntry") as! HistoryTableViewCell
-        let drinkForCell = drinksByDate![days![indexPath.section]]![indexPath.row]
-        cell.typeLabel.text = drinkForCell.type.description.localizedCapitalized
-        cell.sizeLabel.text = drinkForCell.size.description(forType: drinkForCell.type)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .none
-        dateFormatter.timeStyle = .short
-        cell.dateLabel.text = dateFormatter.string(from: drinkForCell.consumptionDate)
+        let drink = drinkForIndexPath(indexPath)
+        cell.typeLabel.text = drink.type.description
+        cell.sizeLabel.text = drink.size.description(forType: drink.type)
+        cell.dateLabel.text = timeText(forDate: drink.consumptionDate)
+        cell.backgroundColor = tableView.backgroundColor
+        cell.contentView.backgroundColor = tableView.backgroundColor
         return cell
     }
     
     // MARK: Table View Delegate
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 64.0
-    }
-    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 36.0
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64.0
+    }
+    
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let detailHeaderView = DetailHeaderView()
-        // Update header style
-        if let themeNavigationController = navigationController as? ThemeNavigationViewController {
-            detailHeaderView.backgroundColor = themeNavigationController.themeColor?.dark
+        detailHeaderView.textLabel.text = dateText(forDate: dateForSection(section))
+        let drinksForSection = self.drinksForSection(section)
+        if drinksForSection.count == 1 { detailHeaderView.detailTextLabel.text = "1 Drink" }
+        else { detailHeaderView.detailTextLabel.text = "\(drinksForSection.count) Drinks" }
+        if let themeColor = (navigationController as? ThemeNavigationViewController)?.themeColor {
+            detailHeaderView.backgroundColor = themeColor.dark
+        } else {
+            detailHeaderView.backgroundColor = tableView.backgroundColor
         }
         detailHeaderView.textLabel.textColor = .white
         detailHeaderView.detailTextLabel.textColor = .white
-        // Update header text
-        let dateForHeader = days![section]
-        if Calendar.current.isDateInToday(dateForHeader) {
-            detailHeaderView.textLabel.text = "Today"
-        } else if Calendar.current.isDateInYesterday(dateForHeader) {
-            detailHeaderView.textLabel.text = "Yesterday"
-        } else {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .medium
-            dateFormatter.timeStyle = .none
-            detailHeaderView.textLabel.text = dateFormatter.string(from: dateForHeader)
-        }
-        detailHeaderView.detailTextLabel.text = nil
         return detailHeaderView
     }
     
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        let drinkForIndexPath = self.drinkForIndexPath(indexPath)
         if editingStyle == .delete {
-            let drinkToRemove = drinksByDate![days![indexPath.section]]![indexPath.row]
-            let drinkIndex = DrinkManager.default.drinks.index { (drink) -> Bool in
-                return drink.consumptionDate == drinkToRemove.consumptionDate && drink.type == drinkToRemove.type
-            }!
-            DrinkManager.default.drinks.remove(at: drinkIndex)
+            // Determine the index of the drink to remove
+            let indexOfDrinkToRemove = DrinkManager.default.drinks.index(of: drinkForIndexPath)!
+            // Determine if the section needs to be removed
+            let sectionShouldBeRemoved = drinksForSection(indexPath.section).count == 1
+            // Remove the drink from the data source
+            DrinkManager.default.drinks.remove(at: indexOfDrinkToRemove)
+            // Regroup drinks from the data source
             groupDrinks()
-            if drinksByDate![Calendar.current.startOfDay(for: drinkToRemove.consumptionDate)] == nil {
+            // Remove the row or section
+            if sectionShouldBeRemoved {
                 tableView.deleteSections([indexPath.section], with: .automatic)
             } else {
                 tableView.deleteRows(at: [indexPath], with: .automatic)
