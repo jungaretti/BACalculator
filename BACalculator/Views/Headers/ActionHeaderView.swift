@@ -22,7 +22,7 @@ class ActionHeaderView: HeaderView {
         super.init(coder: aDecoder)
     }
     
-    func designActionButton() {
+    private func designActionButton() {
         actionButton.titleLabel?.textAlignment = .right
         actionButton.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 17.0)!
     }

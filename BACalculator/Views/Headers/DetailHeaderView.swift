@@ -22,7 +22,7 @@ class DetailHeaderView: HeaderView {
         super.init(coder: aDecoder)
     }
     
-    func designDetailTextLabel() {
+    private func designDetailTextLabel() {
         detailTextLabel.textAlignment = .right
         detailTextLabel.font = UIFont(name: "AvenirNext-Medium", size: 17.0)!
     }
