@@ -69,10 +69,16 @@ class HistoryTableViewController: UITableViewController {
     }
     
     private func dateText(forDate date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        return dateFormatter.string(from: date)
+        if Calendar.current.isDateInToday(date) {
+            return "Today"
+        } else if Calendar.current.isDateInYesterday(date) {
+            return "Yesterday"
+        } else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .none
+            return dateFormatter.string(from: date)
+        }
     }
     
     // MARK: Table View Data Source
@@ -91,8 +97,6 @@ class HistoryTableViewController: UITableViewController {
         cell.typeLabel.text = drink.type.description
         cell.sizeLabel.text = drink.size.description(forType: drink.type)
         cell.dateLabel.text = timeText(forDate: drink.consumptionDate)
-        cell.backgroundColor = tableView.backgroundColor
-        cell.contentView.backgroundColor = tableView.backgroundColor
         return cell
     }
     
@@ -107,19 +111,10 @@ class HistoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let detailHeaderView = DetailHeaderView()
-        detailHeaderView.textLabel.text = dateText(forDate: dateForSection(section))
-        let drinksForSection = self.drinksForSection(section)
-        if drinksForSection.count == 1 { detailHeaderView.detailTextLabel.text = "1 Drink" }
-        else { detailHeaderView.detailTextLabel.text = "\(drinksForSection.count) Drinks" }
-        if let themeColor = (navigationController as? ThemeNavigationViewController)?.themeColor {
-            detailHeaderView.backgroundColor = themeColor.dark
-        } else {
-            detailHeaderView.backgroundColor = tableView.backgroundColor
-        }
-        detailHeaderView.textLabel.textColor = .white
-        detailHeaderView.detailTextLabel.textColor = .white
-        return detailHeaderView
+        let headerView = HeaderView()
+        headerView.textLabel.text = dateText(forDate: dateForSection(section))
+        headerView.backgroundColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0)
+        return headerView
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

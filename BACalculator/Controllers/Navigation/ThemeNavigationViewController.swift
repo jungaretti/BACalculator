@@ -8,10 +8,9 @@
 
 import UIKit
 
-class ThemeNavigationViewController: UINavigationController, ThemeableViewController {
+class ThemeNavigationViewController: UINavigationController {
     
     var themeColor: ThemeColor?
-    var topViewShouldMatchTheme: Bool?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         if themeColor != nil { return .lightContent }
@@ -27,9 +26,6 @@ class ThemeNavigationViewController: UINavigationController, ThemeableViewContro
                 NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 17.0)!,
                 NSAttributedStringKey.foregroundColor: UIColor.white
             ]
-            if let shouldMatchTheme = self.topViewShouldMatchTheme, shouldMatchTheme {
-                topViewController?.view.backgroundColor = themeColor.normal
-            }
         }
     }
 

@@ -64,7 +64,6 @@
 		15943733212A3F8100ADF24B /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15943732212A3F8100ADF24B /* HeaderView.swift */; };
 		15943735212A40ED00ADF24B /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15943734212A40ED00ADF24B /* DetailHeaderView.swift */; };
 		15943737212A45DC00ADF24B /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15943736212A45DC00ADF24B /* HistoryTableViewController.swift */; };
-		15943739212A4A5C00ADF24B /* ThemeableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15943738212A4A5C00ADF24B /* ThemeableViewController.swift */; };
 		15A08AFA2123805800019A83 /* DrinkTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A08AF92123805800019A83 /* DrinkTypeTests.swift */; };
 		15A08AFC2123815B00019A83 /* DrinkerSexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A08AFB2123815B00019A83 /* DrinkerSexTests.swift */; };
 		15A08AFE2123824300019A83 /* DrinkerAlcoholMetabolismTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15A08AFD2123824300019A83 /* DrinkerAlcoholMetabolismTests.swift */; };
@@ -222,7 +221,6 @@
 		15943732212A3F8100ADF24B /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		15943734212A40ED00ADF24B /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		15943736212A45DC00ADF24B /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
-		15943738212A4A5C00ADF24B /* ThemeableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeableViewController.swift; sourceTree = "<group>"; };
 		15A08AF92123805800019A83 /* DrinkTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkTypeTests.swift; sourceTree = "<group>"; };
 		15A08AFB2123815B00019A83 /* DrinkerSexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerSexTests.swift; sourceTree = "<group>"; };
 		15A08AFD2123824300019A83 /* DrinkerAlcoholMetabolismTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkerAlcoholMetabolismTests.swift; sourceTree = "<group>"; };
@@ -414,7 +412,6 @@
 				154310B8211000A7008A4CF5 /* AttributeDelegate.swift */,
 				15E8F7F621164FC200810DD3 /* SettingsDelegate.swift */,
 				15E8F7F821164FD300810DD3 /* SettingsDetailDelegate.swift */,
-				15943738212A4A5C00ADF24B /* ThemeableViewController.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -824,7 +821,6 @@
 				155C01D72127D1DF000470B8 /* DrinkerManager.swift in Sources */,
 				1568BFB9210CEFA70077C6E7 /* AttributeHeaderActionTableViewCell.swift in Sources */,
 				152AB6C52107DA95001918EF /* AppDelegate.swift in Sources */,
-				15943739212A4A5C00ADF24B /* ThemeableViewController.swift in Sources */,
 				1542212E211126F9001515BF /* WeightPickerViewDataSource.swift in Sources */,
 				152D605C2123C42900DC0496 /* ThemeNavigationViewController.swift in Sources */,
 				1542212221112654001515BF /* SexDetailTableViewDataSource.swift in Sources */,

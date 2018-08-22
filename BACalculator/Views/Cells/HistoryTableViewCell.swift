@@ -23,16 +23,10 @@ class HistoryTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = UIColor.clear
-        contentView.backgroundColor = UIColor.clear
-        typeLabel.textColor = .white
-        sizeLabel.textColor = .white
-        dateLabel.textColor = .white
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
 
 }

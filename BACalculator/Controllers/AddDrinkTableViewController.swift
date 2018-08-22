@@ -45,6 +45,9 @@ class AddDrinkTableViewController: UITableViewController, AttributeDelegate {
         super.viewDidLoad()
         self.tableView.allowsMultipleSelection = false
         self.addButton.isEnabled = false
+        if let themeNavigationController = navigationController as? ThemeNavigationViewController {
+            tableView.backgroundColor = themeNavigationController.themeColor?.normal
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -171,6 +174,7 @@ class AddDrinkTableViewController: UITableViewController, AttributeDelegate {
             headerActionCell.attributeButton.addTarget(self, action: #selector(toggleSizeMode(_:)), for: .touchUpInside)
             headerCell = headerActionCell
         default:
+            
             return nil
         }
         headerCell.contentView.backgroundColor = tableView.backgroundColor
