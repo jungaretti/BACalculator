@@ -45,8 +45,8 @@ class AddDrinkTableViewController: UITableViewController, AttributeDelegate {
         super.viewDidLoad()
         self.tableView.allowsMultipleSelection = false
         self.addButton.isEnabled = false
-        if let themeNavigationController = navigationController as? ThemeNavigationViewController {
-            tableView.backgroundColor = themeNavigationController.themeColor?.normal
+        if let coloredBarNavigationController = navigationController as? ColoredBarNavigationController {
+            tableView.backgroundColor = coloredBarNavigationController.preferredViewBackgroundColor
         }
     }
 
@@ -80,7 +80,7 @@ class AddDrinkTableViewController: UITableViewController, AttributeDelegate {
     
     func typeAttributeDidChange(sender: UICollectionView) {
         if let indexPathForSelectedItem = sender.indexPathsForSelectedItems?.first {
-            _selectedType = DrinkAttributeAgent.types[indexPathForSelectedItem.row]
+            _selectedType = DrinkAttribute.types[indexPathForSelectedItem.row]
         } else {
             _selectedType = nil
         }
@@ -89,7 +89,7 @@ class AddDrinkTableViewController: UITableViewController, AttributeDelegate {
     
     func standardSizeAttributeDidChange(sender: UICollectionView) {
         if let indexPathForSelectedItem = sender.indexPathsForSelectedItems?.first {
-            _selectedStandardSize = StandardDrinkSize(standardDrinks: Double(DrinkAttributeAgent.standardSizes[indexPathForSelectedItem.row]))
+            _selectedStandardSize = StandardDrinkSize(standardDrinks: Double(DrinkAttribute.standardSizes[indexPathForSelectedItem.row]))
         } else {
             _selectedStandardSize = nil
         }

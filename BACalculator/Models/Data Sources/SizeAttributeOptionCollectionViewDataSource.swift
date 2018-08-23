@@ -16,13 +16,13 @@ class SizeAttributeOptionCollectionViewDataSource: AttributeOptionCollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return DrinkAttributeAgent.standardSizes.count
+        return DrinkAttribute.standardSizes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "size", for: indexPath) as! AttributeOptionCollectionViewCell
         let card = cell.card as! SizeAttributeCardView
-        let size = DrinkAttributeAgent.standardSizes[indexPath.row]
+        let size = DrinkAttribute.standardSizes[indexPath.row]
         card.textLabel.text = "\(size)"
         card.detailTextLabel.text = "Standard Drinks"
         if cell.isSelected {

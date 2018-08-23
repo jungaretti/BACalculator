@@ -36,7 +36,7 @@ class HomeViewController: UIViewController {
     private var needsUpdate: Bool = false
     private var recalculationTimer: Timer?
     
-    private var latestThemeColor: ThemeColor!
+    private var themeColor: (normal: UIColor, dark: UIColor)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,12 +100,12 @@ class HomeViewController: UIViewController {
     func updateMeasurement(animated: Bool) {
         let bloodAlcoholContent = calculateBloodAlcoholContent()
         let bloodAlcoholContentFormatted = format(bloodAlcoholContent: bloodAlcoholContent)!
-        latestThemeColor = ThemeAgent.themeColor(forBAC: Double(bloodAlcoholContentFormatted)!)
+        themeColor = ThemeColor.themeColor(forBAC: Double(bloodAlcoholContentFormatted)!)
         let updateFunction = {
             // Update the BAC label
             self.bloodAlcoholContentLabel.text = bloodAlcoholContentFormatted
             // Update the background color to match the label
-            self.view.backgroundColor = self.latestThemeColor.normal
+            self.view.backgroundColor = self.themeColor?.normal
         }
         if animated {
             UIView.animate(withDuration: 0.50, delay: 0.0, options: [.allowUserInteraction, .beginFromCurrentState], animations: updateFunction, completion: nil)
@@ -166,8 +166,9 @@ class HomeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? ThemeNavigationViewController {
-            destination.themeColor = latestThemeColor
+        if let destination = segue.destination as? ColoredBarNavigationController {
+            destination.preferredViewBackgroundColor = self.themeColor?.normal
+            destination.preferredBarTintColor = self.themeColor?.dark
         }
     }
     

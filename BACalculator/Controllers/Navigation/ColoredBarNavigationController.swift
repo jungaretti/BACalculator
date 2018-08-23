@@ -1,5 +1,5 @@
 //
-//  ThemeNavigationViewController.swift
+//  ColoredBarNavigationController.swift
 //  BACalculator
 //
 //  Created by James Ungaretti on 8/14/18.
@@ -8,19 +8,20 @@
 
 import UIKit
 
-class ThemeNavigationViewController: UINavigationController {
+class ColoredBarNavigationController: UINavigationController {
     
-    var themeColor: ThemeColor?
+    var preferredBarTintColor: UIColor?
+    var preferredViewBackgroundColor: UIColor?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        if themeColor != nil { return .lightContent }
-        else { return .default }
+        if preferredBarTintColor != nil { return UIStatusBarStyle.lightContent }
+        else { return UIStatusBarStyle.default }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let themeColor = self.themeColor {
-            navigationBar.barTintColor = themeColor.dark
+        if let barTintColor = preferredBarTintColor {
+            navigationBar.barTintColor = barTintColor
             navigationBar.tintColor = UIColor.white
             navigationBar.titleTextAttributes = [
                 NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 17.0)!,
