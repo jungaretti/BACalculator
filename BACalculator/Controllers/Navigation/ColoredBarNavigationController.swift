@@ -20,8 +20,22 @@ class ColoredBarNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let barTintColor = preferredBarTintColor {
-            navigationBar.barTintColor = barTintColor
+        designBar()
+        setupCloseButton()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @objc func dismissColoredBarNavigationController(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func designBar() {
+        if let preferredBarTintColor = self.preferredBarTintColor {
+            navigationBar.barTintColor = preferredBarTintColor
             navigationBar.tintColor = UIColor.white
             navigationBar.titleTextAttributes = [
                 NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 17.0)!,
@@ -29,10 +43,12 @@ class ColoredBarNavigationController: UINavigationController {
             ]
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    private func setupCloseButton() {
+        if let topViewController = self.topViewController {
+            let closeButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissColoredBarNavigationController(_:)))
+            topViewController.navigationItem.setLeftBarButton(closeButton, animated: false)
+        }
     }
 
 }

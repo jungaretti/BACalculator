@@ -2,42 +2,31 @@
 //  SettingsDetailTableViewController.swift
 //  BACalculator
 //
-//  Created by James Ungaretti on 7/31/18.
+//  Created by James Ungaretti on 8/23/18.
 //  Copyright © 2018 James Ungaretti. All rights reserved.
 //
 
 import UIKit
 
-class SettingsDetailTableViewController: UITableViewController, SettingsDetailDelegate {
+class SettingsDetailTableViewController: UITableViewController {
     
+    var setting: AppSetting?
     weak var delegate: SettingsDelegate?
-        
-    weak var masterTableViewCell: SettingsTableViewCell!
-    private var tableViewDataSource: SettingsDetailTableViewDataSource?
-    private var tableViewDelegate: SettingsDetailTableViewDelegate?
+    weak var masterTableView: UITableView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let dataSourceType = masterTableViewCell.detailTableViewDataSourceType {
-            self.tableViewDataSource = dataSourceType.init()
-            tableView.dataSource = self.tableViewDataSource
-        }
-        if let delegateType = masterTableViewCell.detailTableViewDelegateType {
-            self.tableViewDelegate = delegateType.init()
-            tableView.delegate = self.tableViewDelegate
-        }
-        self.title = masterTableViewCell.textLabel?.text
+        title = setting?.title
+        tableView = UITableView(frame: tableView.frame, style: .grouped)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        delegate?.didFinishEditingDetail(sender: self)
+        delegate?.settingDidChange()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    func detailDidChange(sender: Any) {}
+
 
 }

@@ -36,10 +36,6 @@ class HistoryTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func closePressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     private func groupDrinks() {
         var drinksByDate = Dictionary(grouping: DrinkManager.default.drinks, by: { Calendar.current.startOfDay(for: $0.consumptionDate) })
         drinksByDate = drinksByDate.mapValues({ (drinks) -> [Drink] in
